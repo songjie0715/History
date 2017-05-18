@@ -1,0 +1,24 @@
+'use strict';
+
+/**
+ * Created by janey on 16/6/20.
+ */
+
+define(['components/dialog'], function (Dialog) {
+    return new Dialog({
+        template: '#template-result-tip-dialog',
+        data: {
+            content: '',
+            isSuccess: true
+        },
+        created: function created() {},
+        methods: {
+            setContent: function setContent(content, status) {
+                this.content = content;
+                this.isSuccess = status; // 成功为true, 失败为false
+            }
+        }
+
+    });
+});
+//# sourceMappingURL=../../maps/wx/components/resultTipDialog.js.map

@@ -1,0 +1,2 @@
+"use strict";define(["components/dialog"],function(o){return new o({template:"#template-book-open-month-dialog",methods:{hideDialog:function(){this.hide()},packToShelf:function(o){$.ajax({url:"/wx/ajax/guide/app/download?bookId="+o,success:function(){location.href="http://a.app.qq.com/o/simple.jsp?pkgname=com.laikan.reader"}})}}})});
+//# sourceMappingURL=../../maps/wxV2/components/openMonthDialog.js.map

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <title>Title</title>
+    <link rel="stylesheet" href="_resources/css/mobile/bookDetail.css">
+</head>
+<body id="app">
+    <script>
+        var run = [];
+        var API_PATH = 'http://localhost:8080/m';
+    </script>
+    <div class="wrapper">
+        <section class="book-detail book-others">
+            <div class="bd">
+                <div class="book-module ">
+                    <ul class="layout-l-r book-items">
+                        <li>
+                            <a href="#">
+                                <dl>
+                                    <dt><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></dt>
+                                    <dd>
+                                        <h3>鬼吹灯</h3>
+                                        <h4>什么鬼 | 鬼故事</h4>
+                                        <p>看相的说我是百鬼送子，断我要和死人打一辈子交道。所以我选择当一名法医，游走在</p>
+                                    </dd>
+                                </dl>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <dl>
+                                    <dt><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></dt>
+                                    <dd>
+                                        <h3>鬼吹灯</h3>
+                                        <h4>什么鬼 | 鬼故事</h4>
+                                        <p>看相的说我是百鬼送子，断我要和死人打一辈子交道。所以我选择当一名法医，游走在</p>
+                                    </dd>
+                                </dl>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <dl>
+                                    <dt><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></dt>
+                                    <dd>
+                                        <h3>鬼吹灯</h3>
+                                        <h4>什么鬼 | 鬼故事</h4>
+                                        <p>看相的说我是百鬼送子，断我要和死人打一辈子交道。所以我选择当一名法医，游走在</p>
+                                    </dd>
+                                </dl>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <script>
+        run.push(function() {
+            require([]);
+        })
+    </script>
+    <script>
+        var $static = 'http://localhost:8383/StaticResources/wings/';
+        var require = {
+            baseUrl: $static + "_resources/js/mobile",
+            urlArgs: "bust="+201606081027,
+            waitSeconds: 15,
+            deps: ["main"]
+        }
+
+    </script>
+    <script src="_resources/components/requirejs/require.js"></script>
+</body>
+</html>

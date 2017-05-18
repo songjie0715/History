@@ -1,0 +1,37 @@
+'use strict';
+
+/**
+ * Created by janey on 16/6/12.
+ */
+
+define(['vue', 'components/overlay', 'jquery'], function (Vue, overlay, $) {
+    return Vue.extend({
+        data: function data() {
+            return {
+                isShow: false,
+                setPos: false
+            };
+        },
+        created: function created() {
+            this.$mount().$appendTo('body');
+        },
+        methods: {
+            show: function show() {
+                this.isShow = true;
+                this.setPos = true;
+                overlay.show();
+                $('body').addClass('ovh');
+                this.$emit('show');
+            },
+            hide: function hide() {
+                this.isShow = false;
+                this.setPos = false;
+                overlay.hide();
+                $('body').removeClass('ovh');
+                $('body').css({ 'position': 'relative' });
+                this.$emit('hide');
+            }
+        }
+    });
+});
+//# sourceMappingURL=../../maps/wx/components/dialog.js.map

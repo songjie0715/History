@@ -1,0 +1,2 @@
+"use strict";function appDownload(a){0==a?location.href="http://a.app.qq.com/o/simple.jsp?pkgname=com.laikan.reader":$.ajax({type:"post",url:website_DOMAIN+"/ajax/book/"+a+"/favorite",data:{backUrl:website_DOMAIN+"/book/"+a},success:function(a){switch(a.status){case 1:return void(location.href=a.url);case-1:location.href=location.href;break;case 0:location.href="http://a.app.qq.com/o/simple.jsp?pkgname=com.laikan.reader";break;default:alert("抱歉,出错了哦")}}})}
+//# sourceMappingURL=../../maps/wxV2/controller/appDownload.js.map

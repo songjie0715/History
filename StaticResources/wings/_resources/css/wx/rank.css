@@ -1,0 +1,125 @@
+.bgw {
+  background: #fff; }
+
+.rankwrap {
+  width: 100%;
+  position: relative; }
+  .rankwrap .rankindex {
+    position: relative;
+    margin-top: 1rem;
+    background: #fff; }
+    .rankwrap .rankindex a {
+      display: -webkit-box;
+      display: box; }
+      .rankwrap .rankindex a .rankpic {
+        width: 30%;
+        margin: 1rem 0 1rem 1.7rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden; }
+        .rankwrap .rankindex a .rankpic img {
+          display: inline-block;
+          width: 100%;
+          max-width: 12rem;
+          height: 8.6rem; }
+      .rankwrap .rankindex a .rankinfo {
+        -webkit-box-flex: 1;
+        box-flex: 1;
+        margin: 1rem; }
+        .rankwrap .rankindex a .rankinfo span {
+          display: block;
+          overflow: hidden;
+          font-size: 1.4rem;
+          margin-top: 0.9rem; }
+          .rankwrap .rankindex a .rankinfo span em {
+            margin: 0 .5rem 0 1rem;
+            border-radius: 100px;
+            font-style: normal;
+            height: 1.5rem;
+            width: 1.5rem;
+            display: inline-block;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+            color: #fff;
+            vertical-align: middle; }
+            .rankwrap .rankindex a .rankinfo span em.first {
+              background: #fb6041; }
+            .rankwrap .rankindex a .rankinfo span em.second {
+              background: #ff9a23; }
+            .rankwrap .rankindex a .rankinfo span em.third {
+              background: #a1df49; }
+      .rankwrap .rankindex a .rankmore {
+        position: absolute;
+        right: 1.8rem;
+        top: 4rem; }
+        .rankwrap .rankindex a .rankmore img {
+          width: .8rem;
+          height: 1.5rem; }
+
+/*************detail*/
+.banklist a {
+  display: -webkit-box;
+  display: box;
+  margin-top: 1rem;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  margin: 0 2rem; }
+  .banklist a .listpic {
+    margin: 1rem 0;
+    text-align: center;
+    position: relative;
+    width: 7.5rem;
+    height: 10.7rem; }
+    .banklist a .listpic img {
+      display: inline-block;
+      width: auto;
+      max-width: 7.5rem;
+      height: 10.5rem; }
+    .banklist a .listpic .number {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      overflow: hidden;
+      text-align: center;
+      line-height: 1.5rem;
+      background: #fb6041;
+      color: #fff;
+      font-style: normal; }
+  .banklist a .listinfo {
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    margin: 1rem; }
+    .banklist a .listinfo .title {
+      font-size: 1.5rem;
+      color: #333;
+      display: block; }
+    .banklist a .listinfo .name {
+      margin-top: .3rem;
+      font-size: 1.3rem;
+      display: block; }
+    .banklist a .listinfo .digest {
+      margin-top: .5rem;
+      font-size: 1.3rem;
+      line-height: 2rem;
+      display: block; }
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 53.3% !important; } }
+
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 62.5% !important; } }
+
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 68.9% !important; } }
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 127.9% !important; } }
+
+/*# sourceMappingURL=../maps/wx/rank.css.map */

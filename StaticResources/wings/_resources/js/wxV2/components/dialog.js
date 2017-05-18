@@ -1,0 +1,2 @@
+"use strict";define(["vue","components/overlay"],function(s,o){return s.extend({data:function(){return{isShow:!1,setPos:!1}},created:function(){this.$mount().$appendTo("body")},methods:{show:function(){this.isShow=!0,this.setPos=!0,o.show(),$("body").addClass("ovh"),this.$emit("show")},hide:function(s){this.isShow=!1,this.setPos=!1,o.hide(),$("body").removeClass("ovh"),$("body").css({position:"relative"}),this.$emit("hide")}}})});
+//# sourceMappingURL=../../maps/wxV2/components/dialog.js.map

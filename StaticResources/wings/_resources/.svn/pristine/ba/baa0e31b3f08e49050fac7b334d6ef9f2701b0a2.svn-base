@@ -1,0 +1,2 @@
+"use strict";define(["components/dialog"],function(e){return new e({template:"#template-book-newUserPackage-dialog",events:{show:function(){var e=new Date;lkModal.setCookie("isAndriodDownloadTip",e.getDate(),365),history.replaceState({},"chapter detail","")}},methods:{hideDialog:function(e){this.hide()}}})});
+//# sourceMappingURL=../../maps/wxV2/components/newUserPackageDialog.js.map

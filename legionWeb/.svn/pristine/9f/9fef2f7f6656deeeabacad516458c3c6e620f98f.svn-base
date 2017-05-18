@@ -1,0 +1,1 @@
+{"version":3,"sources":["mixin/paginate.js"],"names":["define","mounted"],"mappings":"AAAA,YAOAA,QAAO,WACH,OACIC,QADG","file":"../../mixin/paginate.js","sourcesContent":["/**\n * Created by janey on 2017/4/27.\n */\n\n/**\n * Created by janey on 2017/4/27.\n */\ndefine(function () {\n    return {\n        mounted(){\n\n        }\n    }\n});"]}

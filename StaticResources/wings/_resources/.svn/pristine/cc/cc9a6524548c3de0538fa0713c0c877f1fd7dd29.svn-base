@@ -1,0 +1,32 @@
+'use strict';
+
+/**
+ * Created by janey on 16/6/20.
+ */
+
+define(['components/dialog'], function (Dialog) {
+    return new Dialog({
+        template: '#template-book-package-dialog',
+        events: {
+            hide: function hide() {
+                this.callback();
+            }
+        },
+        methods: {
+            showDialog: function showDialog(func) {
+                this.show();
+                this.$set('callback', func);
+            },
+            hideDialog: function hideDialog() {
+                this.hide();
+            },
+            clickDialog: function clickDialog() {
+                this.hide();
+                setTimeout(function () {
+                    location.href = '/wx/i/mycard';
+                }, 500);
+            }
+        }
+    });
+});
+//# sourceMappingURL=../../maps/wxV2/components/packageDialog.js.map

@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  height: 100%; }
+
+body {
+  overflow-x: hidden; }
+
+ul, ol, li {
+  list-style: none; }
+
+.activity-free {
+  padding-bottom: 30px; }
+  .activity-free .bd {
+    padding: 0 0.9rem; }
+  .activity-free .book-module {
+    position: relative;
+    padding: 0.6rem 0 1rem 0;
+    border-top: 0.5px solid #d8dacf; }
+    .activity-free .book-module:first-child {
+      border-top: none; }
+    .activity-free .book-module h2 {
+      position: relative;
+      font: bold 15px "PingHei", Helvetica, Arial, Verdana, sans-serif;
+      color: #757575;
+      padding-bottom: 0.4rem;
+      padding-left: 18px; }
+      .activity-free .book-module h2 .icon-tit {
+        display: block;
+        position: absolute;
+        border: none;
+        left: 0;
+        top: 3px;
+        width: 12.5px;
+        height: 15px;
+        background: url(../img/bg-tit.png) 0 0 no-repeat;
+        -webkit-background-size: 50px auto;
+        background-size: 50px auto; }
+    .activity-free .book-module ul {
+      display: inline-block;
+      margin-left: -size(19rem); }
+    .activity-free .book-module li {
+      position: relative;
+      float: left;
+      width: 5rem;
+      margin-left: 0.95rem;
+      overflow: hidden; }
+      .activity-free .book-module li:first-child {
+        margin-left: 0; }
+      .activity-free .book-module li a {
+        display: block;
+        text-decoration: none; }
+      .activity-free .book-module li img {
+        width: 100%; }
+      .activity-free .book-module li dd {
+        padding-top: 0.25rem;
+        font-size: 0.7rem;
+        line-height: 0.9rem;
+        color: #757575; }
+      .activity-free .book-module li .icon-free {
+        position: absolute;
+        top: 5px;
+        right: -14px;
+        width: 2.8rem;
+        height: 0.6rem;
+        line-height: 0.6rem;
+        background: #3399ff;
+        -webkit-transform: rotate(38deg);
+        transform: rotate(38deg);
+        text-align: center;
+        font-size: 12px;
+        color: #fff;
+        font-style: normal; }
+    .activity-free .book-module.female h2 .icon-tit {
+      background-position: 0 -20px; }
+    .activity-free .book-module.publish h2 .icon-tit {
+      background-position: 0 -40px; }
+  .activity-free .activity-detail {
+    border-top: 0.5px solid #d8dacf;
+    padding: 0.7rem 0.9rem 0; }
+    .activity-free .activity-detail h3 {
+      padding-bottom: 0.4rem;
+      font: normal 0.75rem "PingHei", Helvetica, Arial, Verdana, sans-serif;
+      color: #444; }
+    .activity-free .activity-detail p {
+      color: #777;
+      font-size: 0.7rem;
+      line-height: 1.1rem; }
+      .activity-free .activity-detail p span {
+        font-family: Arial; }
+  .activity-free .count-down {
+    position: relative;
+    width: 100%;
+    padding: 1rem 0;
+    font: normal 15px "PingHei", Helvetica, Arial, Verdana, sans-serif;
+    display: inline-block;
+    border-bottom: 1px solid #d8dacf; }
+    .activity-free .count-down .bd {
+      text-align: center;
+      position: relative;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%); }
+    .activity-free .count-down .well {
+      display: inline-block; }
+
+.countdown-clock {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 15px;
+  text-align: center; }
+
+.countdown-clock .years,
+.countdown-clock .months,
+.countdown-clock .days,
+.countdown-clock .hours,
+.countdown-clock .minutes,
+.countdown-clock .seconds {
+  font-size: 15px;
+  display: inline-block;
+  background-color: #45454d;
+  color: #fff;
+  border-radius: 5px;
+  width: 31px;
+  height: 20px;
+  background: #fff url(../img/bg-tit.png) 0 -60px no-repeat;
+  -webkit-background-size: 50px auto;
+  background-size: 50px auto;
+  vertical-align: 1px; }
+
+.countdown-clock span:first-of-type {
+  margin-left: 0;
+  width: 15px; }
+
+.countdown-clock span i {
+  display: inline-block;
+  padding: 0 3.5px;
+  font-style: normal;
+  text-align: left; }
+
+.radius {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  background: #ccc;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  transform: rotate(0deg);
+  transition: all 5s ease; }
+
+/*# sourceMappingURL=../maps/app/activity.css.map */

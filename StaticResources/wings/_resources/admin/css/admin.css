@@ -1,0 +1,461 @@
+@import url('styles/kendo.common.min.css');
+@import url('styles/kendo.kendo.min.css');
+html {
+  overflow-x: auto;
+}
+body {
+  background: none;
+  font-family: '宋体';
+  padding-bottom: 20px;
+}
+.hidden {
+  display: none!important;
+}
+.clear {
+  display: inline-block;
+}
+.warning {
+  font-weight: bold;
+  color: red!important;
+}
+#container {
+  padding: 30px 20px;
+  background: #f3f3f3;
+}
+#container:after {
+  content: '.';
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+.goTop {
+  background: url(img/go_top.png) no-repeat;
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+h2.title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff6600;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 15px;
+}
+h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+}
+p.info {
+  margin: 15px 0;
+}
+.left-content {
+  margin-left: 160px;
+}
+#main-nav {
+  width: 140px;
+  background: #e3e3e3;
+  border: 1px solid #c5c5c5;
+  float: left;
+}
+#main-nav li a {
+  display: block;
+  padding: 5px;
+}
+#main-nav li a span {
+  font-family: Arial;
+  margin-right: 3px;
+}
+#main-nav li a:hover {
+  background: lightGrey;
+}
+#main-nav .top-level > li {
+  border-bottom: 1px solid #999999;
+}
+#main-nav .top-level > li ul {
+  display: none;
+  margin: 5px 0 5px 10px;
+  border-left: 2px solid #999999;
+}
+#main-nav .top-level > li ul a {
+  padding-left: 8px;
+}
+#main-nav .title {
+  padding: 5px;
+  background: white;
+  color: #6d6d6d;
+  text-align: center;
+  font-size: 14px;
+}
+#main-nav .opened > a {
+  background: #4e535f !important;
+  color: white !important;
+}
+.grid table {
+  width: 100%;
+}
+.grid table th,
+.grid table td {
+  border: 1px solid #cccccc;
+  padding: 5px 10px;
+}
+.grid table th {
+  background: #dedede;
+  line-height: 2em;
+  font-weight: bold;
+  color: #333333;
+}
+.grid tbody tr td {
+  background: white;
+}
+.grid tbody tr.row-2 td {
+  background: #f1f1f1;
+}
+.grid tbody tr:hover td {
+  background: #ffebe2;
+  color: #333333;
+}
+.controal {
+  padding: 5px;
+  margin-right: 10px;
+  padding-left: 22px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  white-space: nowrap;
+}
+.controal a {
+  background: none;
+}
+.del {
+  color: red;
+  background-image: url(img/trash_16.gif);
+}
+.edit {
+  color: #248ae9;
+  background-image: url(img/edit_16.gif);
+}
+.open {
+  color: #199032;
+  background-image: url(img/edit_16.gif);
+}
+.close {
+  color: #ff3e62;
+  background-image: url(img/close_16.gif);
+}
+.go {
+  color: #40b20e;
+  background-image: url(img/forwd_16.gif);
+}
+.reject {
+  color: #ff297a;
+  background-image: url(img/remov_16.gif);
+}
+.detail {
+  color: #0e969f;
+  background-image: url(img/adfav_16.gif);
+}
+.user {
+  color: #17570a;
+  background-image: url(img/user_16.gif);
+}
+.binding {
+  color: #d96d33;
+  background-image: url(img/wiz_16.gif);
+}
+#container .book {
+  color: #086b6b;
+  background-image: url(img/Book.gif);
+}
+.comments {
+  color: #698107;
+  background-image: url(img/icon-comments.gif);
+}
+.new-record {
+  color: #17b226;
+  background-image: url(img/new_record.gif);
+}
+.article {
+  color: #6c6c6c;
+  background-image: url(img/TPadm-article.gif);
+}
+.author {
+  color: #8a7f07;
+  background-image: url(img/author.gif);
+}
+.seed {
+  color: green;
+  background-image: url(img/iconSeed.gif);
+}
+.group {
+  color: #003163;
+  background-image: url(img/group.gif);
+}
+.admin {
+  color: #011a33;
+  background-image: url(img/online_admin.gif);
+}
+.permission {
+  color: #f1ab00;
+  background-image: url(img/permission.gif);
+}
+.words-number {
+  color: #4bd4fb;
+  background-image: url(img/word-number.jpg);
+}
+.publish {
+  color: #d0713b;
+  background-image: url(img/publish.png);
+}
+.update {
+  color: #278eed;
+  background-image: url(img/updated_status.gif);
+}
+.niceapple {
+  color: #f88800;
+  background-image: url(img/FireFlowerSMW.png);
+}
+.await {
+  color: #cc0900;
+  background-image: url(img/status_waiting.gif);
+}
+.free {
+  background: url("img/free.gif") no-repeat left center;
+  font-weight: bold;
+  color: #1d71bf;
+  padding-left: 47px;
+}
+.f60 {
+  color: #ff6600 !important;
+}
+.x-table {
+  margin-bottom: 20px!important;
+}
+.x-table caption {
+  font-size: 12px;
+  line-height: 2em;
+  color: #444444;
+  padding-left: 5px;
+  background: #d9d9d9;
+  font-weight: bold;
+  border: 1px solid #666666;
+  border-bottom: none;
+}
+.x-table thead th {
+  background: #ebebeb;
+  color: #666666;
+  line-height: 1em;
+}
+.x-table th,
+.x-table td {
+  border: 1px solid #666666 !important;
+}
+.line {
+  background: #d1d1d1;
+  height: 1px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+.form {
+  padding: 20px;
+}
+.form table {
+  width: 100%;
+}
+.form table caption {
+  font-size: 16px;
+  color: #f3820a;
+  font-weight: bold;
+  border-bottom: 1px solid #f3820a;
+  padding: 10px 0;
+}
+.form table td {
+  vertical-align: middle;
+  padding: 15px 10px;
+}
+.form table td.col1 {
+  font-size: 14px;
+  font-weight: bold;
+}
+.form table td.row-2 td {
+  background: #ececec;
+}
+.form table .k-combobox {
+  width: 50%;
+}
+.has-seed td {
+  background: #dbdbdb;
+}
+.has-seed .seed-item {
+  padding-bottom: 10px;
+  line-height: 1.5em;
+}
+.textarea-single {
+  padding: 15px;
+  line-height: 2em;
+  height: 500px;
+  width: 90%;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 3px #cccccc;
+  border-radius: 10px;
+  border: 2px solid #cccccc;
+  font-size: 14px;
+  background: -webkit-gradient(linear, 0 0, 0 10%, from(#e4e4e4), to(#f6f6f6));
+  background: -moz-linear-gradient(top, #e4e4e4, #f6f6f6 10%);
+}
+.fixed-table,
+.form table {
+  margin: auto;
+  table-layout: fixed;
+}
+.text {
+  padding: 3px 5px;
+}
+.note {
+  color: #261d0d;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  overflow: hidden;
+  width: 100%;
+  line-height: 2em;
+  margin: 0;
+  padding: 0;
+}
+.tag-list li {
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #cccccc;
+  padding: 3px 5px;
+  box-shadow: 2px 2px 5px #aaaaaa;
+}
+.tbar {
+  width: 100%;
+  position: relative;
+  min-height: 40px;
+}
+.tbar .submit {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+}
+.tbar-list {
+  margin-right: 100px;
+  float: left;
+}
+.tbar-list li {
+  float: left;
+  margin-right: 20px;
+  padding-bottom: 10px;
+  min-height: 30px;
+}
+.tbar-list li label {
+  position: relative;
+  top: 5px;
+}
+#paging {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 2px solid #ff6600;
+}
+#paging ul li {
+  float: left;
+  border: 1px solid #cccccc;
+  margin-right: 10px;
+  background: white;
+  margin-bottom: 10px;
+}
+#paging ul li a {
+  display: block;
+  padding: 2px 4px;
+  background: #fbfbfb;
+  margin: 1px;
+}
+#paging ul li.current,
+#paging ul li:hover {
+  background: #ff6600;
+  color: white;
+}
+.contents li {
+  font-size: 12px;
+  clear: both;
+  padding: 10px 5px;
+  border-bottom: 1px solid #dddddd;
+}
+.contents li:last-child {
+  border: none;
+}
+.contents li span {
+  display: inline-block;
+  vertical-align: top !important;
+}
+.contents li span.key {
+  clear: left;
+  font-weight: bold;
+  color: #333333;
+  width: 10%;
+}
+.contents li span.value {
+  width: 80%;
+  color: #666666;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.contents li img,
+.contents li .shadow-img {
+  border: 1px solid #cccccc;
+  padding: 1px;
+  background: white;
+  box-shadow: 2px 2px 8px #333333;
+  max-height: 100px;
+  max-width: 100px;
+}
+.show-text {
+  width: 48px;
+  height: 48px;
+  background: url(img/edit-text.png) no-repeat;
+  cursor: pointer;
+}
+.value-content {
+  background: none;
+  line-height: 1.8em;
+  font-size: 12px;
+}
+.slide-content {
+  cursor: pointer;
+  color: coral;
+}
+.slide-c {
+  color: #ff6600 !important;
+}
+.crab {
+  color: red;
+  font-weight: bold;
+}
+#exp {
+  background: #999999;
+  height: 550px;
+  line-height: 550px;
+  color: white;
+  font-weight: bold;
+  width: 10px;
+  float: left;
+  cursor: pointer;
+}
+.verify-window {
+  padding: 10px 20px;
+}
+.verify-window ul li {
+  margin: 10px 0;
+}
+.verify-window label input {
+  margin-right: 5px;
+  vertical-align: -2px;
+}
+.brief-note {
+  word-wrap: break-word;
+  width: 100%;
+  white-space: pre-wrap;
+}

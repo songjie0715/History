@@ -1,0 +1,93 @@
+function marquee(){
+    var oUl=document.querySelector('#marquee ul');
+    var oUlHtml = $(oUl).html();
+    var aLi=oUl.children;
+    var oUlLen = $(aLi).size();
+    var aLiHeight = aLi[0].offsetHeight;
+    var inow=0;
+    var first = true;
+    function show(){
+        if( first){
+           $(oUl).append(oUlHtml);
+        }
+        inow++;
+        first = false;
+        $(oUl).animate({
+            'marginTop': -(inow*aLiHeight)+'px'
+        },1000,function(){
+            if( inow == oUlLen ){
+               inow = 0; 
+               $(oUl).css('marginTop',0);
+            }
+        });
+    }
+    setInterval(show,4000);
+}
+
+function tab(id,hdClassName,value1,bdClassName,value2,sTime){
+    var oBox=document.getElementById(id);
+    var aLi=oBox.getElementsByClassName(hdClassName)[0].getElementsByTagName(value1);
+    var aDiv=oBox.getElementsByClassName(bdClassName)[0].getElementsByTagName(value2);
+    var count=0;
+    var Timer=null;
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].index=i;
+        aLi[i].addEventListener("touchend", function(e){
+            //clearInterval(Timer);
+            count = this.index;
+            tab1();
+            e.stopPropagation();
+            e.preventDefault();
+        });
+    }
+    function tab1(){
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].className='';
+            aDiv[i].className='';
+        }
+        aLi[count].className='on';
+        aDiv[count].className='show';
+    }
+    function time(){
+        Timer=setInterval(function(){
+            count++;
+            if(count > aLi.length-1){
+                count = 0;
+            }
+            tab1();
+        },sTime);
+    }
+    time();
+}
+
+function setTime(){
+    var timer;
+    timer=setInterval('countTime()',1000);   
+}
+//删掉轮循
+function countTime(){
+    var NowTime = new Date();
+    var endTime = $('.freeTimeVal').val();
+    endTime = parseInt(endTime);
+    var d=0,h=0,m=0,s=0,t='',timer;
+    t = endTime - NowTime.getTime();
+
+    if(t >= 0){
+        d = Math.floor(t / 1000 / 60 / 60 / 24);
+        h = Math.floor(t / 1000 / 60 / 60 % 24);
+        m = Math.floor(t / 1000 / 60 % 60);
+        s = Math.floor(t / 1000 % 60);
+    }
+    if(d < 10){d = "0" + d;}
+    if(h < 10){h = "0" + h;}
+    if(m < 10){m = "0" + m;}
+    if(s < 10){s = "0" + s;}              
+    $('#t_d').html(d + "天");
+    $('#t_h').html(h + "小时");
+    $('#t_m').html(m + "分");
+    $('#t_s').html(s + "秒");
+    if(h<= 0 && s<=0 && m<=0){
+        clearInterval(timer);
+    }
+}
+

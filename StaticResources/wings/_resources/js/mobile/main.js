@@ -1,0 +1,2 @@
+"use strict";var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};require.config({paths:{jquery:"../../components/jquery/dist/jquery.min",vue:"../../components/vue/dist/vue.min"}}),require(["jquery","vue"],function(e){if("run"in window&&"object"==("undefined"==typeof run?"undefined":_typeof(run))&&Array.isArray(run))for(var n=0;n<run.length;n++)run[n]()});
+//# sourceMappingURL=../maps/mobile/main.js.map

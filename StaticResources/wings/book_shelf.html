@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <title>Title</title>
+    <link rel="stylesheet" href="_resources/css/mobile/bookDetail.css">
+</head>
+<body id="app">
+    <script>
+        var run = [];
+        var API_PATH = 'http://localhost:8080/m';
+    </script>
+    <div class="wrapper">
+        <section class="book-detail book-shelf">
+            <div class="bd">
+                <div class="shelf-tip">
+                    <div class="bd">
+                        <div class="mark fl">最后阅读</div>
+                        <p class="fl">《我不想活在你的梦中》第100章</p>
+                        <a href="#" class="records">阅读记录</a>
+                        <a href="#" class="btn" v-cloak @click.prevent="manage()" v-text="!isManage ? '管理' : '完成'"></a>
+                    </div>
+                </div>
+                <div class="book-module">
+                    <ul class="layout-l-r book-items">
+                        <li :class="{hidden: 321 == delCurBookId}">
+                            <dl>
+                                <dt><a href="#"><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></a></dt>
+                                <dd>
+                                    <h3><a href="#">鬼吹灯</a></h3>
+                                    <h4><a href="#">什么鬼</a> | <a href="#">鬼故事</a></h4>
+                                    <p><a href="#">已经更新至 <br>第872章 迟来却再也得不到的爱</a></p>
+                                </dd>
+                            </dl>
+                            <a href="#" class="del btn hidden" :class="{hidden: !isManage}" @click="showDialog(321)">删除</a>
+                        </li>
+                        <li :class="{hidden: 321 == delCurBookId}">
+                            <dl>
+                                <dt><a href="#"><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></a></dt>
+                                <dd>
+                                    <h3><a href="#">鬼吹灯</a></h3>
+                                    <h4><a href="#">什么鬼</a> | <a href="#">鬼故事</a></h4>
+                                    <p><a href="#">已经更新至 <br>第872章 迟来却再也得不到的爱</a></p>
+                                </dd>
+                            </dl>
+                            <a href="#" class="del btn hidden" :class="{hidden: !isManage}" @click="showDialog(321)">删除</a>
+                        </li>
+                        <li :class="{hidden: 321 == delCurBookId}">
+                            <dl>
+                                <dt><a href="#"><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></a></dt>
+                                <dd>
+                                    <h3><a href="#">鬼吹灯</a></h3>
+                                    <h4><a href="#">什么鬼</a> | <a href="#">鬼故事</a></h4>
+                                    <p><a href="#">已经更新至 <br>第872章 迟来却再也得不到的爱</a></p>
+                                </dd>
+                            </dl>
+                            <a href="#" class="del btn hidden" :class="{hidden: !isManage}" @click="showDialog(321)">删除</a>
+                        </li>
+                        <li :class="{hidden: 321 == delCurBookId}">
+                            <dl>
+                                <dt><a href="#"><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></a></dt>
+                                <dd>
+                                    <h3><a href="#">鬼吹灯</a></h3>
+                                    <h4><a href="#">什么鬼</a> | <a href="#">鬼故事</a></h4>
+                                    <p><a href="#">已经更新至 <br>第872章 迟来却再也得不到的爱</a></p>
+                                </dd>
+                            </dl>
+                            <a href="#" class="del btn hidden" :class="{hidden: !isManage}" @click="showDialog(321)">删除</a>
+                        </li>
+                        <li :class="{hidden: 321 == delCurBookId}">
+                            <dl>
+                                <dt><a href="#"><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></a></dt>
+                                <dd>
+                                    <h3><a href="#">鬼吹灯</a></h3>
+                                    <h4><a href="#">什么鬼</a> | <a href="#">鬼故事</a></h4>
+                                    <p><a href="#">已经更新至 <br>第872章 迟来却再也得不到的爱</a></p>
+                                </dd>
+                            </dl>
+                            <a href="#" class="del btn hidden" :class="{hidden: !isManage}" @click="showDialog(321)">删除</a>
+                        </li>
+                        <li :class="{hidden: 321 == delCurBookId}">
+                            <dl>
+                                <dt><a href="#"><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></a></dt>
+                                <dd>
+                                    <h3><a href="#">鬼吹灯</a></h3>
+                                    <h4><a href="#">什么鬼</a> | <a href="#">鬼故事</a></h4>
+                                    <p><a href="#">已经更新至 <br>第872章 迟来却再也得不到的爱</a></p>
+                                </dd>
+                            </dl>
+                            <a href="#" class="del btn hidden" :class="{hidden: !isManage}" @click="showDialog(321)">删除</a>
+                        </li>
+                    </ul>
+                    <!--<div class="have-no-books">-->
+                        <!--<a href="#">-->
+                            <!--<span class="hor"><span class="ver"></span></span>-->
+                        <!--</a>-->
+                        <!--<p>没有了,多找几本放过来</p>-->
+                    <!--</div>-->
+                    <ul class="layout-l-r book-items" :class="{hidden: !isAjaxLoaded}" v-for="item in ajaxBookItems">
+                        <!--<li :class="{hidden: 321 == delCurBookId}">-->
+                            <!--<dl>-->
+                                <!--<dt><a href="#"><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></a></dt>-->
+                                <!--<dd>-->
+                                    <!--<h3><a href="#">鬼吹灯</a></h3>-->
+                                    <!--<h4><a href="#">什么鬼</a> | <a href="#">鬼故事</a></h4>-->
+                                    <!--<p><a href="#">已经更新至 <br>第872章 迟来却再也得不到的爱</a></p>-->
+                                <!--</dd>-->
+                            <!--</dl>-->
+                            <!--<a href="#" class="del btn hidden" :class="{hidden: !isManage}" @click="showDialog(321)">删除</a>-->
+                        <!--</li>-->
+                        <li :class="{hidden: {{item.blp.book.id }} == delCurBookId}">
+                            <dl>
+                                <dt><a href="{{ item.blp.book.murl }}"><img src="{{ item.blp.book.imageUrlSmall }}" width="80" alt=""></a></dt>
+                                <dd>
+                                    <h3><a href="{{ item.blp.book.murl }}">{{ item.blp.book.name }}</a></h3>
+                                    <h4><a href="#">{{ item.blp.book.userVO.name }}</a> | <a href="#">{{ item.blp.book.enumBookSortType.desc }}</a></h4>
+                                    <p><a href="{{ item.blp.book.lastChapter.murl }}">>已经更新至 <br>{{ item.blp.book.lastChapter.name }}</a></p>
+                                </dd>
+                            </dl>
+                            <a href="#" class="del btn hidden" :class="{hidden: !isManage}" @click="showDialog(${follow.blp.book.id })">删除</a>
+                            <!-- <a href="${follow.blp.chapter.murl}?position={{ item.blp.words }}" class="goon">继续阅读 &gt;</a> -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script id="template-del-book-dialog" type="text/html">
+        <div class="dialog dialog-pos dialog-del-book" v-bind:class="{'hidden': !isShow, 'dialog-pos': setPos}">
+            <div class="bd">
+                <div :class="{hidden: isDel}">
+                    <h3>确定删除所选书籍</h3>
+                    <div class="btn-action">
+                        <p><a href="javascript:;" class="btn btn-confirm" @click.prevent="comfirmDel()"><span>确定</span></a></p>
+                        <p><a href="javascript:;" class="btn btn-cancel" @click.prevent="hideDialog()"><span>取消</span></a></p>
+                    </div>
+                    <a href="#" class="bun-closed" @click.prevent="hideDialog()">关闭</a>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+    <script>
+        run.push(function() {
+            require(['controller/bookShelf'], function(bookShelfVue){
+                bookShelfVue(3);
+            });
+        })
+    </script>
+    <script>
+        var $static = 'http://localhost:8383/StaticResources/wings/';
+        var require = {
+            baseUrl: $static + "_resources/js/mobile",
+            urlArgs: "bust="+201606081027,
+            waitSeconds: 15,
+            deps: ["main"]
+        }
+
+    </script>
+    <script src="_resources/components/requirejs/require.js"></script>
+</body>
+</html>

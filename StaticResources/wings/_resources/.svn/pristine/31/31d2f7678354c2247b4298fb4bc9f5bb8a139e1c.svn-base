@@ -1,0 +1,2 @@
+define(["components/dialog"],function(e){return new e({template:"#template-book-open-month-dialog",methods:{hideDialog:function(){this.hide()}}})});
+//# sourceMappingURL=../../maps/wxV2/components/openMonthDialog.js.map

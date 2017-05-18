@@ -1,0 +1,217 @@
+body {
+  background: #f2f2f2; }
+
+section, header, footer {
+  padding: 0px;
+  margin: 0px;
+  display: block; }
+
+.app-mod {
+  margin-bottom: 10px;
+  padding: 15px 18px;
+  background: #fff; }
+
+.app-mod a {
+  display: block; }
+
+.app-mod a .topicTit {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 9px;
+  line-height: 16px; }
+
+.app-mod a .topicText {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 14px;
+  height: 14px;
+  color: #999;
+  overflow: hidden; }
+
+.app-mod a .topicImg {
+  overflow: hidden; }
+
+.app-mod a .topicImg img {
+  display: block;
+  width: 100%; }
+
+.app-dl-mod {
+  padding-top: 0px; }
+
+.appHeader {
+  position: relative;
+  height: 44px;
+  line-height: 44px;
+  border-bottom: solid 1px #ddd;
+  text-align: center;
+  color: #141414;
+  font-size: 18px;
+  background: #fff; }
+
+.appHeader img.arrow {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  display: block;
+  width: 12px; }
+
+.appTitle {
+  position: relative;
+  padding: 17px 0 0;
+  font-size: 16px;
+  color: #333;
+  line-height: 16px;
+  background: #fff; }
+
+.appTitle img {
+  width: 3px;
+  height: 16px;
+  vertical-align: -3px;
+  margin: 0 8px 0 18px; }
+
+.app-dl-mod dl {
+  padding: 15px 0;
+  border-bottom: solid 1px #e5e5e5;
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  overflow: hidden; }
+
+.app-dl-mod dl.last {
+  border-bottom: none;
+  padding-bottom: 5px; }
+
+.app-dl-mod dl dt {
+  position: relative;
+  margin-right: 10px; }
+
+.app-dl-mod dl dt img {
+  width: 85px;
+  display: block; }
+
+.app-dl-mod dl dd {
+  -webkit-box-flex: 1.0;
+  -moz-box-flex: 1.0;
+  box-flex: 1.0;
+  color: #999; }
+
+.app-dl-mod dl dd div {
+  height: 92px; }
+
+.app-dl-mod dl dd span {
+  margin: 4px 0 15px;
+  display: block;
+  font-size: 16px;
+  line-height: 16px;
+  color: #333;
+  overflow: hidden; }
+
+.app-dl-mod dl dd b {
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  height: 44px;
+  overflow: hidden; }
+
+.app-dl-mod dl dd p {
+  height: 22px;
+  line-height: 22px;
+  font-size: 14px;
+  position: relative; }
+
+.app-dl-mod dl dd p img {
+  width: 15px;
+  vertical-align: -2px;
+  margin-right: 5px; }
+
+.app-dl-mod dl dd p span {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  display: block;
+  margin: 0;
+  line-height: 12px; }
+
+.app-dl-mod dl dd p span i {
+  margin-left: 6px;
+  display: inline-block;
+  border: solid 1px #d7d7d7;
+  border-radius: 2px;
+  padding: 3px 4px 4px;
+  font-size: 12px;
+  color: #999; }
+
+.app-mod h3 {
+  position: relative;
+  /* margin: 17px 18px 15px; */
+  font-size: 16px;
+  color: #333;
+  /* line-height: 22px; */
+  padding: 17px 0 0 0; }
+
+.app-mod h3 img {
+  width: 3px;
+  height: 16px;
+  vertical-align: -2px;
+  margin-right: 8px; }
+
+.app-mod .topicImg img {
+  width: 100%; }
+
+.packageMod {
+  padding: 18px;
+  background: #fff;
+  border-bottom: solid 1px #e5e5e5;
+  overflow: hidden; }
+
+.packageMod dl {
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  overflow: hidden; }
+
+.packageMod dl dt {
+  margin-right: 10px;
+  width: 50px; }
+
+.packageMod dl dt img {
+  width: 50px;
+  height: 50px;
+  display: block; }
+
+.packageMod dl dd {
+  margin-right: 90px;
+  position: relative;
+  -moz-box-flex: 1;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  font-size: 12px;
+  color: #333; }
+
+.packageMod dl dd b {
+  margin: 5px 0 8px;
+  display: block;
+  font-size: 18px;
+  line-height: 18px; }
+
+.packageMod dl dd p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden; }
+
+.packageMod dl dd a {
+  position: absolute;
+  top: 10px;
+  right: -90px;
+  display: block;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  background: #10c1ae;
+  border-radius: 3px; }
+
+/*# sourceMappingURL=../maps/app/appSpecial.css.map */

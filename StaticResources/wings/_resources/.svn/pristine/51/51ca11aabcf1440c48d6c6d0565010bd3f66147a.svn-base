@@ -1,0 +1,102 @@
+.night-status, .night-new-status {
+  background: #000 url(../../img/wx/laikan/chapter-night-new-bg.jpg);
+  color: #999; }
+  .night-status .txtbox-item h3, .night-new-status .txtbox-item h3 {
+    color: #666; }
+  .night-status .demo .font-change a, .night-new-status .demo .font-change a {
+    border: 1px solid #999; }
+  .night-status .intro .chapter, .night-new-status .intro .chapter {
+    border-right: 1px solid #ccc;
+    color: #999; }
+    .night-status .intro .chapter i, .night-new-status .intro .chapter i {
+      border: 2px solid #eee; }
+      .night-status .intro .chapter i.red, .night-new-status .intro .chapter i.red {
+        background: #ccc; }
+  .night-status .font_list, .night-new-status .font_list {
+    border-top: solid 1px #ccc; }
+  .night-status .alert-c, .night-new-status .alert-c {
+    color: #999; }
+  .night-status .intro div, .night-new-status .intro div {
+    color: #999; }
+  .night-status .blue, .night-new-status .blue {
+    color: #ccc !important;
+    display: inline-block;
+    font-style: normal; }
+  .night-status .chapter-time, .night-new-status .chapter-time {
+    border-bottom: solid 1px #333;
+    color: #666; }
+  .night-status .chapter-mod-div, .night-new-status .chapter-mod-div {
+    border-top: solid 1px #333; }
+  .night-status .chapter_spread li a, .night-new-status .chapter_spread li a {
+    color: #999; }
+    .night-status .chapter_spread li a span, .night-new-status .chapter_spread li a span {
+      color: #999; }
+  .night-status .chapter-mod-list li a, .night-new-status .chapter-mod-list li a {
+    color: #10c1ae;
+    border: 1px solid #10c1ae;
+    display: block; }
+  .night-status a.first, .night-new-status a.first {
+    border: 1px solid #999 !important;
+    background: #666 !important;
+    color: #999 !important; }
+  .night-status .chapter_ma, .night-new-status .chapter_ma {
+    border-bottom: solid 1px #333; }
+    .night-status .chapter_ma span, .night-new-status .chapter_ma span {
+      background: #222;
+      color: #999; }
+    .night-status .chapter_ma p, .night-new-status .chapter_ma p {
+      color: #999; }
+  .night-status .chapter-shelf, .night-new-status .chapter-shelf {
+    color: #999; }
+    .night-status .chapter-shelf a, .night-new-status .chapter-shelf a {
+      color: #999; }
+  .night-status #fontBulb a, .night-new-status #fontBulb a {
+    color: #10c1ae; }
+  .night-status .chapter_ma_tit, .night-new-status .chapter_ma_tit {
+    border-bottom: solid 1px #333; }
+  .night-status .chapter-collect, .night-new-status .chapter-collect {
+    float: left;
+    margin: 1rem 0rem .5rem 1.5rem; }
+    .night-status .chapter-collect a, .night-new-status .chapter-collect a {
+      padding: 2px 8px 3px;
+      display: inline-block;
+      font-size: 1.2rem;
+      border-radius: 3px;
+      border: 1px solid #999;
+      color: #999; }
+  .night-status .chapter-app-down, .night-new-status .chapter-app-down {
+    border-bottom: solid 1px #333; }
+    .night-status .chapter-app-down a, .night-new-status .chapter-app-down a {
+      color: #10c1ae;
+      background: none; }
+  .night-status .chapter_spread li a p.r, .night-new-status .chapter_spread li a p.r {
+    padding-bottom: 1rem;
+    border-bottom: solid 1px #333; }
+  .night-status .check-book-mod ul li a p, .night-new-status .check-book-mod ul li a p {
+    color: #999; }
+  .night-status .check-book-mod h2, .night-new-status .check-book-mod h2 {
+    color: #999; }
+
+.night-new-status {
+  background: #000 url(../../img/wx/laikan/chapter_spread_night_bg.jpg); }
+  .night-new-status .chapter-app-down {
+    border-bottom: solid 1px #999; }
+  .night-new-status .chapter_spread li a p.r {
+    border-bottom: solid 1px #999; }
+  .night-new-status .txtbox-item h3 {
+    color: #aaa; }
+  .night-new-status .chapter-mod-div {
+    border-top: none;
+    margin-top: 0rem; }
+  .night-new-status .chapter-app-down .chapter-app-text {
+    color: #999;
+    background: #444; }
+  .night-new-status .chapter-app-down a {
+    border: solid 1px #10c1ae; }
+  .night-new-status .chapter-mod-list li a {
+    color: #10c1ae;
+    border: 1px solid #10c1ae; }
+  .night-new-status .collent-dialog .chapter-spread-ma {
+    border: none; }
+
+/*# sourceMappingURL=../maps/wx/chapter_night.css.map */

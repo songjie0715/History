@@ -1,0 +1,149 @@
+/**
+ * @author languid
+ */
+//用户名片
+;
+Motie.nameCard = function(ele, type, xid, atname){
+    var _self = this;
+    if (!Motie.nameCard.layer) {
+        _self.createCard();
+    }
+    this.handle = $(ele);
+    this.type = type;
+    this.xid = xid;
+    this.atname = atname || '';
+    this.getCard = null;
+    this.getSuccess = false;
+    this.cacheId = this.type + (this.atname ? this.atname : this.xid);
+    var layer = Motie.nameCard.layer, setPos = Motie.nameCard.setPosition, loading = layer.loading, bd = layer.bd;
+    var card = new Motie.openLayer(this.handle, layer, {
+        duration: 100,
+        showTime: 300,
+        onShow: function(card){
+            loading.show();
+            bd.empty();
+            var cache = Motie.nameCard.checkCache(_self.cacheId);
+            if (cache && !$IE) {
+                loading.hide();
+                bd.html(cache);
+                setPos(card)
+            }
+            else {
+                _self.getCard = $.ajax({
+                    url: '/ajax/namecard/show',
+                    cache: false,
+                    data: {
+                        type: _self.type,
+                        id: _self.xid,
+                        atname: _self.atname
+                    },
+                    success: function(html){
+                        if ($.trim(html) != '') {
+                            html = $(html);
+                            _self.getSuccess = true;
+                            Motie.nameCard.cache[_self.cacheId] = html;
+                            bd.html(html);
+                            loading.hide();
+                            setPos(card)
+                        }
+                    },
+                    error: function(){
+                        loading.hide();
+                        bd.html(['<div class="load-error ac" style="padding: 20px;">', (type == 'people' ? '\u6CA1\u6709\u8FD9\u4E2A\u94C1\u7C89\u54DF :(' : '\u8FD9\u672C\u4E66\u4E0D\u5B58\u5728\u54DF:('), '</div>'].join(''));
+                        setPos(card);
+                    }
+                })
+            }
+        },
+        onHide: function(card){
+            if (_self.getCard) {
+                _self.getCard.abort();
+            }
+        }
+    });
+    card.showLayer = function(){
+    };
+};
+Motie.nameCard.setPosition = function(card){
+    var handle = card.handle, scrollTop = $html.scrollTop(), wheight = $win.height(), mainLeft = $main.offset().left, mainWidth = $main.width(), handleHeight = handle.height(), handleWidth = handle.width(), handleTop = handle.offset().top, handleLeft = handle.offset().left, layer = Motie.nameCard.layer, arrow = Motie.nameCard.layer.arrow, bd = Motie.nameCard.layer.bd, newTop = 0, newLeft = 0;
+    var switchClass = function(){
+    };
+    var t = (function(){
+        var rk = scrollTop + wheight - handleTop, ck = rk - handleHeight;
+        if (scrollTop == 0 && handleTop < layer.height()) {
+            return false;
+        };
+        if (ck > 0) {
+            if (ck >= layer.height()) {
+                return false;
+            }
+            return true;
+        }
+        else 
+            if (rk >= layer.height()) {
+                return false;
+            }
+            else 
+                if (ck < 0) {
+                    return true;
+                }
+                else {
+                    return false;
+                };
+            })(), l = (mainWidth - (handleLeft - mainLeft)) < 355;
+    newTop = handleTop + handleHeight + 5;
+    newLeft = handleLeft - 20;
+    arrow.removeClass('pos-bl pos-rt pos-br');
+    if (t && !l) {
+        newTop = handleTop - layer.height() - 10;
+        arrow.addClass('pos-bl');
+    }
+    else 
+        if (!t && l) {
+            newTop = handleTop + handleHeight - 30;
+            newLeft = handleLeft - layer.width() - 15;
+            arrow.addClass('pos-rt');
+        }
+        else 
+            if (t && l) {
+                newTop = handleTop - layer.height() - 10;
+                newLeft = handleLeft - layer.width() + 38;
+                arrow.addClass('pos-br');
+            };
+    card.left = newLeft;
+    card.top = newTop;
+    layer.css({
+        top: newTop,
+        left: newLeft
+    }).show();
+};
+Motie.nameCard.prototype.createCard = function(){
+    this.layer = $('<div class="namecard" visible="display" style="display: none; position: absolute;"><div style="position:relative"><div class="namecard-arrow"></div><table width="100%"><tbody><tr><td class="pop-tl"></td><td class="pop-border"></td><td class="pop-tr"></td></tr><tr><td class="pop-border"></td><td class="pop-content"><div class="mod-author-info mod"><div class="loading-card ac fz-14" style="background: url(' + ImgMotie + '/_assets/ajax-loader.gif) no-repeat 100px center; line-height: 200px; height: 200px;">\u52A0\u8F7D\u4E2D..</div><div class="bd"></div></div></td><td class="pop-border"></td></tr><tr><td class="pop-bl"></td><td class="pop-border"></td><td class="pop-br"></td></tr></tbody></table></div></div>');
+    Motie.nameCard.layer = this.layer;
+    Motie.nameCard.layer.bd = this.layer.find('.bd');
+    Motie.nameCard.layer.loading = this.layer.find('.loading-card');
+    Motie.nameCard.layer.arrow = this.layer.find('.namecard-arrow');
+    $body.append(this.layer);
+};
+Motie.nameCard.layer = null;
+Motie.nameCard.cache = {};
+Motie.nameCard.checkCache = function(id){
+    return Motie.nameCard.cache[id] || false;
+};
+Motie.nameCard.bind = function(area){
+    $('a', area).each(function(){
+        var $this = $(this), href = $this.attr('href').replace('http://www.motie.com', ''), lp = href.lastIndexOf('/') + 1;
+        lp = href.substring(lp, href.length);
+        if ((/^\/people\/\d+$/).test(href)) {
+            new Motie.nameCard(this, 'people', lp);
+        }
+        else 
+            if (href.match(/^\/book\/\d+$/)) {
+                new Motie.nameCard(this, 'book', lp);
+            }
+            else 
+                if (href.match(/^\/name\//)) {
+                    new Motie.nameCard(this, 'people', 0, lp);
+                }
+    });
+};

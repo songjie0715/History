@@ -1,0 +1,90 @@
+//点击签到
+var signBool = $('.signBool').val();
+if(signBool == 1){
+	$('.checkCircle .btn').hide();
+	$('.checkCircle .ticket').show();
+}
+function checkBtn(t){
+	var self = $(t);
+	var checkMod = $('.checkBg');
+	var checkUserId = $('.checkUserId').val();
+	$.ajax({
+		type:'get',
+		url:'/wx/user/sign/signin?userId=' + checkUserId,
+		dataType:'json',
+		success:function(data){
+			var signResult = data.signinResult;
+			var checkResult = signResult.signinResult;
+			var signCount = signResult.signCount;
+			var signAward = signResult.signAwawd;
+			var signDay = signResult.signList[signCount - 1].day;
+			switch (checkResult){
+				case 1:
+					tipMod('恭喜您，签到成功！');
+					self.hide().next().show();
+					checkMod.find('p span').text(signCount);
+					$('.checkTable li').eq(signCount - 1).find('p.status').addClass('statusOn').find('img').attr('src','http://lkres.motieimg.com/StaticResources/public_html/wings/_resources/img/wx/laikan/icheck/checkOn.png');
+					checkMod.find('.ticket span').text(signResult.signList[signCount - 1].award + signAward);
+					if(signDay == 5){
+						tipMod('恭喜您,额外获取' + signAward +'阅读券!');	
+					}
+					break;
+				case 2:
+					tipMod('您已经签过到了！');
+					break;
+			}
+		}
+	});
+}
+
+
+//dialog
+function tipMod(message){
+	var scrollY = $(window).scrollTop();
+	var wh = $(window).height();
+	popMod.show(scrollY+wh/2-22);
+	popMod.render(message);
+	setTimeout(function(){
+		popMod.hide();
+	},2000);
+}
+
+var popMod = (function(){
+	var $popMod = $('.popMod');
+	return {
+    	show: function(scrollT){
+    		this.pos(scrollT);
+    		shadow.show();
+    		$popMod.show();
+    	},
+    	hide: function(){
+    		$popMod.hide();
+    		shadow.hide();
+    	},
+    	pos: function(scrollT){
+    		$popMod.css({
+        		'top': scrollT+'px'
+    		})
+    	},
+    	render: function(html){
+    		$popMod.find('span').html(html);
+    	}
+    }
+})();
+
+var shadow = (function(){
+	var $shadow = $('.shadowMod');
+	return {
+		show: function(){
+			this.pos();
+			$shadow.show();
+		},
+		hide: function(){
+			$shadow.hide();
+		},
+		pos: function(){
+			var dh = $(document).height();
+			$shadow.height(dh);
+		}
+	}
+})();

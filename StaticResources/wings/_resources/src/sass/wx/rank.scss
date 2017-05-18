@@ -1,0 +1,155 @@
+$textwhite: #fff;
+.bgw{
+	background: $textwhite;
+}
+
+.rankwrap{
+	width: 100%;
+	position: relative;
+.rankindex{
+	position: relative;
+	margin-top:1rem;
+	background: $textwhite;
+	a{
+		display: -webkit-box;
+    	display: box;
+		.rankpic{
+			width: 30%;
+			margin: 1rem 0 1rem 1.7rem;
+			text-align: center;
+    		position: relative;
+			overflow: hidden; 
+			img{
+				display: inline-block;
+				width: 100%;
+				max-width: 12rem;
+				height: 8.6rem;
+			}
+		}
+		.rankinfo{
+			-webkit-box-flex: 1;
+    		box-flex: 1;
+			margin: 1rem;
+			span{
+				display: block;
+				overflow: hidden;
+				font-size: 1.4rem;
+				margin-top: 0.9rem;
+				em{
+					margin: 0 .5rem 0 1rem;
+					border-radius: 100px;
+					font-style: normal;
+					height:1.5rem;
+					width: 1.5rem;
+					display: inline-block;
+					text-align: center;
+					font-size: 1.2rem;
+					line-height: 1.5rem;
+					color: $textwhite;
+					vertical-align: middle;
+					&.first{
+						background: #fb6041;
+					}
+					&.second{
+						background: #ff9a23;
+					}
+					&.third{
+						background: #a1df49;
+					}
+				}
+				
+			}
+		}
+		
+		.rankmore{
+					position: absolute;
+					right: 1.8rem;
+					top: 4rem;
+					img{
+						width: .8rem;
+						height: 1.5rem;
+					}
+				}
+	}
+		
+		
+
+} 
+}
+
+/*************detail*/
+.banklist{
+	a{
+		display: -webkit-box;
+    	display: box;
+		margin-top:1rem;
+		background: #fff;
+		border-bottom: 1px solid #ddd;
+		margin:0 2rem;
+		.listpic{
+			margin: 1rem 0;
+			text-align: center;
+    		position: relative;
+    		width: 7.5rem;
+    		height: 10.7rem;
+    		img{
+				display: inline-block;
+				width: auto;
+				max-width: 7.5rem;
+				height: 10.5rem;
+    		}
+    		.number{
+    			position: absolute;
+    			left: 0;
+    			top: 0;
+    			width: 1.5rem;
+    			height: 1.5rem;
+    			overflow: hidden;
+    			text-align: center;
+    			line-height: 1.5rem;
+    			background: #fb6041;
+    			color:#fff;
+    			font-style: normal;
+    		}
+		}
+		.listinfo{
+			-webkit-box-flex: 1;
+    		box-flex: 1;
+			margin: 1rem;
+			.title{
+				font-size: 1.5rem;
+				color: #333;
+				display: block;
+			}
+			.name{
+				margin-top: .3rem;
+				font-size: 1.3rem;
+				display: block;
+			}
+			.digest{
+				margin-top: .5rem;
+				font-size: 1.3rem;
+				line-height: 2rem;
+				display: block;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 320px) {
+	html {
+	font-size:53.3%!important
+}
+}@media screen and (min-width: 375px) {
+	html {
+	font-size:62.5%!important
+}
+}@media screen and (min-width: 414px) {
+	html {
+	font-size:68.9%!important
+}
+}@media screen and (min-width: 768px) {
+	html {
+	font-size:127.9%!important
+}
+}

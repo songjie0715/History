@@ -1,0 +1,2 @@
+define(["jquery","core"],function(a,t){return{purchaseChapter:function(u,e,r){return a.ajax({type:"POST",url:t.apiPath+"/buy/chapter/"+e,data:{buyCount:u,autoSub:r},dataType:"JSON"})}}});
+//# sourceMappingURL=../../maps/mobile/service/bookChapterService.js.map

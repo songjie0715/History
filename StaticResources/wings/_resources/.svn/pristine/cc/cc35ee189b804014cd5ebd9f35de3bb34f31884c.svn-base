@@ -1,0 +1,50 @@
+/**
+ * Count-down Clock Plugin by janey.Song
+ */
+
+// var eventTime= 1366549200; // Timestamp - Sun, 21 Apr 2016 13:00:00 GMT
+// var currentTime = 1366547400; // Timestamp - Sun, 21 Apr 2016 12:30:00 GMT
+// var diffTime = eventTime - currentTime;
+// var duration = moment.duration(diffTime*1000, 'milliseconds');
+
+var duration = moment.duration(diffTime, 'milliseconds');
+var interval = 1000;
+
+setInterval(function(){
+    duration = moment.duration(duration - interval, 'milliseconds');
+    var day = duration.days().toString();
+    var hour = duration.hours().toString();
+    var minute = duration.minutes().toString();
+    var second = duration.seconds().toString();
+
+    //小时
+    if( hour.length == 1 ){
+        hour = '0' + hour;
+        console.log(hour);
+    }
+
+    //分
+    if( minute.length == 1 ){
+        minute = '0' + minute;
+    }
+
+    //秒
+    if( second.length == 1 ){
+        second = '0' + second;
+    }
+
+    hour = hour.split('');
+    minute = minute.split('');
+    second = second.split('');
+
+    var html = '活动倒计时:<div class="countdown-clock">';
+
+    html += "<span class='days'>"+ day +"</span> 天 ";
+    html += "<span class='hours'><i>"+ hour[0] +"</i><i>"+ hour[1] +"</i></span> 小时 ";
+    html += "<span class='minutes'><i>"+ minute[0] +"</i><i>"+ minute[1] +"</i></span> 分 ";
+    html += "<span class='seconds'><i>"+ second[0] +"</i><i>"+ second[1] +"</i></span> 秒 ";
+    html += "</div>";
+
+    $('#countdown-clock').html('').append(html);
+
+}, interval);

@@ -1,0 +1,20 @@
+'use strict';
+
+/**
+ * Created by janey on 16/6/20.
+ */
+
+define(['components/dialog'], function (Dialog) {
+    return new Dialog({
+        template: '#template-book-sundry-dialog',
+        methods: {
+            hideDialog: function hideDialog(e) {
+                this.hide();
+            },
+            stopStuff: function stopStuff(e) {
+                e.stopPropagation();
+            }
+        }
+    });
+});
+//# sourceMappingURL=../../maps/wxV2/components/bookSundryDialog.js.map

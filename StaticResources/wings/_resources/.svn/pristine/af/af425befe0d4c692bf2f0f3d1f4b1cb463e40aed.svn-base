@@ -1,0 +1,1 @@
+$(window).scroll(function(){var o=$(window).height(),t=$("body").scrollTop();t>o?$("#back-to-top").show():$("#back-to-top").hide()});

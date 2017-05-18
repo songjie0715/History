@@ -1,0 +1,410 @@
+body {
+  background: #f2f2f2;
+  font-family: 'PingFang SC', 'Myriad Pro', 'Hiragino Sans GB', 'microsoft yahei';
+  -webkit-font-smoothing: antialiased; }
+
+section, header, footer {
+  padding: 0px;
+  margin: 0px;
+  display: block; }
+
+a {
+  font-size: 14px;
+  line-height: 18px;
+  color: #999; }
+
+img {
+  border: none; }
+
+.hide {
+  display: none; }
+
+.app-nav-mod {
+  margin-bottom: 10px;
+  background: #fff;
+  overflow: hidden; }
+  .app-nav-mod ul {
+    padding: 24px 0 20px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    overflow: hidden; }
+    .app-nav-mod ul li {
+      -webkit-box-flex: 1.0;
+      -moz-box-flex: 1.0;
+      box-flex: 1.0;
+      text-align: center; }
+      .app-nav-mod ul li img {
+        width: 40px; }
+      .app-nav-mod ul li span {
+        display: block;
+        font-size: 16px;
+        color: #777; }
+
+.app-ban-mod {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  overflow: hidden; }
+  .app-ban-mod img {
+    display: block;
+    width: 100%; }
+  .app-ban-mod .banBd li.show {
+    display: block; }
+  .app-ban-mod .banBd li.hide {
+    display: none; }
+  .app-ban-mod .banHd {
+    position: absolute;
+    right: 10px;
+    bottom: 5px; }
+    .app-ban-mod .banHd li {
+      float: left;
+      width: 8px;
+      height: 8px;
+      border-radius: 10px;
+      text-align: center;
+      color: #333;
+      background: #fff;
+      margin-left: 4px;
+      cursor: pointer;
+      text-indent: -9999px; }
+      .app-ban-mod .banHd li.on {
+        color: #fff;
+        background: #46a0f6; }
+
+.app-note-mod {
+  position: relative;
+  padding: 0 18px;
+  height: 32px;
+  font-size: 14px;
+  background: #fff;
+  border-bottom: solid 1px #dedede;
+  overflow: hidden; }
+  .app-note-mod div {
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden; }
+    .app-note-mod div li {
+      padding-left: 25px;
+      height: 32px;
+      line-height: 32px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+  .app-note-mod span {
+    position: absolute;
+    top: 0;
+    left: 18px;
+    width: 20px;
+    display: block; }
+    .app-note-mod span img {
+      width: 20px;
+      vertical-align: -5px; }
+
+.app-mod {
+  padding: 0 18px;
+  margin-bottom: 10px;
+  background: #fff;
+  overflow: hidden; }
+  .app-mod h3 {
+    position: relative;
+    margin: 15px 0 14px;
+    font-size: 16px;
+    color: #333;
+    line-height: 0; }
+    .app-mod h3 img {
+      width: 3px;
+      height: 16px;
+      vertical-align: -2px;
+      margin-right: 8px; }
+    .app-mod h3 span {
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: block;
+      font-size: 15px;
+      color: #444;
+      font-weight: normal; }
+      .app-mod h3 span b {
+        font-weight: normal;
+        font-size: 14px; }
+  .app-mod a.more {
+    display: block;
+    margin: 20px auto;
+    width: 98px;
+    height: 30px;
+    line-height: 28px;
+    font-size: 14px;
+    text-align: center;
+    border: solid 1px #ddd;
+    border-radius: 50px;
+    overflow: hidden; }
+  .app-mod a.topNo {
+    margin-top: 0; }
+  .app-mod .bd ul {
+    padding-bottom: 20px;
+    display: none;
+    font-size: 14px;
+    line-height: 24px; }
+    .app-mod .bd ul.show {
+      display: block; }
+    .app-mod .bd ul.mg10 {
+      padding-top: 10px; }
+    .app-mod .bd ul li {
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      margin-bottom: 20px; }
+      .app-mod .bd ul li:last-child {
+        margin-bottom: 0; }
+      .app-mod .bd ul li a {
+        color: #333;
+        font-size: 16px; }
+        .app-mod .bd ul li a.l {
+          display: block;
+          margin-right: 5px;
+          width: 52px;
+          color: #fff;
+          font-size: 12px;
+          text-align: center;
+          border-radius: 4px;
+          background: #66cddc; }
+        .app-mod .bd ul li a.r {
+          -webkit-box-flex: 1.0;
+          -moz-box-flex: 1.0;
+          box-flex: 1.0;
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+        .app-mod .bd ul li a.num {
+          margin: 0 5px 0 0;
+          display: block;
+          width: 15px;
+          height: 15px;
+          line-height: 16px;
+          font-size: 12px;
+          text-align: center;
+          color: #fff;
+          background: #fd6041; }
+        .app-mod .bd ul li a.numY {
+          background: #ff9a24; }
+
+.app-dl-mod a.bor {
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: solid 1px #ddd; }
+
+.app-dl-mod dl {
+  margin-bottom: 10px;
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  overflow: hidden; }
+  .app-dl-mod dl dt {
+    position: relative;
+    margin-right: 10px; }
+    .app-dl-mod dl dt img {
+      width: 90px;
+      display: block; }
+    .app-dl-mod dl dt span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 15px;
+      height: 15px;
+      line-height: 16px;
+      color: #fff;
+      text-align: center;
+      font-size: 12px;
+      background: #fb6041; }
+  .app-dl-mod dl dd {
+    -webkit-box-flex: 1.0;
+    -moz-box-flex: 1.0;
+    box-flex: 1.0; }
+    .app-dl-mod dl dd div {
+      height: 81px; }
+    .app-dl-mod dl dd span {
+      margin: 4px 0 15px;
+      display: block;
+      font-size: 16px;
+      line-height: 16px;
+      max-height: 48px;
+      color: #333;
+      overflow: hidden; }
+    .app-dl-mod dl dd b {
+      margin-bottom: 5px;
+      display: block;
+      font-weight: normal;
+      font-size: 14px; }
+    .app-dl-mod dl dd p {
+      margin-bottom: 6px;
+      max-height: 36px;
+      line-height: 18px;
+      font-size: 14px;
+      overflow: hidden; }
+
+.app-sale-mod {
+  padding: 0 15px;
+  margin-bottom: 10px;
+  background: #fff;
+  overflow: hidden; }
+  .app-sale-mod h3 {
+    position: relative;
+    margin: 15px 0 14px;
+    font-size: 16px;
+    color: #333;
+    line-height: 0; }
+    .app-sale-mod h3 img {
+      width: 3px;
+      height: 16px;
+      vertical-align: -2px;
+      margin-right: 8px; }
+    .app-sale-mod h3 span {
+      position: absolute;
+      right: 0;
+      top: 8px;
+      display: block;
+      font-size: 14px;
+      color: #444;
+      font-weight: normal; }
+      .app-sale-mod h3 span b {
+        font-weight: normal;
+        font-size: 14px; }
+  .app-sale-mod ul {
+    width: 100%;
+    display: none;
+    overflow: hidden; }
+    .app-sale-mod ul.show {
+      display: block; }
+    .app-sale-mod ul li {
+      position: relative;
+      margin-right: 5%;
+      width: 30%;
+      float: left; }
+      .app-sale-mod ul li a {
+        display: block;
+        width: 100%; }
+        .app-sale-mod ul li a img {
+          width: 100%;
+          display: block; }
+        .app-sale-mod ul li a p {
+          margin-top: 8px;
+          font-size: 14px;
+          max-height: 36px;
+          line-height: 18px;
+          color: #757575;
+          overflow: hidden; }
+      .app-sale-mod ul li:last-child {
+        margin-right: 0; }
+      .app-sale-mod ul li span {
+        position: absolute;
+        right: 0;
+        top: 0; }
+        .app-sale-mod ul li span img {
+          width: 40px; }
+
+.app-sex-mod .hd ul {
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  margin-bottom: 20px; }
+  .app-sex-mod .hd ul li {
+    -moz-box-flex: 1.0;
+    -webkit-box-flex: 1.0;
+    box-flex: 1.0;
+    padding-bottom: 11px;
+    font-size: 15px;
+    color: #999;
+    text-align: center;
+    border-bottom: solid 2px #bdbdbd; }
+    .app-sex-mod .hd ul li.on {
+      border-bottom: solid 2px #65c2d1;
+      color: #65c2d1; }
+
+.app-tag-mod {
+  padding-bottom: 5px;
+  overflow: hidden; }
+  .app-tag-mod ul {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    padding-bottom: 15px;
+    overflow: hidden; }
+    .app-tag-mod ul li {
+      -webkit-box-flex: 1.0;
+      -moz-box-flex: 1.0;
+      box-flex: 1.0;
+      margin-right: 13px;
+      font-size: 14px;
+      border: solid 1px #ccc;
+      width: 82px;
+      height: 38px;
+      border-radius: 50px;
+      text-align: center; }
+      .app-tag-mod ul li:last-child {
+        margin-right: 0; }
+      .app-tag-mod ul li a {
+        display: block;
+        line-height: 38px;
+        color: #666; }
+  .app-tag-mod .oneUl li:nth-child(2) a {
+    color: #6bccf1; }
+  .app-tag-mod .secondUl li:nth-child(1) a {
+    color: #bf88e9; }
+  .app-tag-mod .secondUl li:nth-child(3) a {
+    color: #ff9f3a; }
+
+.app-topic-mod a {
+  padding-bottom: 15px;
+  display: block; }
+  .app-topic-mod a .topicTit {
+    font-size: 16px;
+    color: #333; }
+  .app-topic-mod a .topicText {
+    margin: 11px 0 10px;
+    font-size: 14px;
+    height: 18px;
+    overflow: hidden; }
+  .app-topic-mod a .topicImg {
+    overflow: hidden; }
+    .app-topic-mod a .topicImg img {
+      display: block;
+      width: 100%; }
+
+.app-hot-mod .bd > div {
+  display: none; }
+  .app-hot-mod .bd > div.show {
+    display: block; }
+
+.app-hot-mod .show {
+  display: block; }
+
+.app-hot-mod dl {
+  margin-bottom: 18px !important; }
+
+.app-hot-mod .likeMod li {
+  position: relative;
+  margin-bottom: 17px !important; }
+  .app-hot-mod .likeMod li:last-child {
+    margin-bottom: 0 !important; }
+  .app-hot-mod .likeMod li .tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    color: #999;
+    font-size: 14px; }
+
+#appSale .bd > ul {
+  padding-bottom: 0; }
+
+.app-best-mod a:last-child {
+  padding-bottom: 10px;
+  margin-bottom: 0;
+  border-bottom: none; }
+
+.app-best-mod dl {
+  margin-bottom: 20px; }
+
+/*# sourceMappingURL=../maps/app/appIndex.css.map */

@@ -1,0 +1,1 @@
+define(["common","jquery"],function(n,r){if("run"in window&&"object"==typeof run&&Array.isArray(run))for(var o=0;o<run.length;o++)run[o]()});

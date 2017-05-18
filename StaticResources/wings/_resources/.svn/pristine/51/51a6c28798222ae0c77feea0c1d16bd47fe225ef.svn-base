@@ -1,0 +1,1502 @@
+body{
+  width: 100%;
+  height: 100%;
+  background-color: #c6022b;
+  font-size: 14px;
+  font-family: "PingHei","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+}
+
+::-webkit-input-placeholder{
+  color: #fff!important;
+}
+
+@function size($n) {
+  @return $n / 20;
+}
+
+$url: '../../../img/wx/laikan/huodong';
+$primaryColor: #c6022b;
+$bgColor: #ffd864;
+$version: '?v=20170122';
+
+$fz14: size(14rem);
+$fz16: size(16rem);
+$fz18: size(18rem);
+$fz20: size(20rem);
+
+
+@mixin bdrs($bd: 4px){
+  -webkit-border-radius: $bd;
+  -moz-border-radius: $bd;
+  border-radius: $bd;
+}
+
+.BTN{
+  background-color: $primaryColor;
+  color: #fff;
+  @include bdrs($bd: size(30rem));
+  width: size(120rem);
+  height: size(32rem);
+  line-height: size(32rem);
+  text-align: center;
+}
+
+.BTN-VOID{
+  background-color: #aaa;
+}
+
+
+.TIPS{
+  margin: size(15rem) 0;
+  padding: 5px 8px;
+  background-color: #ffe28d;
+  color: $primaryColor;
+  font-size: size(12rem);
+  line-height: size(20rem);
+}
+
+.pic, .pic img{
+  @include bdrs($bd: 50%);
+}
+.pic{
+  background: #fff;
+  width: size(60rem);
+  height: size(60rem);
+  overflow: hidden;
+}
+.pic img{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.96);
+}
+
+// 表单
+.input-text{
+  border: 1px solid $primaryColor;
+  height: size(40rem);
+  @include bdrs($bd: size(30rem));
+}
+
+
+.team-list-item{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: size(10rem) 15px size(10rem) 0;
+  margin-top: size(10rem);
+  &:before, &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -15px;
+    width: size(6rem);
+    height: size(20rem);
+    background: #ffe28d;
+    @include bdrs($bd: 30px);
+  }
+  &:before{
+    left: size(15rem);
+  }
+  &:after{
+    right: size(15rem);
+  }
+}
+
+
+.wrapper{
+  width: 100%;
+  height: 100%;
+  .download{
+    position: fixed;
+    z-index: 300;
+    top:0;
+    background: url(#{$url}/bg-download-app.png) center bottom no-repeat;
+    -webkit-background-size: auto 100%;
+    background-size: auto 100%;
+    width: 100%;
+    padding-bottom: 20%;
+    .close{
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: size(56rem);
+      height: size(76rem);
+    }
+  }
+  header{
+    .banner-01{
+      background: url(#{$url}/banner-01.gif) center bottom no-repeat;
+      -webkit-background-size: auto 100%;
+      background-size: auto 100%;
+      width: 100%;
+      padding-bottom: 39.47%;
+    }
+    .banner-02{
+      background: url(#{$url}/banner-02.gif) center bottom no-repeat;
+      -webkit-background-size: auto 100%;
+      background-size: auto 100%;
+      width: 100%;
+      margin-top: -1px;
+      padding-bottom: 35.33%;
+    }
+    &.index{
+      .banner-01{
+        background: url(#{$url}/index-banner-01.png#{$version}) center bottom no-repeat;
+        -webkit-background-size: auto 100%;
+        background-size: auto 100%;
+        width: 100%;
+        padding-bottom: 37.33%;
+      }
+      .banner-02{
+        background: url(#{$url}/index-banner-02.png#{$version}) center bottom no-repeat;
+        -webkit-background-size: auto 100%;
+        background-size: auto 100%;
+        width: 100%;
+        margin-top: -1px;
+        padding-bottom: 37.33%;
+      }
+    }
+  }
+  .content{
+    >.bd{
+      padding: 0 4% 4%;
+    }
+  }
+  nav{
+    margin: 0 -4%;
+    &:before, &:after{
+      content: '';
+      position: absolute;
+      top: size(20rem);
+      display: block;
+      width: size(77rem);
+      height: size(77rem);
+      background: url(#{$url}/bg-tab.png) (-(size(100rem))) (-(size(350rem))) no-repeat;
+      -webkit-background-size: size(250rem) auto;
+      background-size: size(250rem) auto;
+    }
+    &:after{
+      right: 0;
+    }
+    ul{
+      position: relative;
+      z-index: 10;
+      overflow: hidden;
+      //padding: size(12rem) 0  size(20rem);
+      padding: size(12rem) 0  0;
+    }
+    li{
+      float: left;
+      width: 33.33%;
+      .nav-item{
+        position: relative;
+        display: flex;
+        display: -webkit-flex;
+        text-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+      a{
+        display: block;
+        background: url(#{$url}/bg-nav-01.png) 0 0 no-repeat;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+        //background: url(#{$url}/bg-tab.png) 0 (-(size(250rem))) no-repeat;
+        //-webkit-background-size: size(250rem) auto;
+        //background-size: size(250rem) auto;
+        width: size(91rem);
+        height: size(91rem);
+        transform: translateX(17%);
+      }
+      span{
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 37%;
+        font-size: size(16rem);
+        color: #fff;
+        line-height: size(18rem);
+      }
+      &.construction a{
+        background: url(#{$url}/bg-nav-02.png) 0 0 no-repeat;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+        //background: url(#{$url}/bg-tab.png) (-(size(100rem))) (-(size(250rem))) no-repeat;
+        //-webkit-background-size: size(250rem) auto;
+        //background-size: size(250rem) auto;
+      }
+      &.nav-share a{
+        background: url(#{$url}/bg-nav-03.png) 0 0 no-repeat;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+        //background: url(#{$url}/bg-tab.png) 0 (-(size(350rem))) no-repeat;
+        //-webkit-background-size: size(250rem) auto;
+        //background-size: size(250rem) auto;
+      }
+    }
+  }
+  .modCont{
+    margin-top: size(15rem);
+    padding: size(15rem);
+    background-color: $bgColor;
+    @include bdrs;
+    .hd{
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 0 0 size(15rem) 0;
+      -webkit-justify-content: center;
+      justify-content: center;
+      height: 100%;
+      &:before, &:after{
+        content: '';
+        display: block;
+        height: 3px;
+        width: 32px;
+        background-color: $primaryColor;
+      }
+      span{
+        display: block;
+        font-size: size(16rem);
+        padding: 0 size(8rem);
+        color: $primaryColor;
+        font-weight: bold;
+      }
+    }
+  }
+  .join-team{
+    padding-bottom: 20px;
+    .bd{
+      text-align: center;
+    }
+    p{
+      font-size: size(14rem);
+    }
+    .action-handle{
+      margin-top: 20px;
+      position: relative;
+      .btn-join-team{
+        display: block;
+        background: url(#{$url}/content-01.png) center bottom no-repeat;
+        -webkit-background-size: auto 100%;
+        background-size: auto 100%;
+        width: 100%;
+        padding-bottom: 28.52%;
+      }
+      .text{
+        position: absolute;
+        bottom: 26px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: size(16rem);
+        color: $primaryColor;
+        font-weight: bold;
+      }
+    }
+
+  }
+  .open-red-packet{
+
+    dl{
+      overflow: hidden;
+      dt{
+        float: left;
+        width: 46.38%;
+        //padding-left: size(10rem);
+        a.icon-open-packet{
+          display: block;
+          background: url(#{$url}/bg-packet-invited.png) center bottom no-repeat;
+          -webkit-background-size: auto 100%;
+          background-size: auto 100%;
+          width: 100%;
+          padding-bottom: 60%;
+          font-size: 0;
+        }
+      }
+      dd{
+        position: relative;
+        float: left;
+        padding-left: size(34rem);
+        text-align: center;
+        h4{
+          margin-top: 8.35%;
+          font-size: size(16rem);
+          color: $primaryColor;
+          font-weight: bold;
+          line-height: size(16rem);
+        }
+        h5{
+          margin-top: 5.78%;
+          font-size: size(12rem);
+          color: #333;
+          line-height: size(10rem);
+        }
+        .btn-open-packet, .btn-over{
+          margin-top: 11.1%;
+          display: block;
+          background-color: $primaryColor;
+          color: #fff;
+          @include bdrs($bd: 30px);
+          width: size(120rem);
+          height: size(32rem);
+          line-height: size(32rem);
+          text-align: center;
+        }
+        .btn-shake{
+          -webkit-animation: btnAmShake 1s ease infinite;
+          animation: btnAmShake 1s ease infinite;
+        }
+      }
+    }
+    .open-packet-invite{
+
+    }
+    .open-packet-friend{
+      dl dt a.icon-open-packet{
+        background: url(#{$url}/bg-packet-friends.png) center bottom no-repeat;
+        -webkit-background-size: auto 100%;
+        background-size: auto 100%;
+        width: 100%;
+        padding-bottom: 60%;
+        font-size: 0;
+      }
+    }
+    .tips{
+      margin: size(15rem) 0;
+      padding: 5px 8px;
+      background-color: #ffe28d;
+      color: $primaryColor;
+      font-size: size(12rem);
+      line-height: size(20rem);
+    }
+  }
+  .team-lists{
+    overflow: hidden;
+    .team-list-item{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      padding: size(10rem) 15px size(10rem) 0;
+      margin-top: size(10rem);
+      &:before, &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: -(size(15rem));
+        width: size(6rem);
+        height: size(20rem);
+        background: #ffe28d;
+        @include bdrs($bd: 30px);
+      }
+      &:before{
+        left: size(15rem);
+      }
+      &:after{
+        right: size(15rem);
+      }
+      .l{
+        float: left;
+        width: 16%;
+        .icon{
+          position: relative;
+          display: block;
+          background: url(#{$url}/bg-rank-gray.png) center bottom no-repeat;
+          -webkit-background-size: auto 100%;
+          background-size: auto 100%;
+          width: 100%;
+          padding-bottom: 47.5%;
+          i{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            color: #fff;
+            font-size: size(12rem);
+          }
+        }
+
+      }
+      .c{
+        float: left;
+        width: 65.50%;
+        .pic, .pic img{
+          @include bdrs($bd: 50%);
+        }
+        .pic{
+          float: left;
+          background: #fff;
+          width: size(60rem);
+          height: size(60rem);
+        }
+        .pic img{
+          width: 100%;
+          height: 100%;
+        }
+        h5{
+          float: left;
+          //margin-left: size(15rem);
+          font-weight: bold;
+          color: #000;
+          font-size: size(16rem);
+          top: 50%;
+          left: 33%;
+          width: 33%;
+          transform: translateY(-50%);
+          position: absolute;
+        }
+      }
+      .r{
+        float: left;
+        width: 35%;
+        p{
+          font-size: size(14rem);
+          color: $primaryColor;
+          text-align: right;
+          i{
+            font-family: Arial;
+          }
+        }
+      }
+      &.first{
+        .l .icon{
+          position: relative;
+          display: block;
+          background: url(#{$url}/bg-rank-01.png) center bottom no-repeat;
+          -webkit-background-size: auto 100%;
+          background-size: auto 100%;
+          width: 100%;
+          padding-bottom: 47.5%;
+        }
+      }
+      &.second{
+        .l .icon{
+          position: relative;
+          display: block;
+          background: url(#{$url}/bg-rank-02.png) center bottom no-repeat;
+          -webkit-background-size: auto 100%;
+          background-size: auto 100%;
+          width: 100%;
+          padding-bottom: 47.5%;
+        }
+      }
+      &.third{
+        .l .icon{
+          position: relative;
+          display: block;
+          background: url(#{$url}/bg-rank-03.png) center bottom no-repeat;
+          -webkit-background-size: auto 100%;
+          background-size: auto 100%;
+          width: 100%;
+          padding-bottom: 47.5%;
+        }
+      }
+    }
+    .more{
+      text-align: center;
+      background-color: #ffe28d;
+
+    }
+    .more a{
+      color: $primaryColor;
+      font-size: size(16rem);
+      padding: size(10em) 0;
+      flex: 1;
+    }
+  }
+  footer{
+    .footer{
+      overflow: hidden;
+      height: 100%;
+      padding-top: 16px;
+      .msg{
+        padding: 0 size(10rem) 1.08% 7.5%;
+        background: url(#{$url}/bg-footer-01.png) right bottom no-repeat;
+        -webkit-background-size: auto 100%;
+        background-size: auto 100%;
+        width: 100%;
+        margin-bottom: 20px;
+        color: #fff;
+        p{
+          padding-top: 12px;
+          line-height: size(20rem);
+          font-size: size(16rem);
+          color: #fff;
+          span, i{
+            font-size: size(14rem);
+          }
+        }
+      }
+      .ft{
+        position: relative;
+        background: url(#{$url}/bg-footer-02.png) right bottom no-repeat;
+        -webkit-background-size: auto 100%;
+        background-size: auto 100%;
+        width: 100%;
+        padding-bottom: 16%;
+      }
+    }
+  }
+  .content.rank{
+    .team-lists{
+      //padding-bottom: 15px;
+    }
+  }
+  .content.search{
+    //padding-bottom: 20px;
+    .searchAction{
+      margin: 10px 0 5px;
+      .inner{
+        -webkit-display: flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+        border: 1px solid #fff;
+        @include bdrs(30px);
+      }
+      input{
+        border: none;
+        background: none;
+      }
+      .icon{
+        -webkit-flex: 1;
+        flex: 1;
+        transform: scale(0.7);
+        background: url(#{$url}/icon-search.png) center bottom no-repeat;
+        -webkit-background-size: auto 100%;
+        background-size: auto 100%;
+        width: 100%;
+        padding-bottom: 10%;
+        margin-left: -2px;
+      }
+      p.input{
+        -webkit-flex: 5;
+        flex: 5;
+        height: 70%;
+        border-left: 1px solid #fff;
+        input, input[placeholder]{
+          padding-left: 10px;
+          width: 100%;
+          height: 100%;
+          color: #fff;
+          font-size: size(14rem);
+        }
+      }
+    }
+    .search-list{
+      .first{
+        &:before, &:after{
+          display: none;
+        }
+      }
+      .team-list-item{
+        display: block;
+        .bd{
+          display: flex;
+          align-items: center;
+          width: 100%;
+          position: relative;
+          padding: size(10rem) 0 size(10rem) 0;
+          margin-top: 10px;
+        }
+        .c{
+          display: flex;
+          align-items: center;
+          width: 72.46%;
+          padding-left: 15px;
+          .text{
+            padding-left: 15px;
+            h4{
+              color: #000;
+              font-weight: bold;
+              font-size: size(16rem);
+              line-height: size(16rem);
+              padding: 10px 0 6px;
+            }
+            p{
+              color: $primaryColor;
+              font-size: size(14rem);
+              line-height: size(14rem);
+            }
+          }
+        }
+        .r{
+          text-align: right;
+          .btn-join{
+            display: inline-block;
+            @extend .BTN;
+            width: size(80rem);
+          }
+        }
+        .tips{
+          @extend .TIPS;
+          margin: 5px 0 0 15px;
+        }
+      }
+    }
+  }
+  .team-details{
+    //padding-right: 0;
+    //margin-top: 10px;
+    .bd{
+      width: 100%;
+      //padding: 0 0.5rem;
+    }
+    .top{
+      padding: 0 0 14px 8px;
+      border-bottom: 1px solid $primaryColor;
+      .inner{
+        -webkit-display: flex;
+        display: flex;
+        align-items: center;
+      }
+      .pic, .pic img{
+        width: size(62rem);
+        height: size(62rem);
+        @include bdrs(50%);
+      }
+      .user-msg{
+        margin-left: 10px;
+        font-size: size(16rem);
+        color: #000;
+        font-weight: bold;
+        span{
+          display: block;
+          margin-bottom: 4px;
+          @extend .BTN;
+          width: size(44rem);
+          height: size(20rem);
+          line-height: size(22rem);
+          font-size: size(12rem);
+          @include bdrs(20px);
+          font-weight: normal;
+        }
+        &.reader span{
+          background-color: #ff8400;
+          color: #fff;
+        }
+      }
+    }
+    .prize-details{
+      margin-top: 10px;
+      .icon{
+        vertical-align: -5px;
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        margin-right: 2px;
+      }
+      .icon-01{
+        background: url(#{$url}/icon-bg.png) 0 0 no-repeat;
+        -webkit-background-size: 50px auto;
+        background-size: 50px auto;
+      }
+      .icon-02{
+        background: url(#{$url}/icon-bg.png) 0 -25px no-repeat;
+        -webkit-background-size: 50px auto;
+        background-size: 50px auto;
+      }
+      .icon-03{
+        background: url(#{$url}/icon-bg.png) 0 -50px no-repeat;
+        -webkit-background-size: 50px auto;
+        background-size: 50px auto;
+      }
+      .icon-04{
+        background: url(#{$url}/icon-bg.png) 0 -75px no-repeat;
+        -webkit-background-size: 50px auto;
+        background-size: 50px auto;
+      }
+      .icon-05{
+        background: url(#{$url}/icon-bg.png) 0 -105px no-repeat;
+        -webkit-background-size: 50px auto;
+        background-size: 50px auto;
+      }
+      .icon-06{
+        background: url(#{$url}/icon-bg.png) 0 -125px no-repeat;
+        -webkit-background-size: 50px auto;
+        background-size: 50px auto;
+      }
+      td{
+        padding: 5px 0;
+        font-size: 14px;
+        width: 50%;
+      }
+      .l{
+        text-align: left;
+      }
+      .r{
+        text-align: right;
+      }
+      .r p{
+        text-align: right;
+        color: $primaryColor;
+        font-weight: bold;
+
+      }
+      a.btn{
+        display: inline-block;
+        margin-top: 12px;
+        @extend .BTN;
+        width: 95%;
+        height: size(36rem);
+        line-height: size(36rem);
+        font-size: size(14rem);
+        font-weight:bold;
+        &.btn-nobg{
+          background-color: #ffd864;
+          border: 1px solid $primaryColor;
+          color: $primaryColor;
+        }
+      }
+    }
+  }
+  // 我要奖励
+  .myAward{
+    //padding-bottom: 20px;
+    .red-packet-details{
+      .details{
+
+        .inner{
+
+        }
+        .pic{
+          margin: -(size(45rem)) 0 0 50%;
+          transform: translateX(-50%);
+        }
+        .tips{
+          @extend .TIPS;
+          margin-bottom: 0;
+        }
+        .user-name{
+          margin-top: size(10rem);
+          text-align: center;
+          font-size: $fz14;
+          .toAccount{
+            display: block;
+            padding-top: size(5rem);
+            font-weight: bold;
+            color: $primaryColor;
+            text-decoration: underline;
+          }
+        }
+        .msg{
+          display: flex;
+          color: #000;
+          font-size: size(14rem);
+          margin-top: size(50rem);
+          height: size(30rem);
+          p{
+            flex: 1;
+            padding: 2px 0;
+            text-align: center;
+            &:first-child span{
+              border-left: none;
+            }
+          }
+
+          span{
+            display: block;
+            margin: -(size(50rem)) auto 0;
+            color: $primaryColor;
+            font-size: size(18rem);
+            padding: 0 4px;
+            border-left: 1px solid #ffb100;
+            height: size(50rem);
+
+            i{
+              color: $primaryColor;
+              font-size: size(14rem);
+            }
+            i.lg{
+              font-size: size(24rem);
+            }
+          }
+        }
+        .btn{
+          display: block;
+          margin-top: size(10rem);
+          width: 100%;
+          height: size(40rem);
+          line-height: size(40rem);
+          @extend .BTN;
+          font-size: size(14rem);
+        }
+        .action-handle{
+          text-align: center;
+          //margin-top: size(10rem);
+          overflow: hidden;
+          .btn{
+            display: block;
+            width: size(150rem);
+            height: size(40rem);
+            line-height: size(40rem);
+            @extend .BTN;
+            font-size: size(14rem);
+          }
+          .btn-void{
+            @extend .BTN-VOID;
+          }
+        }
+      }
+      .wx-details{
+        .msg{
+          margin-left: size(10rem);
+        }
+        .btn{
+          margin-top: size(10rem);
+          width: 100%;
+        }
+      }
+      .red-packet-list{
+        .hd{
+          padding: 0 0 size(8rem) 0;
+        }
+        p{
+          overflow: hidden;
+          padding: size(12rem) 0;
+          border-top: 1px solid $primaryColor;
+          &:first-child{
+            border-top: 0;
+          }
+        }
+        .l{
+          float: left;
+          font-size: size(14rem);
+          i{
+          }
+        }
+        .r{
+          float: right;
+          font-size: size(12rem);
+          margin-top: size(1rem);
+        }
+      }
+    }
+  }
+  // 作者主页
+  .mySelf{
+    //padding-bottom: 20px;
+    .bg1{
+      background: url(#{$url}/bg-myself-01.jpg) center bottom no-repeat;
+      -webkit-background-size: 100% auto;
+      background-size: 100% auto;
+      padding-bottom: 40.4%;
+    }
+    .bg2{
+      background: url(#{$url}/bg-myself-02.jpg) center bottom no-repeat;
+      -webkit-background-size: 100% auto;
+      background-size: 100% auto;
+      margin-top: -1px;
+      padding-bottom: 34.67%;
+    }
+    .top{
+      position: absolute;
+      width: 92%;
+      text-align: center;
+      margin-top: -62%;
+      overflow: hidden;
+      .user-pic, .user-pic img{
+        display: inline-block;
+        width: size(80rem);
+        height: size(80rem);
+        @include bdrs($bd: 50%);
+      }
+      h3{
+        margin: size(6rem) 0;
+        color: #fff;
+        font-weight: bold;
+        font-size: size(16rem);
+      }
+      p{
+        color: #ffd864;
+        font-size: size(14rem);
+        span{
+          border-left: 2px solid #ffd864;
+          padding-left: 15px;
+          &:first-child{
+            border-left:none;
+            padding-left: 0;
+          }
+        }
+        i{
+          padding: 0 size(10rem);
+        }
+      }
+
+      .btn-action{
+        position: relative;
+        text-align: center;
+        .btn{
+          display: inline-block;
+          margin-top: size(14rem);
+          //margin-bottom: size(20rem);
+          @extend .BTN;
+          background-color: #ffd864;
+          color: $primaryColor;
+          width: size(150rem);
+          height: size(40rem);
+          line-height: size(40rem);
+          font-size: size(14rem);
+        }
+        .btn-construct{
+          position: absolute;
+          top: 50%;
+          transform: translateX(-100%) translateY(-10%);
+          margin-left: -(size(10rem));
+          font-size: size(16rem);
+          font-weight: bold;
+          color: #ffd864;
+          text-decoration: underline;
+        }
+      }
+    }
+
+
+    .tab{
+      //margin-top: size(40rem);
+      position: relative;
+      @include bdrs($bd: 4px);
+      height: size(45rem);
+      li{
+        position: absolute;
+        width: 52%;
+        .modCont{
+          margin-top: 0;
+          width: size(181rem);
+          height: size(45rem);
+          padding: 0;
+          .hd {
+            padding: 0;
+            &:before, &:after {
+              width: 16px;
+              height: 2px;
+            }
+            span a{
+              color: $primaryColor;
+            }
+          }
+        }
+        &.current{
+          .modCont{
+            span a{
+              color: #000;
+            }
+          }
+
+          .hd {
+            &:before, &:after {
+              background-color: #000;
+            }
+          }
+        }
+        &.l{
+          left: 0;
+          top: 0;
+          .modCont{
+            background: url(#{$url}/bg-tab.png) 0 0 no-repeat;
+            -webkit-background-size: size(250rem) auto;
+            background-size: size(250rem) auto;
+            .hd {
+              &:before, &:after {
+                width: 16px;
+              }
+            }
+          }
+          &.current{
+            .modCont{
+              background: url(#{$url}/bg-tab.png) 0 (-(size(50rem))) no-repeat;
+              -webkit-background-size: size(250rem) auto;
+              background-size: size(250rem) auto;
+            }
+          }
+        }
+        &.r{
+          right: 0;
+          top: 0;
+          .modCont{
+            background: url(#{$url}/bg-tab.png) 0 (-(size(100rem))) no-repeat;
+            -webkit-background-size: size(250rem) auto;
+            background-size: size(250rem) auto;
+            .hd {
+              &:before, &:after {
+                width: 16px;
+              }
+            }
+          }
+          &.current{
+            .modCont{
+              background: url(#{$url}/bg-tab.png) 0 (-(size(150rem))) no-repeat;
+              -webkit-background-size: size(250rem) auto;
+              background-size: size(250rem) auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// share
+.share{
+  padding-bottom: 4%;
+  .bg1{
+    background: url(#{$url}/bg-share-01.jpg) center bottom no-repeat;
+    -webkit-background-size: 100% auto;
+    background-size: 100% auto;
+    padding-bottom: 46.27%;
+  }
+  .bg2{
+    margin-top: -2px;
+    background: url(#{$url}/bg-share-02.jpg) center bottom no-repeat;
+    -webkit-background-size: 100% auto;
+    background-size: 100% auto;
+    padding-bottom: 51.47%;
+  }
+  .bg3{
+    margin-top: -1px;
+    background: url(#{$url}/bg-share-03.jpg) center bottom no-repeat;
+    -webkit-background-size: 100% auto;
+    background-size: 100% auto;
+    padding-bottom: 40.53%;
+  }
+  .share-action{
+    display: flex;
+    margin-top: size(15rem);
+    background: #fede2d;
+    .btn{
+      flex: 1;
+      a{
+        display: block;
+        margin: 0 auto;
+        width: size(141rem);
+        height: size(40rem);
+        line-height: size(40rem);
+        text-align: center;
+        background: url(#{$url}/bg-tab.png) 0 (-(size(450rem))) no-repeat;
+        -webkit-background-size: size(250rem) auto;
+        background-size: size(250rem) auto;
+        font-size: size(14rem);
+        color: $primaryColor;
+        &.btn-share{
+          background: url(#{$url}/bg-tab.png) 0 (-(size(500rem))) no-repeat;
+          -webkit-background-size: size(250rem) auto;
+          background-size: size(250rem) auto;
+          color:#fff;
+        }
+      }
+    }
+  }
+}
+
+
+
+//弹层
+.dialog{
+  position: absolute;
+  width: 100%;
+  height: auto;
+  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
+}
+// 提现
+.getDeposit{
+  top: 20%;
+  .tip{
+    padding: size(20rem) 0 size(19rem) 4%;
+    color: #fff;
+    font-size: size(14rem);
+    line-height: 24px;
+  }
+  .hd{
+    position: relative;
+    z-index: 100;
+    width: size(285rem);
+    height: size(109rem);
+    background: url(#{$url}/bg-lg.png) 0 0 no-repeat;
+    -webkit-background-size: size(500rem) auto;
+    background-size: size(500rem) auto;
+  }
+  &>.bd{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 0 0 -2px;
+    padding: 20px 4%!important;
+    width: 88.97%;
+    background: #ffd864;
+    @include bdrs($bd: 8px);
+  }
+  .tit{
+    margin-bottom: 14px;
+    font-size: size(16rem);
+    color: #c6022b;
+    display: inline-block;
+    text-align: right;
+    padding-right: 3%;
+    width: 24.62%;
+  }
+  .pw{
+    position: relative;
+    margin: 0 auto;
+  }
+  .input-text{
+    margin-top: 10px;
+    padding-left: 10px;
+    width: 74.66%;
+    background-color: #ffd864;
+    font-size: size(14rem);
+  }
+
+  label.error{
+    padding-left: 27.62%;
+    color: #e83322;
+    font-size: size(14rem);
+    .icon{
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 4px;
+    }
+  }
+  .errorTip{
+    color: #e83322;
+    font-size: size(14rem);
+    text-align: center;
+    .icon{
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 4px;
+      background: url(#{$url}/icon-bg.png) 0 -150px no-repeat;
+      -webkit-background-size: 50px auto;
+      background-size: 50px auto;
+      vertical-align: -3px;
+    }
+  }
+  .input-text::-webkit-input-placeholder{
+    color: #999!important;
+    font-size: size(14rem);
+  }
+
+  .btn{
+    float: right;
+    display: inline-block;
+    @extend .BTN;
+    margin-top: 10px;
+    width: size(112rem);
+    height: size(40rem);
+    line-height: size(40rem);
+    background-color: $primaryColor;
+    font-size: size(14rem);
+    &.valid{
+      background-color: #ccc;
+    }
+  }
+  .action-handle{
+    display: flex;
+    .backTo, .input-submit{
+      display: block;
+      margin: 17px auto 0;
+      border: none;
+      width: size(141rem);
+      height: size(60em);
+      line-height: size(40rem);
+      background: url(#{$url}/bg-tab.png#{$version}}) 0 (-(size(500rem))) no-repeat;
+      -webkit-background-size: size(250rem) auto;
+      background-size: size(250rem) auto;
+      text-align: center;
+      color: #fff;
+      font-size: size(16rem);
+      height: 100%;
+    }
+
+  }
+  .btn-count-down{
+    position: absolute;
+    right: -1px;
+    top: -2px;
+    width: size(116rem);
+    height: size(44rem);
+    line-height: size(44rem);
+  }
+}
+
+// 首页领红包
+.dialog-getRedPacket-index{
+  .bd{
+    background: url(#{$url}/bg-dialog-packet-01.png) center bottom no-repeat;
+    -webkit-background-size: auto 100%;
+    background-size: auto 100%;
+    width: 100%;
+    padding-bottom: 80%;
+  }
+  p.price{
+    position: absolute;
+    left: 50%;
+    top: 26%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    font-size: size(24rem);
+    font-weight: bold;
+    //width: 23%;
+    height: 4%;
+    text-align: center;
+    color: $primaryColor;
+  }
+  .closed{
+    position: absolute;
+    left: 30%;
+    width: 41%;
+    height: 17%;
+    top: 51%;
+  }
+}
+
+// 搜索页面加入战队得红包
+.dialog-getRedPacket{
+  .bd{
+    background: url(#{$url}/bg-dialog-packet-02.png) center bottom no-repeat;
+    -webkit-background-size: auto 100%;
+    background-size: auto 100%;
+    width: 100%;
+    padding-bottom: 80%;
+  }
+  p.price{
+    position: absolute;
+    left: 40%;
+    top: 26%;
+    font-size: size(24rem);
+    font-weight: bold;
+    width: 23%;
+    height: 4%;
+    text-align: center;
+    color: $primaryColor;
+  }
+  .btn-invite{
+    position: absolute;
+    left: 30%;
+    width: 41%;
+    height: 16%;
+    top: 62%;
+  }
+  .closed{
+    position: absolute;
+    right: 12%;
+    width: 8%;
+    height: 10%;
+    top: 3%;
+  }
+}
+
+//遮罩
+.shadow{
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .6);
+}
+
+.loadingMore{
+  text-align: center;
+  height: size(35rem);
+  line-height: size(35rem);
+  p{
+    color: #fff;
+  }
+}
+
+// 错误提示
+.dialog-error{
+  width: 53.33%;
+  padding: size(30rem) 0 size(20rem);
+  background-color: #c6022b;
+  font-size: size(14rem);
+  color: #fff;
+  @include bdrs($bd: size(16rem));
+  p{
+    margin: 0 size(20rem);
+    color: #fff;
+    font-size: size(14rem);
+    text-align: center;
+  }
+  .closed{
+    display: inline-block;
+    margin: size(20rem) 0 0 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    color: #fff;
+    width: size(80rem);
+    height: size(30rem);
+    line-height: size(30rem);
+    text-align: center;
+    border: 1px solid #fff;
+    @include bdrs($bd: size(16rem));
+  }
+}
+
+// 海报弹层
+.dialog-poster{
+  background-color: #fff;
+  width: 65.73%;
+  padding-bottom: 4%;
+  text-align: center;
+  font-size: size(14rem);
+  .img{
+    padding: size(10rem);
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  .closed{
+    position: absolute;
+    top: -(size(35rem));
+    right: 0;
+    width: size(25rem);
+    height: size(25rem);
+    background: url(#{$url}/icon-bg.png) 0 (-(size(175rem))) no-repeat;
+    -webkit-background-size: size(50rem) auto;
+    background-size: size(50rem) auto;
+  }
+}
+
+
+// wap分享
+.dialog-wap-share{
+  background: #fff;
+  padding: size(30rem) size(34rem);
+  .bd{
+    -webkit-display: flex;
+    display: flex;
+  }
+  p{
+    flex: 1;
+    text-align: center;
+    font-size: size(14rem);
+    a{
+      display: block;
+      margin: 0 auto size(12rem);
+      width: size(61rem);
+      height: size(61rem);
+    }
+    .share-qq{
+      background: url(#{$url}/bg-tab.png) 0 (-(size(550rem))) no-repeat;
+      -webkit-background-size: size(250rem) auto;
+      background-size: size(250rem) auto;
+    }
+    .share-qzone{
+      background: url(#{$url}/bg-tab.png) (-(size(100rem))) (-(size(550rem))) no-repeat;
+      -webkit-background-size: size(250rem) auto;
+      background-size: size(250rem) auto;
+    }
+    .share-sina{
+      background: url(#{$url}/bg-tab.png) 0 (-(size(649rem))) no-repeat;
+      -webkit-background-size: size(250rem) auto;
+      background-size: size(250rem) auto;
+    }
+  }
+}
+
+// 微信分享提示弹层
+.dialog-wx-share-tip{
+  .bd{
+    position: absolute;
+    top: 0;
+    right: size(22rem);
+    width: 100%;
+    height: size(135rem);
+    background: url(#{$url}/bg-share-tip.png) right top no-repeat;
+    -webkit-background-size: 50% auto;
+    background-size: 50% auto;
+  }
+}
+
+
+
+// 说明页面
+.construction{
+  p{
+    color: #000;
+    line-height: size(24rem);
+    strong{
+      color: $primaryColor;
+      font-weight: bold;
+    }
+    span{
+      color: $primaryColor;
+    }
+    b{
+      font-weight: bold;
+    }
+  }
+}
+
+// 回到首页
+.backToIndex{
+  position: absolute;
+  left: size(18rem);
+  top: size(18rem);
+  width: size(43rem);
+  height: size(43rem);
+  background: url(#{$url}/backToIndex.png) 0 0 no-repeat;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  font-size: 0;
+}
+
+
+@keyframes btnAmShake {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(0.9);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes btnAmShake {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(0.9);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+.myAccount{
+  margin-top: size(15rem);
+  .account-item{
+    overflow: hidden;
+    .tit{
+      float: left;
+      width: 32.62%;
+      margin-bottom: size(26rem);
+    }
+    span{
+      overflow: hidden;
+      display: block;
+      color: $primaryColor;
+      font-width:bold;
+    }
+  }
+}
+
+
+

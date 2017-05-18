@@ -1,0 +1,2 @@
+"use strict";var dialogGetPosit=new Dialog({el:".dialog-getDeposit"}),dialogGetPacket=new Dialog({el:".dialog-getRedPacket"}),dialogGetPacketIndex=new Dialog({el:".dialog-getRedPacket-index"}),dialogError=new Dialog({el:".dialog-error"}),dialogPoster=new Dialog({el:".dialog-poster"});$(".btn-build-poster").click(function(e){var o=$(window).scrollTop();dialogPoster.show(o,!0),e.stopPropagation()});var dialogWapShare=new Dialog({el:".dialog-wap-share"}),dialogWxShareTip=new Dialog({el:".dialog-wx-share-tip"});
+//# sourceMappingURL=../../maps/wxV2/huodong/index.js.map

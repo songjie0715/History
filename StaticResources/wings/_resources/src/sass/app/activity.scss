@@ -1,0 +1,188 @@
+$font-static: "PingHei",Helvetica,Arial,Verdana,sans-serif;
+$primary-tit-color: #757575;
+
+@function size($n) {
+  @return $n / 20;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+html,body{
+  height: 100%;
+}
+body{
+  overflow-x: hidden;
+}
+ul,ol,li{
+  list-style: none;
+}
+
+.activity-free{
+  padding-bottom: 30px;
+  .bd{
+    padding:0 size(18rem);
+  }
+  .book-module{
+    position: relative;
+    padding: size(12rem) 0 size(20rem) 0;
+    border-top: 0.5px solid #d8dacf;
+    &:first-child{
+      border-top: none;
+    }
+    h2{
+      position: relative;
+      font: bold 15px $font-static;
+      color: $primary-tit-color;
+      padding-bottom: size(8rem);
+      padding-left: 18px;
+      .icon-tit{
+        display: block;
+        position: absolute;
+        border: none;
+        left: 0;
+        top: 3px;
+        width: 12.5px;
+        height: 15px;
+        background: url(../img/bg-tit.png) 0 0 no-repeat;
+        -webkit-background-size: 50px auto;
+        background-size: 50px auto;
+      }
+    }
+    ul{
+      display: inline-block;
+      margin-left: -size(19rem);
+    }
+    li{
+      position: relative;
+      float: left;
+      width: size(100rem);
+      margin-left: size(19rem);
+      overflow: hidden;
+      &:first-child{
+        margin-left: 0;
+      }
+      a{
+        display: block;
+        text-decoration: none;
+      }
+      img{
+        width: 100%;
+      }
+      dd{
+        padding-top: size(5rem);
+        font-size: size(14rem);
+        line-height: size(18rem);
+        color: $primary-tit-color;
+      }
+      .icon-free{
+        position: absolute;
+        top: 5px;
+        right: -14px;
+        width: size(56rem);
+        height: size(12rem);
+        line-height: size(12rem);
+        background: #3399ff;
+        -webkit-transform: rotate(38deg);
+        transform: rotate(38deg);
+        text-align: center;
+        font-size: 12px;
+        color: #fff;
+        font-style: normal;
+      }
+    }
+    &.female h2 .icon-tit{
+      background-position: 0 -20px;
+    }
+    &.publish h2 .icon-tit{
+      background-position: 0 -40px;
+    }
+  }
+  .activity-detail{
+    border-top: 0.5px solid #d8dacf;
+    padding: size(14rem) size(18rem) 0;
+    h3{
+      padding-bottom: size(8rem);
+      font: normal size(15rem) $font-static;
+      color: #444;
+    }
+    p{
+      color: #777;
+      font-size: size(14rem);
+      line-height: size(22rem);
+      span{
+        font-family: Arial;
+      }
+    }
+  }
+  .count-down{
+    position: relative;
+    width: 100%;
+    padding: size(20rem) 0;
+    font: normal 15px $font-static;
+    display: inline-block;
+    border-bottom: 1px solid #d8dacf;
+    .bd{
+      text-align: center;
+      position: relative;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%);
+    }
+    .well{
+      display: inline-block;
+    }
+  }
+}
+
+
+
+.countdown-clock {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.countdown-clock .years,
+.countdown-clock .months,
+.countdown-clock .days,
+.countdown-clock .hours,
+.countdown-clock .minutes,
+.countdown-clock .seconds {
+  font-size: 15px;
+  display: inline-block;
+  background-color:#45454d;
+  color:#fff;
+  border-radius:5px;
+  width: 31px;
+  height: 20px;
+  background: #fff url(../img/bg-tit.png) 0 -60px no-repeat;
+  -webkit-background-size: 50px auto;
+  background-size: 50px auto;
+  vertical-align: 1px;
+}
+.countdown-clock span:first-of-type {
+  margin-left: 0;
+  width: 15px;
+}
+.countdown-clock span i{
+  display: inline-block;
+  padding: 0 3.5px;
+  font-style: normal;
+  text-align: left;
+}
+
+.radius{
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  background: #ccc;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  transform: rotate(0deg);
+  transition: all 5s ease;
+
+}

@@ -1,0 +1,2 @@
+define(["jquery","core"],function(e,t){return{getTickets:function(a){return e.ajax({url:t.website_DOMAIN+"/ajax/i/ticket",data:{page:a}})}}});
+//# sourceMappingURL=../../maps/wxV2/service/accountService.js.map

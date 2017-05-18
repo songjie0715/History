@@ -1,0 +1,320 @@
+$imgUrl: '../../';
+
+
+
+
+.checkTit2, body {
+  position: relative; }
+
+.checkTit, .checkTit2 {
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  color: #141414;
+  font-size: 18px;
+  text-align: center;
+  background: #fbfbfb;
+  border-bottom: solid 1px #d5d3d3; }
+
+.checkTit img, .checkTit2 img {
+  position: absolute;
+  display: block;
+  top: 13px;
+  left: 18px;
+  width: 10px; }
+
+.checkTitNo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  color: #141414;
+  background: #fff;
+  z-index: 10;
+  border-bottom: solid 1px #ddd; }
+
+.popMod, .shadowMod {
+  display: none;
+  position: absolute; }
+
+.popMod {
+  left: 50%;
+  top: 50%;
+  margin-left: -90px;
+  z-index: 9999;
+  width: 180px;
+  font-size: 1.4rem;
+  height: 45px;
+  line-height: 45px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  border-radius: 4px; }
+
+.shadowMod {
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  background: rgba(255, 255, 255, 0); }
+
+.checkBg {
+  padding: 24px 0;
+  margin-bottom:10px;
+  position: relative;
+  text-align: center;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.checkBg .Img {
+  width: 100%;
+  display: block;
+  z-index: 1; }
+
+.checkBg .checkCircle .btn {
+  display: inline-block;
+  margin-top: 16px;
+  width: 66px;
+  height: 66px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 66px;
+  border-radius: 50%;
+  background: #3dccb4;
+  z-index: 2;
+  &.void{
+    background-color: #ddd;
+    border: 1px solid #ddd;
+  }
+}
+
+.checkBg .checkCircle i, .checkBg .checkCircle span {
+  margin-top: 12px;
+  display: inline-block; }
+
+.checkBg .checkCircle i {
+  font-style: normal;
+  font-size: 20px; }
+
+.checkBg .checkCircle span {
+  font-size: 22px; }
+
+.checkBg .checkCircle img {
+  margin-top: 10px;
+  display: inline-block;
+  width: 22px; }
+
+.checkBg .checkCircle .ticket {
+  display: none; }
+
+.checkBg .checkCircle .btn img {
+  display: inline-block;
+  width: 22px; }
+
+.checkBg p {
+  display: flex;
+  width: 62.67%;
+  margin: 0 auto;
+  z-index: 3;
+  font-size: 14px;
+  color: #999;
+  align-items: center;
+  &::before, &::after{
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #ddd;
+  }
+  span{
+    display: block;
+    padding: 0 10px;
+    background-color: #fff;
+    color: #999;
+  }
+}
+
+.checkMod {
+  padding: 0 18px;
+  overflow: hidden;
+  background-color: #fff;
+  h4{
+    padding: 1.8rem 0;
+    font-size: 1.5rem;
+    color: #666;
+    text-align: center;
+  }
+}
+
+.checkMod .checkTable {
+  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  &::before{
+    content: '';
+    position: absolute;
+    top: 15px;
+    width: 94%;
+    height: 1px;
+    background-color: #3dccb4;
+  }
+}
+
+.checkMod .checkTable li {
+  position: relative;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  text-align: center;
+  &:first-child{
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 30%;
+      height: 30px;
+      background-color: #fff;
+    }
+  }
+}
+.checkMod .checkTable li p.day{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: url("#{$imgUrl}/img/wx/laikan/icon/bg-part.png") 0 0 no-repeat;
+  -webkit-background-size: 100px auto;
+  background-size: 100px auto;
+  font-family:"PingFangSC-Regular STXihei", "华文细黑", "Microsoft YaHei", "微软雅黑";
+  font-size: 2.2rem;
+  color: #fff;
+  &.on{
+    background: url("#{$imgUrl}/img/wx/laikan/icon/bg-part.png") 0 -50px no-repeat;
+    -webkit-background-size: 100px auto;
+    background-size: 100px auto;
+  }
+}
+
+.checkMod .checkTable li:last-child {
+  }
+
+.checkMod .checkTable li p{
+  margin: 0 auto;
+}
+
+.checkMod .checkTable li p.status {
+  margin-top: 6px;
+  width: 32px;
+  height: 37px;
+  background: url("#{$imgUrl}/img/wx/laikan/icon/bg-part.png") 0 -100px no-repeat;
+  -webkit-background-size: 100px auto;
+  background-size: 100px auto;
+}
+.checkMod .checkTable li:last-child p.status{
+  width: 25px;
+  height: 37px;
+  background: url("#{$imgUrl}/img/wx/laikan/icon/bg-part.png") 0 -150px no-repeat;
+  -webkit-background-size: 100px auto;
+  background-size: 100px auto;
+}
+
+.checkMod .checkTable li p.statusOn{
+  position: relative;
+  margin-top: 4px;
+  width: 100%;
+  height: 58px;
+  line-height: 18px;
+  span{
+    color: #ff8b3d;
+    font-size: 16px;
+    i{
+      vertical-align: -1px;
+    }
+  }
+}
+
+.checkMod .checkRule .ruleTit {
+  position: relative;
+  height: 30px;
+  color: #999;
+  font-size: 16px;
+  border-bottom: solid 1px #bbb; }
+
+.checkMod .checkRule .ruleTit span {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  margin-left: -40px;
+  display: block;
+  width: 80px;
+  text-align: center;
+  background: #fff; }
+
+.checkMod .checkRule .ruleText {
+  padding-top: 20px;
+  color: #666;
+  font-size: 14px;
+  line-height: 20px; }
+
+.checkMod .checkRule .ruleText p {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  padding-bottom: 15px; }
+
+.checkMod .checkRule .ruleText p:last-child {
+  padding-bottom: 10px; }
+
+.checkMod .checkRule .ruleText p i {
+  display: inline-block;
+  margin-right: 5px; }
+
+.checkMod .checkRule .ruleText p span {
+  display: block;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1; }
+
+.check-book-mod {
+  padding: 0 18px;
+  margin-bottom: 10px;
+  background: #fff;
+  overflow: hidden; }
+
+.check-book-mod h3 {
+  margin: 17px 0 15px;
+  font-size: 18px;
+  color: #333;
+  line-height: 0; }
+
+.check-book-mod h3 img {
+  width: 3px;
+  height: 16px;
+  vertical-align: -2px;
+  margin-right: 8px; }
+
+.check-book-mod ul li {
+  margin: 0 5% 10px 0;
+  width: 30%;
+  float: left; }
+
+.check-book-mod ul li:last-child {
+  margin-right: 0; }
+
+.check-book-mod ul li a {
+  display: block;
+  color: #333;
+  font-size: 16px; }
+
+.check-book-mod ul li a img {
+  width: 100%;
+  display: block; }
+
+.check-book-mod ul li a p {
+  margin-top: 7px;
+  font-size: 14px;
+  height: 18px;
+  line-height: 18px;
+  color: #757575;
+  overflow: hidden; }

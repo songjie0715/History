@@ -1,0 +1,252 @@
+$whiteBg:#fff;
+body{
+	background: #f6f6f6;
+	font-family: 'PingFang SC', 'Myriad Pro', 'Hiragino Sans GB', 'microsoft yahei';
+    -webkit-font-smoothing: antialiased;
+}
+a{
+	color:#333333;
+}
+.look-cont{
+	padding:0 1.5rem;
+	margin-bottom:1rem;
+	background:$whiteBg;
+	overflow:hidden;
+	h3{
+		padding:1.5rem 0 1rem;
+		color:#333;
+		span{
+		    padding: 0 0.3rem 5px 0.3rem;
+		    font-size: 1.8rem;
+		    border-bottom: 1px solid #3dccb4;
+		}
+	}
+	.sightDown{
+		margin-bottom:2rem;
+		display:block;
+		height:3.2rem;
+		line-height:3.2rem;
+		font-size:1.4rem;
+		text-align: center;
+		color:#fff;
+		background: #ff8b3d;
+		border-radius: 4px;
+	}
+}
+.sightMore{
+	margin-top: -1rem;
+	margin-bottom: 1.5rem;
+	text-align: center;
+	height: 42px;
+	line-height: 42px;
+	font-size: 1.4rem;
+	background: #fff;
+	// border-top: solid 1px #ddd;
+	color: #999;
+}
+.lookNav{
+	padding:1.5rem 0;
+	border-bottom:solid 1px #ddd;
+	background:$whiteBg;
+	overflow: hidden;
+	img{
+		margin-left:1.5rem;
+		width:1.1rem;
+	}
+}
+.lookTit{
+	padding:2rem 0 1.5rem;
+	font-weight:bold;
+	font-size:2rem;
+	line-height:2.8rem;
+	color:#333;	
+}
+.lookAtten{
+	position: relative;
+	color:#999;
+	font-size:1.2rem;
+	span{
+		padding-bottom:0.5rem;
+		display:block;
+		font-size:1.4rem;
+		color:#333;
+		img{
+			margin-right:5px;
+			display:inline-block;
+			width:4rem;
+			height:4rem;
+			border-radius: 50%;
+			vertical-align: -6px;
+		}
+	}
+	.attenBtn{
+		position:absolute;
+		top:0px;
+		right:0px;
+		display:block;
+		background: #3dccb4;
+	    padding: 0 1.5rem;
+	    margin: 0.6rem auto;
+	    height: 2.6rem;
+	    font-size: 1.6rem;
+	    line-height: 2.8rem;
+		color:#fff;
+		border-radius:4px;
+		font-style: normal;
+	}
+	.attenNormal{
+		background: #fff;color:#aaa;border:solid 1px #ddd;
+	}
+	.kd-title-txt{
+		position: absolute;
+	    top: 0;
+	    left: 5rem;
+	    p{
+	    	height: 1.8rem;
+    		line-height: 1.6rem;
+    		&.kd-title-author{
+    			color: #457987;
+			    font-size: 1.5rem;
+			    margin-top: 0.5rem;
+    		}
+	    }
+	}
+}
+.lookText{
+	padding:1.5rem 0;
+	overflow:hidden;
+	pre{
+		margin: 0;
+	    padding: 0;
+	    width: 100%;
+	    color: #666;
+	    line-height:2.8rem;
+	    font-size:1.6rem;
+	    word-wrap: break-word;
+	    white-space: pre-wrap;
+	    font-family: 'PingFang SC', 'Myriad Pro', 'Hiragino Sans GB', 'microsoft yahei';
+	    overflow: hidden; 
+
+	}
+	p{
+		// text-indent: 3.2rem;
+		color: #666;
+	    line-height:2.8rem;
+	    font-size:1.6rem;
+    }
+	img{
+		padding:0 !important;width:100% !important;height:auto;margin:0 auto;
+		display:block;
+	}
+}
+.lookUl{
+	ul{
+		padding:0.5rem 0 1rem;
+		overflow:hidden;
+		li{
+			a{
+				display:block;
+				margin-left: 0.5rem;
+			    font-size: 1.6rem;
+			    line-height: 3rem;
+				color:#333;
+				b{
+					margin-right:5px;
+					display:none;
+					width:0.3rem;
+					height:0.3rem;
+					background:#333;
+					vertical-align:3px;
+				}
+			}
+		}
+	}
+}
+.lookZan{
+	margin:0 auto 20px;
+    text-align: center;
+    height: 3rem;
+    width: 10rem;
+    color: #3dccb4;
+    line-height:3rem;
+    font-size: 1.4rem;
+    border: 1px solid #3dccb4;
+    border-radius: 1.5rem;
+    i{
+    	font-style:normal;
+    }
+}
+.lookDl{
+	display:-webkit-box;
+	display:-moz-box;
+	display:box;
+	overflow:hidden;
+	dt{
+		margin-right:1rem;
+		img{
+			width:2.5rem;
+			border-radius:50%;
+		}
+	}
+	dd{
+		padding-bottom:1rem;
+		margin-bottom:1rem;
+		-webkit-box-flex:1.0;
+		-moz-box-flex:1.0;
+		box-flex:1.0;
+		border-bottom: solid 1px #ddd;
+		&:last-child{
+			margin-bottom:1rem;
+		}
+		span{
+			display:block;
+			line-height:1.8rem;
+			font-size:1.2rem;
+			&.author{
+				padding:0.5rem 0 0.7rem;
+				color:#333;
+				font-size:1.4rem;
+			}
+			&.text{
+				line-height:1.8rem;
+				font-size:1.2rem;
+				color:#666;
+				word-break: break-word;
+				overflow: hidden;
+			}
+		}
+		p{
+			padding-top:1.5rem;
+			color:#666;
+			text-align:right;
+			overflow:hidden;
+			span{
+				padding-left:20px;
+				display:inline-block;
+				background:url(../../img/wx/laikan/wxUpdate10/lookIco-bg.png) no-repeat;
+				background-size:19px 81px; 
+				&.zan{
+				background-position:0px 0;
+				margin-right:1rem;
+				}
+				&.reply{
+					background-position:0px -59px;
+				}
+				&.on{
+					background-position:0px -30px;
+				}
+			}
+			
+		}
+	}
+	&:last-child dd{
+		border-bottom: none;padding-bottom:0;
+	}
+}
+.look-attend .on{background-position:0px -28px !important;}
+
+
+html,body{-webkit-user-select:initial!important}
+body{padding-bottom:30px;background:#fff}
+.linearBtn{padding:15px 20px;position:relative}
+.linearBtn a{display:block;margin:0 auto;width:170px;height:36px;line-height:36px;font-size:16px;color:#fff;text-align:center;background:#fda929;border-radius:20px;letter-spacing:1px}

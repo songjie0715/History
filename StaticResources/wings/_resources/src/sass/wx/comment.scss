@@ -1,0 +1,158 @@
+//@import "common.css";
+@import "globalVar";
+@import "dialog";
+@import "util";
+
+// 更多评论
+
+// 按钮
+.btn-comment{
+  display: block;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  padding: 0 0.8rem;
+  border: 1px solid #22bbee;
+  border-radius: 0.6rem;
+  color: #22bbee;
+}
+.comment-tip{
+  width: 100%;
+  height: (48rem/10);
+  position: fixed;
+  top: 0;
+  left:0;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  ul{
+    width: 38%;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+  li{
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    float: left;
+    margin: 0 2px;
+    @include border-radius(32px);
+    img{
+      @include border-radius(32px);
+    }
+    img.placeholder-img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  p{
+    color: $text-msg;
+    font-size: 14px;
+    span{
+      font-family: Arial;
+    }
+  }
+  .arrow{
+    display: block;
+    margin-left: 10px;
+  }
+  .btn-comment{
+    margin: 0 10px;
+    font-size: 12px;
+  }
+  .backTo{
+    width: 30px;
+  }
+}
+
+
+.wrapper .book-detail{
+
+  .book-comment-to-which{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    .btn-comment{
+      margin-top: 1.2rem;
+    }
+    .pic{
+      float: left;
+      margin-right: 15px;
+      width: 60px;
+      height: 60px;
+      border-radius: 60px;
+      border: none;
+      overflow: hidden;
+    }
+    .info{
+      overflow: hidden;
+      h3{
+        margin-top: 0.5rem;
+        font-size: 1.6rem;
+        padding: 0.6rem 0;
+      }
+      h4{
+        font-size: 1.4rem;
+        span{
+          font-family: Arial;
+        }
+      }
+    }
+    .btn-comment-to-which{
+      display: block;
+      margin-top: 1.2rem;
+      height: 2.2rem;
+      line-height: 2.2rem;
+      padding: 0 4px;
+      border: 1px solid #22bbee;
+      border-radius: 5px;
+      color: #22bbee;
+      font-size: 12px;
+    }
+  }
+  .book-comment-spe-hd{
+    font-size: 1.4rem;
+    span{
+      color: $text-msg;
+      font-family: Arial;
+    }
+  }
+
+  .comment-lists{
+    &.review-list, &.reply-list{
+      .list-item:last-child .item{
+          border-bottom: 1px solid #ddd;
+      }
+    }
+    .item{
+      position: relative;
+    }
+    .contents{
+      line-height: 1.8rem;
+      &.upfold{
+        overflow: hidden;
+        height: 6.8rem;
+      }
+    }
+    .upfold-more{
+      bottom: 0;
+    }
+  }
+  .comment-toWhich-warning{
+    margin-top: 10px;
+    p{
+      line-height: 20px;
+    }
+  }
+  .toWho-comment-spe{
+    .no-comments{
+      padding: 30px 0;
+      text-align: center;
+    }
+  }
+}

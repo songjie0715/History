@@ -1,0 +1,72 @@
+/**
+ * Created by janey on 16/6/7.
+ */
+
+
+define([
+'vue',
+'components/purchaseDialog',
+'service/bookDetailService',
+'components/loading',
+'components/overlay',
+'components/resultTipDialog',
+'components/bookSundryDialog',
+'components/openMonthDialog',
+'core'
+],function(Vue,purchaseDialog, bookDetailService,loading,overlay,resultTipDialog,bookSundryDialog,openMonthDialog,core){
+
+    return function(chapterId, autoSubscribe, bookId){
+
+        new Vue({
+            el: '#app',
+            data : {
+                isAutoSubChecked: autoSubscribe || false
+            },
+            init: function(){
+
+            },
+            attached:function(){
+
+            },
+            methods: {
+                showDialog: function(){
+                    purchaseDialog(chapterId, this.isAutoSubChecked).show();
+                    // this.isOverlayShow = true;
+                },
+                checkAutoSub: function(){
+                    this.isAutoSubChecked = !this.isAutoSubChecked;
+                },
+                purchaseCurChapter: function(num,chapterId){
+                    var self = this;
+                    loading.show();
+                    bookDetailService.purchaseChapter(num,chapterId, self.isAutoSubChecked).then(function(data){
+                        loading.hide();
+                        overlay.show();
+                        resultTipDialog.show();
+
+                        if( data.status == 1 ){
+
+                            resultTipDialog.setContent("恭喜,购买成功!", true);
+                            setTimeout(function(){
+                                location.href = core.wap_DOMAIN + data.url;
+                            },0);
+                        } else if( data.status == -1 ){
+
+                            resultTipDialog.setContent("抱歉,购买失败,请重新购买!", false);
+                            setTimeout(function(){
+                                overlay.hide();
+                            },2000);
+                        }
+                    })
+                },
+                lastChapterStaff: function(){
+                    bookSundryDialog.show();
+                },
+                openMonthDialog: function(bookId){
+                    openMonthDialog.show();
+                }
+            }
+        });
+    }
+});
+

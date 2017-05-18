@@ -1,0 +1,2 @@
+var lkModal={getCookie:function(e){return document.cookie.length>0&&(c_start=document.cookie.indexOf(e+"="),c_start!=-1)?(c_start=c_start+e.length+1,c_end=document.cookie.indexOf(";",c_start),c_end==-1&&(c_end=document.cookie.length),unescape(document.cookie.substring(c_start,c_end))):""},setCookie:function(e,t,c){var o=new Date;o.setDate(o.getDate()+c),document.cookie=e+"="+escape(t)+(null==c?"":";expires="+o.toGMTString())}};
+//# sourceMappingURL=../../maps/wxV2/utils/utils-index.js.map

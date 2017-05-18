@@ -1,0 +1,2 @@
+define(function(){var n={};return n.apiPath=window.API_PATH||"",n.wap_DOMAIN=window.wap_DOMAIN||"",n});
+//# sourceMappingURL=../maps/mobile/core.js.map

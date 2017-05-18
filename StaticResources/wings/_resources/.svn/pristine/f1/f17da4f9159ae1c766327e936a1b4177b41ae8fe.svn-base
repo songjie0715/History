@@ -1,0 +1,45 @@
+/**
+ * Created by janey on 16/6/7.
+ */
+
+
+define([
+    'vue',
+    'service/accountService',
+    'components/feedbackDialog',
+    'mixin/loadingMoreMixin',
+    'core'
+],function(Vue,feedBackService, feedbackDialog, loadingMoreMixin, core){
+
+    return new Vue({
+        el: '#app',
+        mixins: [loadingMoreMixin],
+        data : {
+            page: 1,
+            user: {}
+        },
+        created(){
+            this.$emit('scrollBottom');
+        },
+        events: {
+            scrollBottom (){
+                let self = this;
+                feedBackService.getMoreFeedback(self.page++).then((data)=>{
+                    if( self.feedbackList ){
+                        self.feedbackList = self.feedbackList.concat(data.result.messageList.items);
+                    } else {
+                        self.$set('feedbackList', data.result.messageList.items)
+                    }
+
+                    self.user = data.result.user;
+                })
+            }
+        },
+        methods: {
+            feedback(){
+                feedbackDialog.show();
+            }
+        }
+    });
+});
+

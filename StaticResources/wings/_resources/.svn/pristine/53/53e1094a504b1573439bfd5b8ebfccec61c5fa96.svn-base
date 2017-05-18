@@ -1,0 +1,26 @@
+/* 变量- 字体.线 */
+$text-imp: #ee5048;
+$text-txt: #333;
+$text-content: #666;
+$text-msg: #999;
+$text-line: #ddd;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin ellipsis($width){
+  width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-center{
+  display: block;
+  text-align: center;
+}
+
+$version: '?version=20160726001';

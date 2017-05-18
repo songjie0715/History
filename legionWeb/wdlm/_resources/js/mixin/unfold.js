@@ -1,0 +1,2 @@
+"use strict";define(function(){return{mounted:function(){$(".table-content-group").on("show.bs.collapse",function(){var n=$(this);n.closest("dl").find("dt .glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus")}).on("hide.bs.collapse",function(){var n=$(this);n.closest("dl").find("dt .glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus")})}}});
+//# sourceMappingURL=../maps/mixin/unfold.js.map

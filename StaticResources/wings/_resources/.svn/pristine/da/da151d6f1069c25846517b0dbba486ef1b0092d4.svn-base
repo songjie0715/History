@@ -1,0 +1,2 @@
+"use strict";function browserRedirect(){var i=navigator.userAgent.toLowerCase(),o=("ipad"==i.match(/ipad/i),"iphone os"==i.match(/iphone os/i)),e="midp"==i.match(/midp/i),a="rv:1.2.3.4"==i.match(/rv:1.2.3.4/i),t="ucweb"==i.match(/ucweb/i),c="android"==i.match(/android/i),r="windows ce"==i.match(/windows ce/i),d="windows mobile"==i.match(/windows mobile/i);(o||e||a||t||c||r||d)&&(location.href="http://m.laikan.com")}browserRedirect();
+//# sourceMappingURL=../../maps/pc/index/browser.js.map

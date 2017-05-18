@@ -1,0 +1,55 @@
+'use strict';
+
+/**
+ * Created by janey on 16/6/8.
+ */
+
+define(['jquery'], function ($) {
+    return {
+        getCommentList: function getCommentList(bookId, page) {
+            return $.ajax({
+                url: ' /ajax/review/' + bookId + '/more?page=' + page,
+                dataType: 'JSON'
+            });
+        },
+        review: function review(bookId, title, content) {
+            return $.ajax({
+                url: '/ajax/review/' + bookId + '/write',
+                type: 'POST',
+                data: {
+                    title: title,
+                    content: content
+                },
+                dataType: 'JSON'
+            });
+        },
+        getReplyList: function getReplyList(reviewId, page) {
+            return $.ajax({
+                url: '/ajax/review/' + reviewId + '/replys?page=' + page,
+                dataType: 'JSON'
+            });
+        },
+        reply: function reply(reviewId, content, bookId) {
+            return $.ajax({
+                url: '/ajax/review/' + reviewId + '/reply',
+                type: 'POST',
+                data: {
+                    content: content,
+                    bookId: bookId
+                },
+                dataType: 'JSON'
+            });
+        },
+        likeService: function likeService(bookId, reviewId) {
+            return $.ajax({
+                url: '/ajax/review/' + reviewId + '/like',
+                type: 'POST',
+                data: {
+                    bookId: bookId
+                },
+                dataType: 'JSON'
+            });
+        }
+    };
+});
+//# sourceMappingURL=../../maps/wx/service/commentService.js.map

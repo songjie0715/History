@@ -1,0 +1,2 @@
+define(["jquery","core"],function(a,e){return{getMoreRecordBook:function(r){return a.ajax({url:e.apiPath+"/ajax/i/reading",data:{page:r,pageSize:10}})},getMoreShelfBook:function(r){return a.ajax({url:e.apiPath+"/ajax/i/shelf",data:{sorts:0,page:r,pageSize:10}})}}});
+//# sourceMappingURL=../../maps/wx/service/bookShelfAddService.js.map

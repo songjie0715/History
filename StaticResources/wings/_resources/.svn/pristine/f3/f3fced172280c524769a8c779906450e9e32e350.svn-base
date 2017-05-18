@@ -1,0 +1,2 @@
+define(["vue"],function(a){return a.extend({data:function(){return{}},created:function(){},methods:{upfoldEachItem:function(a){var d=$(a.srcElement||a.target),e=d.closest(".item").find(".contents"),o=d,t=o.data("upfold");t?(e.addClass("upfold"),o.data("upfold",!1),o.removeClass("arrow-up").addClass("arrow-down")):(e.removeClass("upfold"),o.data("upfold",!0),o.removeClass("arrow-down").addClass("arrow-up"))}}})});
+//# sourceMappingURL=../../maps/wx/components/legionConfig.js.map

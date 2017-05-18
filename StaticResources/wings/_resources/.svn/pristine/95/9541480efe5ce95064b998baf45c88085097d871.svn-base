@@ -1,0 +1,20 @@
+/**
+ * Created by janey on 16/6/8.
+ */
+
+define(['jquery','core'],function($,core){
+    return {
+        purchaseChapter: function(chapterNum,chapterId, autoSub){
+            return $.ajax({
+                type: 'POST',
+                url: core.apiPath + '/buy/chapter/' + chapterId,
+                data: {
+                    'buyCount' : chapterNum,
+                    'autoSub' : autoSub
+                },
+                dataType: 'JSON'
+            })
+        }
+    }
+});
+//# sourceMappingURL=../../maps/wx/service/bookChapterService.js.map

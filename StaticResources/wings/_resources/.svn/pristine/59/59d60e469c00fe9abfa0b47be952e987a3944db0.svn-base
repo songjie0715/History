@@ -1,0 +1,2 @@
+require.config({paths:{vue:"../../components/vue/dist/vue.min"}}),require([],function(){if("run"in window&&"object"==typeof run&&Array.isArray(run))for(var r=0;r<run.length;r++)run[r]()});
+//# sourceMappingURL=../maps/wxV2/main.js.map

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <title>comment</title>
+    <link rel="stylesheet" href="_resources/css/mobile/comment.css">
+</head>
+<body id="app">
+    <script>
+        var run = [];
+        var API_PATH = 'http://localhost:8080/m';
+    </script>
+    <div class="wrapper">
+        <section class="book-detail">
+            <div class="bd">
+                <div class="book-comment-to-which">
+                    <a href="javascript:;" class="btn-comment-to-which fr">评论</a>
+                    <div class="pic">
+                        <img src="http://pic.motieimg.com/book/76031l1.jpg" width="60" height="60" alt="">
+                    </div>
+                    <div class="info">
+                        <h3>盗墓笔记</h3>
+                        <h4>南派三叔 &nbsp;&nbsp; 1111人评论</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="book-detail">
+            <div class="bd">
+                <div class="book-comment-spe">
+                    <div class="book-comment-spe-hd">
+                        <h4>精彩评论&nbsp;<span>(&nbsp;2&nbsp;)</span></h4>
+                    </div>
+                    <ul class="comment-lists">
+                        <li class="list-item">
+                            <div class="pic fl">
+                                <img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" alt="">
+                            </div>
+                            <div class="item">
+                                <i class="date">2011-01-11</i>
+                                <h3>王小贱</h3>
+                                <h4>失恋三十三天失恋三十三天失恋三十三天</h4>
+                                <p class="contents upfold">失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋
+                                    三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十
+                                    三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋失恋三十三天失
+                                    恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋
+                                    三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十
+                                    三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋</p>
+                                <ul class="item-handle">
+                                    <li class="like"><a href="#"><span class="icon"><i>(111)</i></span></a></li>
+                                    <li class="comment"><a href="#"><span class="icon"><i>(111)</i></span></a></li>
+                                </ul>
+                                <div class="upfold-more" v-on:click="upfoldEachItem($event)">
+                                    <span class="arrow arrow-down" data-upfold="false"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="pic fl">
+                                <img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" alt="">
+                            </div>
+                            <div class="item">
+                                <i class="date">2011-01-11</i>
+                                <h3>王小贱</h3>
+                                <h4>失恋三十三天失恋三十三天失恋三十三天</h4>
+                                <p class="contents upfold">失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋
+                                    三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十
+                                    三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋失恋三十三天失
+                                    恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋
+                                    三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十
+                                    三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋</p>
+                                <ul class="item-handle">
+                                    <li class="like"><a href="#"><span class="icon"><i>(111)</i></span></a></li>
+                                    <li class="comment"><a href="#"><span class="icon"><i>(111)</i></span></a></li>
+                                </ul>
+                                <div class="upfold-more" v-on:click="upfoldEachItem($event)">
+                                    <span class="arrow arrow-down" data-upfold="false"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="book-detail">
+            <div class="bd">
+                <div class="book-comment-spe">
+                    <div class="book-comment-spe-hd">
+                        <h4>最新评论&nbsp;<span>(&nbsp;2&nbsp;)</span></h4>
+                    </div>
+                    <ul class="comment-lists">
+                        <li class="list-item">
+                            <div class="pic fl">
+                                <img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" alt="">
+                            </div>
+                            <div class="item">
+                                <i class="date">2011-01-11</i>
+                                <h3>王小贱</h3>
+                                <h4>失恋三十三天失恋三十三天失恋三十三天</h4>
+                                <p class="contents upfold">失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋
+                                    三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十
+                                    三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋失恋三十三天失
+                                    恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋
+                                    三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十
+                                    三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋</p>
+                                <ul class="item-handle">
+                                    <li class="like"><a href="#"><span class="icon"><i>(111)</i></span></a></li>
+                                    <li class="comment"><a href="#"><span class="icon"><i>(111)</i></span></a></li>
+                                </ul>
+                                <div class="upfold-more" v-on:click="upfoldEachItem($event)">
+                                    <span class="arrow arrow-down" data-upfold="false"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="pic fl">
+                                <img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" alt="">
+                            </div>
+                            <div class="item">
+                                <i class="date">2011-01-11</i>
+                                <h3>王小贱</h3>
+                                <h4>失恋三十三天失恋三十三天失恋三十三天</h4>
+                                <p class="contents upfold">失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋
+                                    三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十
+                                    三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋失恋三十三天失
+                                    恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋
+                                    三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十
+                                    三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋</p>
+                                <ul class="item-handle">
+                                    <li class="like"><a href="#"><span class="icon"><i>(111)</i></span></a></li>
+                                    <li class="comment"><a href="#"><span class="icon"><i>(111)</i></span></a></li>
+                                </ul>
+                                <div class="upfold-more" v-on:click="upfoldEachItem($event)">
+                                    <span class="arrow arrow-down" data-upfold="false"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="comment-tip" :class="{hidden: !isTipShow}">
+                    <a href="javascript:;" class="btn-comment fr">评论</a>
+                    <span class="arrow arrow-left fl"><i></i></span>
+                    <ul class="fl">
+                        <li><img src="http://pic.motieimg.com/book/76031l1.jpg" width="100%" height="100%" alt=""></li>
+                        <li><img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" height="30" alt=""></li>
+                        <li><img src="_resources/img/mobile/placeholder-pic-sm.png" width="100%" height="100%" alt=""></li>
+                        <li><img src="_resources/img/mobile/placeholder-pic-sm.png" width="100%" height="100%" alt=""></li>
+                    </ul>
+                    <p class="fl">等12人评论</p>
+                </div>
+            </div>
+            <div class="dialog dialog-pos dialog-comment" :class="{'hidden': !isShow, 'dialog-pos': setPos}">
+                <div class="bd">
+                    <div class="comment">
+                        <div class="input-text">
+                            <input type="text" placeholder="输入评论标题">
+                        </div>
+                        <div class="textarea-text">
+                            <textarea name="" id="" class=" default" @input="setComment()"></textarea>
+                            <span class="textarea-ph default">输入评论详情</span>
+                        </div>
+                        <div class="tip-msg ovh">
+                            <p class="fr"><span>0</span>字</p>
+                            <p class="error-tip"><i></i><span>ddddd</span></p>
+                        </div>
+                        <div class="btn-action">
+                            <a href="javascript:;"><span>重置</span></a>
+                            <a href="javascript:;" class="act"><span>回复</span></a>
+                        </div>
+                        <a href="javascript:;" class="bun-closed" @click.prevent="hideDialog()">关闭</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script id="template-comment-dialog" type="text/html">
+        <div class="dialog dialog-pos dialog-comment" :class="{'hidden': !isShow, 'dialog-pos': setPos}">
+            <div class="bd">
+                <div>
+
+                    <a href="javascript:;" class="bun-closed" @click.prevent="hideDialog()">关闭</a>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script>
+        run.push(function() {
+            require(['controller/comment']);
+        })
+    </script>
+    <script>
+        var $static = 'http://localhost:8383/StaticResources/wings/';
+        var require = {
+            baseUrl: $static + "_resources/js/mobile",
+            urlArgs: "bust="+20160704001,
+            waitSeconds: 15,
+            deps: ["main"]
+        }
+    </script>
+    <script src="_resources/components/requirejs/require.js"></script>
+</body>
+</html>

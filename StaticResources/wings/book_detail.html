@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <title>Title</title>
+    <link rel="stylesheet" href="_resources/css/mobile/bookDetail.css">
+</head>
+<body id="app" :class="{'ovh': isOverlayShow}">
+    <script>
+        var run = [];
+        var API_PATH = 'http://localhost';
+    </script>
+    <div class="wrapper">
+        <section class="book-detail">
+            <div class="bd">
+                <div class="book-info">
+                    <div class="book-pic fl">
+                        <i class="free">一折</i>
+                        <img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt="">
+                    </div>
+                    <div class="info fl">
+                        <h2>匆匆那年</h2>
+                        <h3>
+                            <a href="#">哈哈哈</a><span></span><br>
+                            <a href="#"><span>现代言情&nbsp;|&nbsp;连载中</span></a><br>
+                            <span>83万字&nbsp;|&nbsp;1111人在看</span>
+                        </h3>
+                        <p class="tip">限免至&nbsp; 2016-01-11 11:00</p>
+                    </div>
+                    <a herf="javascript:;" @click.prevent="addToShelf(23504)" class="add-to-shelf" v-cloak v-show="!isAddDone"><i>+&nbsp;</i>书架</a>
+                    <a herf="javascript:;" class="add-to-shelf done" v-cloak v-show="isAddDone"><i>+&nbsp;</i>已加入</a>
+                </div>
+                <ul class="book-action">
+                    <li><a href="javascript:;">离线下载</a></li>
+                    <li @click.prevent="showDialog()"><a href="javascript:;">优惠购买</a></li>
+                    <li class="try"><a href="javascript:;">免费试读</a></li>
+                </ul>
+                <div class="book-content">
+                    <p class="upfold" :class="{upfold: !isUpfold}">（全本完，请放心阅读）“先生，求求你了”第一次见面，她以最卑微的姿势出现在了他的面前，他却以‘卖淫’罪将她送进了监狱。再次相遇，她被小偷抓包他却以‘卖淫’罪将她送进了监狱。再次相遇，她被小偷抓</p>
+                    <ul class="tag">
+                        <li class="yel"><a href="#">都市</a></li>
+                        <li class="blue"><a href="#">玄幻</a></li>
+                        <li class="pink"><a href="#">仙侠</a></li>
+                        <li class="yel"><a href="#">都市</a></li>
+                        <li class="blue"><a href="#">玄幻</a></li>
+                        <li class="pink"><a href="#">仙侠</a></li>
+                        <li class="yel"><a href="#">都市</a></li>
+                        <li class="blue"><a href="#">玄幻</a></li>
+                        <li class="pink"><a href="#">仙侠</a></li>
+                        <li class="yel"><a href="#">都市</a></li>
+                        <li class="blue"><a href="#">玄幻</a></li>
+                        <li class="pink"><a href="#">仙侠</a></li>
+                    </ul>
+                    <div class="upfold-more">
+                        <span class="arrow arrow-down" :class="{'arrow-down': !isUpfold, 'arrow-up': isUpfold}" @click="upfold($event)"></span>
+                    </div>
+                </div>
+                <div class="book-lists">
+                    <a href="#">
+                        目录
+                        <span>连载至111张</span>
+                        <span class="time fr">更新于2016-01-11 11:11</span>
+                        <span class="arrow-right"><i></i></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="book-detail">
+            <div class="bd">
+                <div class="book-handle">
+                    <ul class="tab">
+                        <li :class="{'active': actionType == 'comment'}" @click="changeTab('comment')">评论</li>
+                        <li class="gap">&nbsp;</li>
+                        <li :class="{'active': actionType == 'reward'}" @click="changeTab('reward')">打赏</li>
+                    </ul>
+                    <div class="book-container">
+                        <div class="book-comment book-msg" v-show="actionType == 'comment'">
+                            <ul class="comment-lists">
+                                <li class="list-item">
+                                    <div class="pic fl">
+                                        <img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" alt="">
+                                    </div>
+                                    <div class="item">
+                                        <i class="date">2011-01-11</i>
+                                        <h3>王小贱</h3>
+                                        <h4>失恋三十三天失恋三十三天失恋三十三天</h4>
+                                        <p>失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天</p>
+                                        <ul class="item-handle">
+                                            <li class="like"><a href="#"><span class="icon"><i>(111)</i></span></a></li>
+                                            <li class="comment"><a href="#"><span class="icon"><i>(111)</i></span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="pic fl">
+                                        <img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" alt="">
+                                    </div>
+                                    <div class="item">
+                                        <i class="date">2011-01-11</i>
+                                        <h3>王小贱</h3>
+                                        <h4>失恋三十三天失恋三十三天失恋三十三天</h4>
+                                        <p>失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天</p>
+                                        <ul class="item-handle">
+                                            <li class="like"><a href="#"><span class="icon"><i>(111)</i></span></a></li>
+                                            <li class="comment"><a href="#"><span class="icon"><i>(111)</i></span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="more"><a href="#">更多评论</a></p>
+                        </div>
+                        <div class="book-enjoy book-msg" v-show="actionType == 'reward'">
+                            <ul class="price-list">
+                                <li @click="showRewardDialog(100)"><span><b>100</b><i>k币</i></span></li>
+                                <li @click="showRewardDialog(588)"><span><b>588</b><i>k币</i></span></li>
+                                <li @click="showRewardDialog(1888)"><span><b>1888</b><i>k币</i></span></li>
+                                <li @click="showRewardDialog(5888)"><span><b>5888</b><i>k币</i></span></li>
+                                <li @click="showRewardDialog(10000)"><span><b>10000</b><i>k币</i></span></li>
+                            </ul>
+                            <ul class="reward-list">
+                                <li>
+                                    <i class="date fr">2016-01-11</i>
+                                    <div class="reward-info">
+                                        <div class="pic fl">
+                                            <img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" alt="">
+                                        </div>
+                                        <div class="fool fl">多动兔子</div>
+                                        <div class="action fl">赏</div>
+                                        <span class="voucher"><i>100</i>K币</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="date fr">2016-01-11</i>
+                                    <div class="reward-info">
+                                        <div class="pic fl">
+                                            <img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" alt="">
+                                        </div>
+                                        <div class="fool fl">多动兔子</div>
+                                        <div class="action fl">赏</div>
+                                        <span class="voucher"><i>100</i>K币</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="date fr">2016-01-11</i>
+                                    <div class="reward-info">
+                                        <div class="pic fl">
+                                            <img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" alt="">
+                                        </div>
+                                        <div class="fool fl">多动兔子</div>
+                                        <div class="action fl">赏</div>
+                                        <span class="voucher"><i>100</i>K币</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="more"><a href="#">打赏榜</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="book-detail">
+            <div class="bd">
+                <div id="testAudio"></div>
+                <div class="book-module">
+                    <div class="tit">作者还写过</div>
+                    <ul class="layout-l-r book-items">
+                        <li>
+                            <a href="#">
+                                <dl>
+                                    <dt><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></dt>
+                                    <dd>
+                                        <h3>鬼吹灯</h3>
+                                        <h4>什么鬼 | 鬼故事</h4>
+                                        <p>看相的说我是百鬼送子，断我要和死人打一辈子交道。所以我选择当一名法医，游走在</p>
+                                    </dd>
+                                </dl>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="more"><a href="#">更多作品</a></p>
+                </div>
+            </div>
+        </section>
+        <section class="book-detail">
+            <div class="bd">
+                <a href="book_shelf.html">书架</a>
+                <div class="book-module">
+                    <div class="tit">您可能还喜欢</div>
+                    <a href="javascript:;" class="change-items" @click="changeBookItems(23504)">换一换</a>
+                    <ul class="layout-t-b book-items">
+                        <li>
+                            <a href="#">
+                                <dl>
+                                    <dt><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></dt>
+                                    <dd>
+                                        <h3>鬼吹灯</h3>
+                                    </dd>
+                                </dl>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <dl>
+                                    <dt><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></dt>
+                                    <dd>
+                                        <h3>鬼吹灯</h3>
+                                    </dd>
+                                </dl>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <dl>
+                                    <dt><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></dt>
+                                    <dd>
+                                        <h3>鬼吹灯</h3>
+                                    </dd>
+                                </dl>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dialog dialog-pos dialog-buy" style="display: none;">
+                <div class="bd">
+                    <div :class="{hidden: isPurchase}">
+                        <h3>多章购买</h3>
+                        <ul class="buy-chapters">
+                            <li v-for="(index, item) in btnList">
+                                <div class="buy-num" @click="select(index)" :class="{active: isCheck(index)}">
+                                    <p>{{item.text}}</p>
+                                    <i>{{item.discount}}</i>
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="action" @click="purchase(selectedChapters)"><button type="button" class="button button-buy">确认购买</button></p>
+                        <p class="tip">批量购买的是付费章节，如期间有免费章节或已购买章节，不会重复购买</p>
+                        <a href="#" class="bun-closed" @click.prevent="hideDialog()">关闭</a>
+                    </div>
+                    <div class="result-tip">
+                        <div class="bd">
+                            <span class="icon-action icon-success"></span>
+                            <span class="content">购买成功</span>
+                        </div>
+                    </div>
+                    <div class="result-tip">
+                        <div class="bd">
+                            <span class="icon-action icon-error"></span>
+                            <span class="content">购买失败</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog dialog-pos dialog-reward" style="display: none;">
+                <div class="bd">
+                    <div :class="{hidden: isPurchase}">
+                        <h3>我要打赏</h3>
+                        <div class="dialog-reward-surplus">账户余额: <span class="">100</span>K币 <a href="#" class="fr">去充值 &gt;</a></div>
+                        <div class="dialog-reward-num">
+                            <b>10000</b><i>K币</i>
+                        </div>
+                        <p class="action" @click="purchase(selectedChapters)"><button type="button" class="button button-buy">确认打赏</button></p>
+                        <a href="#" class="bun-closed" @click.prevent="hideDialog()">关闭</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script id="template-buy-dialog" type="text/html">
+        <div class="dialog dialog-pos dialog-buy" :class="{'hidden': !isShow, 'dialog-pos': setPos}">
+            <div class="bd">
+                <div>
+                    <h3>多章购买</h3>
+                    <ul class="buy-chapters">
+                        <li v-for="(index, item) in btnList">
+                            <div class="buy-num" @click="select(index, item, $event)" :class="{active: isCheck(index)}">
+                                <p>{{item.text}}</p>
+                                <i>{{item.discount}}</i>
+                            </div>
+
+                        </li>
+                    </ul>
+                    <p class="loading-price" :class="{hidden: isGetPrice}"><span></span></p>
+                    <p class="discountMsg">需要支付: <span class="costPrice"><i v-text="costPrice"></i>&nbsp;K币</span><span class="discountPrice"><i v-text="discountPrice"></i>&nbsp;k币</span></p>
+                    <p class="balance">账户余额: <span><i v-text="balancePrice"></i>&nbsp;K币</span></p>
+                    <a href="/accounts/pay" class="go-reward text-center">去充值 &gt;</a>
+                    <p class="action" @click="purchase(selectedChapters)"><button type="button" class="button button-buy" :disabled="buyVoid" :class="{void: buyVoid}">确认购买</button></p>
+                    <p class="tip">批量购买的是付费章节，如期间有免费章节或已购买章节，不会重复购买</p>
+                    <a href="javascript:;" class="bun-closed" @click.prevent="hideDialog()">关闭</a>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="template-reward-dialog" type="text/html">
+        <div class="dialog dialog-pos dialog-reward" v-bind:class="{'hidden': !isShow, 'dialog-pos': setPos}">
+            <div class="bd">
+                <div :class="{hidden: isReward}">
+                    <h3>我要打赏</h3>
+                    <div class="dialog-reward-surplus">账户余额: <span class="" v-text="balancePrice"></span>K币 <a href="/accounts/pay" class="recharge fr">去充值 &gt;</a></div>
+                    <div class="dialog-reward-num">
+                        <b v-text="quota"></b><i>K币</i>
+                    </div>
+                    <p class="action"><button @click="reward(selectedRewards)" :disabled="rewardVoid" type="button" class="button button-buy" :class="{'reward-void': rewardVoid}">确认打赏</button></p>
+                    <a href="#" class="bun-closed" @click.prevent="hideDialog()">关闭</a>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="template-result-tip-dialog" type="text/html">
+        <div class="dialog dialog-pos hidden" :class="{'hidden': !isShow, 'dialog-pos': setPos}">
+            <div class="result-tip">
+                <div class="bd">
+                    <span class="icon-action" :class="{'icon-success': isSuccess, 'icon-error': !isSuccess}"></span>
+                    <span class="content" v-text="content"></span>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+    <script>
+        run.push(function() {
+            require(['controller/bookDetail','https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.2/howler.js'], function(bookDetail){
+                bookDetail(68382);
+
+                var sound = new Howl({
+                    src: ['./audio.mp3']
+                });
+                $('#testAudio').append(sound);
+                sound.play();
+            });
+        })
+    </script>
+    <script>
+        var $static = 'http://localhost:8383/StaticResources/wings/';
+        var require = {
+            baseUrl: $static + "_resources/js/mobile",
+            urlArgs: "bust="+20160712001,
+            waitSeconds: 15,
+            deps: ["main"]
+        }
+    </script>
+    <script src="_resources/components/requirejs/require.js"></script>
+
+    
+
+    <!--<script>-->
+        <!--var bookId = 5096;-->
+        <!--var chapterId = 0;-->
+        <!--var hasComment = !0;-->
+        <!--var hasReward = !0;-->
+        <!--var isLogIn = false;-->
+    <!--</script>-->
+    <!--<script src="/StaticResources/wings/dist/bookDetail.js"></script>-->
+
+</body>
+</html>

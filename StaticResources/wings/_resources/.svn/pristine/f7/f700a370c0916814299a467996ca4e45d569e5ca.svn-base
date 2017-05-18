@@ -1,0 +1,16 @@
+/**
+ * Created by janey on 16/6/8.
+ */
+
+define(['core'], function(core){
+    return {
+        getTickets: function(page){
+            return $.ajax({
+                url: core.website_DOMAIN + '/ajax/i/ticket',
+                data: {
+                    page: page
+                }
+            })
+        }
+    }
+});

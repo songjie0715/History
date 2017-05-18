@@ -1,0 +1,12 @@
+/**
+ * Created by janey on 15/7/29.
+ */
+
+define(['common','jquery'],function(common,$){
+
+    if ('run' in window && typeof run == 'object' && Array.isArray(run)) {
+        for(var i = 0; i < run.length; i++){
+            run[i]();
+        }
+    }
+});

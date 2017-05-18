@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <title>comment</title>
+    <link rel="stylesheet" href="_resources/css/mobile/comment.css">
+</head>
+<body>
+    <script>
+        var run = [];
+        var API_PATH = 'http://localhost:8080/m';
+    </script>
+    <div class="wrapper">
+        <section class="book-detail">
+            <div class="bd">
+                <div class="book-comment-to-which">
+                    <a href="javascript:;" class="btn-comment fr">回复</a>
+                    <div class="pic">
+                        <!--占位图片示例-->
+                        <img src="_resources/img/mobile/placeholder-pic-lg.png" width="60" height="60" alt="">
+                        <!--<img src="http://pic.motieimg.com/book/76031l1.jpg" width="60" height="60" alt="">-->
+                    </div>
+                    <div class="info">
+                        <h3>盗墓笔记</h3>
+                        <h4>第二卷黄泉.怨猜凶楼正式启动！！</h4>
+                    </div>
+                </div>
+                <div class="comment-toWhich-warning">
+                    <p>第二卷猜凶楼活动今天正式启动，因为考虑到第二卷的复杂，中奖人数调整到20人。</p>
+                    <p>第二卷猜凶楼活动今天正式启动，因为考虑到第二卷的复杂，中奖人数调整到20人
+                        。第二卷猜凶楼活动今天正式启动，因为考虑到第二卷的复杂，中奖人数调整到20人。</p>
+                    <p>第二卷猜凶楼活动今天正式启动，因为考虑到第二卷的复杂，中奖人数调整到20人。</p>
+                </div>
+            </div>
+        </section>
+        <section class="book-detail">
+            <div class="bd">
+                <div class="toWho-comment-spe">
+                    <ul class="comment-lists" style="margin-top: 0;">
+                        <li class="list-item">
+                            <div class="pic fl">
+                                <img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" alt="">
+                            </div>
+                            <div class="item">
+                                <i class="date">2011-01-11</i>
+                                <h3>王小贱</h3>
+                                <p>失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋
+                                    三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十
+                                    三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋</p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="pic fl">
+                                <img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" alt="">
+                            </div>
+                            <div class="item">
+                                <i class="date">2011-01-11</i>
+                                <h3>王小贱</h3>
+                                <p>失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋
+                                    三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十
+                                    三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋三十三天失恋</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="comment-tip">
+                    <a href="javascript:;" class="btn-comment fr">评论</a>
+                    <span class="arrow arrow-left fl"><i></i></span>
+                    <ul class="fl">
+                        <li><img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" height="30" alt=""></li>
+                        <li><img src="http://pic.motieimg.com/book/76031l1.jpg" width="30" height="30" alt=""></li>
+                        <li><img src="_resources/img/mobile/placeholder-pic-sm.png" width="30" height="30" alt=""></li>
+                        <li><img src="_resources/img/mobile/placeholder-pic-sm.png" width="30" height="30" alt=""></li>
+                    </ul>
+                    <p class="fl">等12人评论</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="_resources/components/jquery/dist/jquery.js"></script>
+    <script src="_resources/components/vue/dist/vue.js"></script>
+    <script src="_resources/js/mobile/utils/legionConfig.js"></script>
+
+    <script>
+        run.push(function() {
+            require(['controller/commentDetail']);
+        })
+    </script>
+    <script>
+        var $static = 'http://localhost:8383/StaticResources/wings/';
+        var require = {
+            baseUrl: $static + "_resources/js/mobile",
+            urlArgs: "bust="+201606081027,
+            waitSeconds: 15,
+            deps: ["main"]
+        }
+
+    </script>
+    <script src="_resources/components/requirejs/require.js"></script>
+</body>
+</html>

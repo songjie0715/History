@@ -1,0 +1,2 @@
+"use strict";define(["jquery","core"],function(a,t){return{delBook:function(e){return a.ajax({type:"POST",data:{favor:-1},url:t.apiPath+"/ajax/book/"+e+"/favorite"})},getMoreBook:function(e){return a.ajax({url:t.apiPath+"/ajax/i/shelf",data:{sorts:0,page:e,pageSize:15}})},getBuyLogs:function(e){return a.ajax({url:t.apiPath+"/ajax/i/buylogs",data:{page:e}})},getPayLogs:function(e){return a.ajax({url:t.apiPath+"/ajax/i/paylogs",data:{page:e}})}}});
+//# sourceMappingURL=../../maps/mobile/service/bookShelfService.js.map

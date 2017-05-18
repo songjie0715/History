@@ -1,0 +1,92 @@
+.packageHead a.logo, .packageHead a.goIndex, .pageMod .packLeft, .pageMod .packRight h3, .packageType dl dt {
+  background: url(../../img/wx/laikan/icon/packageBg.png) no-repeat;
+  background-position: 0 0;
+  background-size: 350px 200px; }
+
+.packageHead {
+  position: relative;
+  height: 44px;
+  background: #fff; }
+  .packageHead a {
+    display: block; }
+    .packageHead a.logo {
+      position: absolute;
+      top: 9px;
+      left: 15px;
+      width: 95px;
+      height: 27px;
+      background-position: -163px -84px; }
+    .packageHead a.goIndex {
+      position: absolute;
+      top: 13px;
+      right: 15px;
+      width: 23px;
+      height: 20px;
+      background-position: -310px -84px; }
+
+.pageMod {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  padding: 30px 15px 0;
+  background: #11c1ae;
+  overflow: hidden; }
+  .pageMod .packLeft {
+    margin-right: 15px;
+    width: 121px;
+    height: 195px; }
+  .pageMod .packRight {
+    -webkit-box-flex: 1.0;
+    -moz-box-flex: 1.0;
+    box-flex: 1.0; }
+    .pageMod .packRight h3 {
+      margin: 15px 0;
+      width: 157px;
+      height: 58px;
+      background-position: -163px 0; }
+    .pageMod .packRight a.downBtn {
+      display: block;
+      margin: 0 0 15px 25px;
+      width: 120px;
+      text-align: center;
+      height: 36px;
+      line-height: 36px;
+      font-size: 1.6rem;
+      color: #11c1ae;
+      background: #fff;
+      border-radius: 4px; }
+
+.packageType {
+  margin: 5px 15px 20px;
+  overflow: hidden; }
+  .packageType dl {
+    padding: 15px 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    border-bottom: solid 1px #e5e5e5; }
+    .packageType dl:last-child {
+      border-bottom: none; }
+    .packageType dl dt {
+      margin-right: 10px;
+      width: 52px;
+      height: 52px;
+      background-position: -163px -124px; }
+      .packageType dl dt.male {
+        background-position: -224px -124px; }
+      .packageType dl dt.classic {
+        background-position: -288px -124px; }
+    .packageType dl dd {
+      -webkit-box-flex: 1.0;
+      -moz-box-flex: 1.0;
+      box-flex: 1.0;
+      font-size: 1.2rem;
+      color: #999; }
+      .packageType dl dd span {
+        display: block;
+        margin: 5px 0;
+        color: #333;
+        font-size: 1.6rem;
+        line-height: 1.6rem; }
+
+/*# sourceMappingURL=../maps/wxV2/package.css.map */

@@ -1,0 +1,2 @@
+define(["components/dialog"],function(e){return new e({template:"#template-book-package-dialog",events:{hide:function(){this.callback()}},methods:{showDialog:function(e){this.show(),this.$set("callback",e)},hideDialog:function(){this.hide()}}})});
+//# sourceMappingURL=../../maps/wxV2/components/packageDialog.js.map

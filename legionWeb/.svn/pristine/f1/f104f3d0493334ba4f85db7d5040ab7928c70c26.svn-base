@@ -1,0 +1,33 @@
+/**
+ * Created by janey on 2017/4/27.
+ */
+define([
+    'vue',
+    'mixin/sidebar'
+], function (Vue,sidebar) {
+    return function(paginate){
+        return new Vue({
+            el: '#app',
+            mixins:[sidebar],
+            data: {
+
+            },
+            mounted: function () {
+                $('.paging').pagination({
+                    items: paginate.items,
+                    itemsOnPage: 10,
+                    cssStyle: 'light-theme',
+                    currentPage: paginate.currentPage,
+                    prevText: '上一页',
+                    nextText: '下一页',
+                    onPageClick: function (pageNumber) {
+                        paginate.fanye(pageNumber);
+                    }
+                });
+            },
+            methods: {
+
+            }
+        })
+    }
+});

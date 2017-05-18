@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <title>书架</title>
+    <link rel="stylesheet" href="_resources/css/mobile/bookDetail.css">
+</head>
+<body id="app">
+    <script>
+        var run = [];
+        var API_PATH = 'http://localhost:8080/m';
+    </script>
+    <div class="wrapper">
+        <section class="book-detail book-shelf book-shelf-add">
+            <div class="bd">
+                <!--<div class="shelf-tip">-->
+                    <!--<div class="bd">-->
+                        <!--<div class="mark fl">最后阅读</div>-->
+                        <!--<p class="fl">《我不想活在你的梦中》第100章</p>-->
+                        <!--<a href="#" class="records">阅读记录</a>-->
+                        <!--<a href="#" class="btn" v-cloak @click.prevent="manage()" v-text="!isManage ? '管理' : '完成'"></a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="shelf-tab">
+                    <ul>
+                        <li class="active" :class="{active: actionType == 'readRecord'}" @click="changeTab('readRecord')">阅读记录</li>
+                        <li class="gap"></li>
+                        <li :class="{active: actionType == 'followItems'}" @click="changeTab('followItems')">我的追书</li>
+                    </ul>
+                </div>
+                <div class="book-module">
+                    <div class="shelf-content read-records-content" v-show="actionType == 'readRecord'">
+                        <ul class="layout-l-r book-items" :class="{hidden: hasReadRecordItem}">
+                            <li :class="{hidden: 321 == delCurBookId}">
+                                <dl>
+                                    <dt><a href="#"><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></a></dt>
+                                    <dd>
+                                        <h3><a href="#">鬼吹灯</a></h3>
+                                        <h4><a href="#">什么鬼</a> | <a href="#">鬼故事</a></h4>
+                                        <p><a href="#">已经更新至 <br>第872章 迟来却再也得不到的爱</a></p>
+                                    </dd>
+                                </dl>
+                                <a href="#" class="goon">继续阅读 &gt;</a>
+                            </li>
+                        </ul>
+
+                        <ul class="layout-l-r book-items" v-cloak :class="{hidden: !isRecordAjaxLoaded}" v-for="item in ajaxRecordBookItems">
+
+                            <li :class="{hidden: {{item.blp.book.id }} == delCurBookId}">
+                                <dl>
+                                    <dt><a href="{{ item.blp.book.murl }}"><img src="{{ item.blp.book.imageUrlSmall }}" width="80" alt=""></a></dt>
+                                    <dd>
+                                        <h3><a href="{{ item.blp.book.murl }}">{{ item.blp.book.name }}</a></h3>
+                                        <h4><a href="#">{{ item.blp.book.userVO.name }}</a> | <a href="#">{{ item.blp.book.enumBookSortType.desc }}</a></h4>
+                                        <p><a href="{{ item.blp.book.lastChapter.murl }}">>已经更新至 <br>{{ item.blp.book.lastChapter.name }}</a></p>
+                                    </dd>
+                                </dl>
+                                <!--<a href="#" class="del btn hidden" :class="{hidden: !isManage}" @click="showDialog(${follow.blp.book.id })">删除</a>-->
+                                 <a href="${follow.blp.chapter.murl}?position={{ item.blp.words }}" class="goon">继续阅读 &gt;</a>
+                            </li>
+                        </ul>
+                        <div class="have-no-books" v-cloak :class="{hidden: !hasReadRecordItem}">
+                            <a href="#">
+                            <span class="hor"><span class="ver"></span></span>
+                            </a>
+                            <p>没有了,多找几本放过来</p>
+                        </div>
+                    </div>
+                    <div class="shelf-content read-records-content" v-cloak v-show="actionType == 'followItems'">
+                        <ul class="layout-l-r book-items" :class="{hidden: hasBookShelfItem}">
+                            <li :class="{hidden: 321 == delCurBookId}">
+                                <dl>
+                                    <dt><a href="#"><img src="http://pic.motieimg.com/book/76031l1.jpg" width="80" alt=""></a></dt>
+                                    <dd>
+                                        <h3><a href="#">追书鬼吹灯</a></h3>
+                                        <h4><a href="#">什么鬼</a> | <a href="#">鬼故事</a></h4>
+                                        <p><a href="#">已经更新至 <br>第872章 迟来却再也得不到的爱</a></p>
+                                    </dd>
+                                </dl>
+                                <a href="#" class="goon">继续阅读 &gt;</a>
+                            </li>
+
+                        </ul>
+
+                        <ul class="layout-l-r book-items" :class="{hidden: !isShelfAjaxLoaded}" v-for="item in ajaxShelfBookItems">
+
+                            <li :class="{hidden: {{item.blp.book.id }} == delCurBookId}">
+                                <dl>
+                                    <dt><a href="{{ item.blp.book.murl }}"><img src="{{ item.blp.book.imageUrlSmall }}" width="80" alt=""></a></dt>
+                                    <dd>
+                                        <h3><a href="{{ item.blp.book.murl }}">{{ item.blp.book.name }}</a></h3>
+                                        <h4><a href="#">{{ item.blp.book.userVO.name }}</a> | <a href="#">{{ item.blp.book.enumBookSortType.desc }}</a></h4>
+                                        <p><a href="{{ item.blp.book.lastChapter.murl }}">>已经更新至 <br>{{ item.blp.book.lastChapter.name }}</a></p>
+                                    </dd>
+                                </dl>
+                                <!--<a href="#" class="del btn hidden" :class="{hidden: !isManage}" @click="showDialog(${follow.blp.book.id })">删除</a>-->
+                                 <a href="${follow.blp.chapter.murl}?position={{ item.blp.words }}" class="goon">继续阅读 &gt;</a>
+                            </li>
+                        </ul>
+                        <div class="have-no-books" v-cloak :class="{hidden: !hasBookShelfItem}">
+                            <a href="#">
+                            <span class="hor"><span class="ver"></span></span>
+                            </a>
+                            <p>没有了,多找几本放过来</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script id="template-del-book-dialog" type="text/html">
+        <div class="dialog dialog-pos dialog-del-book" v-bind:class="{'hidden': !isShow, 'dialog-pos': setPos}">
+            <div class="bd">
+                <div :class="{hidden: isDel}">
+                    <h3>确定删除所选书籍</h3>
+                    <div class="btn-action">
+                        <p><a href="javascript:;" class="btn btn-confirm" @click.prevent="comfirmDel()"><span>确定</span></a></p>
+                        <p><a href="javascript:;" class="btn btn-cancel" @click.prevent="hideDialog()"><span>取消</span></a></p>
+                    </div>
+                    <a href="#" class="bun-closed" @click.prevent="hideDialog()">关闭</a>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+    <script>
+        run.push(function() {
+            require(['controller/bookShelfAdd'],function(bookShelfAddVue){
+                bookShelfAddVue(!3,!3);
+            });
+        })
+    </script>
+    <script>
+        var $static = 'http://localhost:8383/StaticResources/wings/';
+        var require = {
+            baseUrl: $static + "_resources/js/mobile",
+            urlArgs: "bust="+201606081027,
+            waitSeconds: 15,
+            deps: ["main"]
+        }
+
+    </script>
+    <script src="_resources/components/requirejs/require.js"></script>
+</body>
+</html>

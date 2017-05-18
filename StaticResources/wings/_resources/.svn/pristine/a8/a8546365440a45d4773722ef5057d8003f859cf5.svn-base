@@ -1,0 +1,26 @@
+'use strict';
+
+/**
+ * Created by janey on 16/6/19.
+ */
+
+define(['vue', 'jquery'], function (Vue, $) {
+    return new Vue({
+        template: '<div class="loading hidden" :class="{hidden: !isShow}"></div>',
+        data: {
+            isShow: false
+        },
+        created: function created() {
+            this.$mount().$appendTo('body');
+        },
+        methods: {
+            show: function show() {
+                this.isShow = true;
+            },
+            hide: function hide() {
+                this.isShow = false;
+            }
+        }
+    });
+});
+//# sourceMappingURL=../../maps/mobile/components/loading.js.map

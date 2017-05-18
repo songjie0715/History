@@ -1,0 +1,2 @@
+define(["components/dialog"],function(o){return new o({template:"#template-book-sundry-dialog",methods:{hideDialog:function(o){this.hide()},stopStuff:function(o){o.stopPropagation()}}})});
+//# sourceMappingURL=../../maps/wxV2/components/bookSundryDialog.js.map

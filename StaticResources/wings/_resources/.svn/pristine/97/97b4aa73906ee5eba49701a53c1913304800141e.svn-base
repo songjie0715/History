@@ -1,0 +1,256 @@
+body{
+	position: relative;
+	padding-bottom:47px;
+	background: #f8f7f2;
+}
+.payBtn{
+	position: fixed;
+	display:-webkit-box;
+	display:-moz-box;
+	display:box;
+	left:0;
+	bottom:0;
+	z-index:999;
+	width:100%;
+	height:48px;
+	line-height:48px;
+	background: #fbfbfb;
+	border-top:solid 1px #e5e5e5;
+	.text{
+		padding-right:15px;
+		-webkit-box-flex:1;
+		-moz-box-flex:1;
+		box-flex:1;
+		font-size:1.6rem;
+		text-align:right;
+		b{
+			font-weight:normal;
+			color:#ee5048;
+		}
+		span{
+			font-size:1.4rem;
+			color:#999;
+			i{
+				font-style: normal;
+			}
+		}
+	}
+	.btn{
+		width:140px;
+		font-size:1.6rem;
+		color:#fff;
+		text-align: center;
+		background:#10c1ae;
+	}
+}
+.payTop{
+	display:-webkit-box;
+	display:-moz-box;
+	display:box;
+	padding:15px 18px;
+	background: #fff;
+	border-bottom:solid 1px #e5e5e5;
+	overflow: hidden;
+	dt{
+		margin-right:15px;
+		img{
+			width:50px;
+			border-radius: 50%;
+		}
+	}
+	dd{
+		-webkit-box-flex:1;
+		-moz-box-flex:1;
+		box-flex:1;
+		h1{
+			margin:5px 0 3px;
+			color:#f63;
+			font-size:1.8rem;
+			font-weight:normal;
+		}
+		p{
+			font-size:1.2rem;
+			white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+		}
+	}
+}
+.payUl{
+	padding:15px 18px 5px;
+	background: #fff;
+	overflow:hidden;
+	li{
+		margin-bottom:10px;
+		width:48%;
+		float:left;
+		position: relative;
+		height:70px;
+		border:solid 1px #dee0d8;
+		.onStatus{
+			position: absolute;
+			right:0;
+			bottom:0;
+			display:none;
+			img{
+				width:24px;
+				display:block;
+			}
+		}
+		&:nth-child(2n){
+			float:right;
+		}
+		.hotMod{
+			position: absolute;
+			top:0;
+			left:0;
+			width:30px;
+			height:18px;
+			line-height:16px;
+			color:#fff;
+			font-size:1.2rem;
+			text-align:center;
+			background: #ea3223;
+		}
+		.monthType{
+			display:-webkit-box;
+			display:-moz-box;
+			display:box;
+			.typeText{
+				-webkit-box-flex:1;
+				-moz-box-flex:1;
+				box-flex:1;
+				text-align:center;
+				h2{
+					padding:15px 0 0px;
+					font-size:2rem;
+					color:#ea3223;
+					font-weight:normal;
+				}
+				p{
+					font-size:1rem;
+					color:#999;
+					line-height:1rem;
+				}
+			}
+			.typeNum{
+				padding-top:15px;
+				width:30px;
+				height:68px;
+				font-size:1.3rem;
+				text-align:center;
+				background:#feffcc;
+				b{
+					font-size:1.8rem;
+					font-weight:normal;
+					// display:inline-block;
+				}
+			}
+		}
+		&.on{
+			border:solid 2px #ea3223;
+			.onStatus{
+				display:block;
+			}
+			.typeNum{
+				height:66px;
+			}
+		}
+	}
+}
+.payType{
+	margin-top:10px;
+	background: #fff;
+	overflow: hidden;
+	h1{
+		padding:20px 18px 0px;
+		font-size:1.8rem;
+	}
+	ul{
+		li{
+			position: relative;
+			padding:0 18px;
+			height:60px;
+			line-height:60px;
+			font-size:1.6rem;
+			border-bottom:solid 1px #e5e5e5;
+			img{
+				margin-right:10px;
+				width:29px;
+				vertical-align:middle;
+			}
+			span{
+				margin-left:10px;
+				position: absolute;
+				top:25px;
+				right:0px;
+				display:block;
+				width:40px;
+				height:30px;
+				background:url(/StaticResources/public_html/wings/_resources/img/app/monthPay/payType.png) no-repeat;
+				background-size: 23px 50px;
+				background-position: 0 0;
+			}
+			&.on{
+				span{
+					background-position: 0 -34px;
+				}
+			}
+		}
+	}
+}
+#payForm{display:block;}
+
+/* 更新提示 */
+html,body{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.wrapper{
+	position: relative;
+	min-height: 100%;
+}
+.updateNotice{
+	width: 100%;
+	position: absolute;
+	height: 100%;
+	.banner{
+		display: block;
+		width: 100%;
+		height: 22%;
+		background:url(/StaticResources/public_html/wings/_resources/img/app/monthPay/bg-update-notice.jpg) no-repeat;
+		-webkit-background-size: 100%;
+		background-size: 100%;
+	}
+	.content{
+		padding: 9px 18px 140px;
+		position: absolute;
+		height: 78%;
+		.text{
+			margin-bottom: 6px;
+			background-color: #eafffd;
+			padding: 15px 18px;
+			height: 90%;
+			line-height: 28px;
+			font-size: 18px;
+		}
+		.btn{
+			display: block;
+			margin-bottom: 12px;
+			width: 100%;
+			font-size: 18px;
+			height: 40px;
+			line-height: 40px;
+			background-color: #10c1ae;
+			text-align: center;
+			color: #fff;
+		}
+		.tip{
+			font-size: 14px;
+			color: #999;
+			span{
+				color: #10c1ae;
+			}
+		}
+	}
+}
+

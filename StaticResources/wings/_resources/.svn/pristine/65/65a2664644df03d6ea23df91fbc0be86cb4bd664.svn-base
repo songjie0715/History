@@ -1,0 +1,243 @@
+/**
+ * @author languid
+ */
+
+/*
+ * Bookmark
+ */
+;Motie.bookMark=function(ele){
+	var _self=this,m=Motie.bookMark,txt=m.simulate,dialog=m.dialog,c,$ele,pos,strlen=0,tu=Motie.TextareaUtils,top,left,x=0,y=0,inert=m.area, check;
+	if(dialog==null){
+		//create static dialog
+		dialog=m.createDialog();
+	};
+	if(txt==null){
+		//one page on simulate
+		txt=m.createSimulate();
+	};
+	this.ele=ele;
+	this.$ele=$ele=$(ele);
+	this.id=$ele.attr('id');
+	this.bookid=$ele.attr('bookid');
+	this.pos=(pos=$ele.find('em')).length ? [pos.position().left,pos.position().top] : 0;
+	this.strlen=(strlen=$ele.attr('len')) != undefined ? strlen : '';
+	this.hasMark=false;
+	this.textlen = $ele.text().length;
+	if(this.pos.length==2){
+		m.id = $ele.find('em').attr('id')
+		//one page one thumbtack, but one book exists only one
+		this.createThumbtack('scroll');
+	};
+	
+	//check text
+	this.check = check =function(e,b){
+		var ext = {
+			title: '\u8981\u5728\u8FD9\u91CC\u6DFB\u52A0\u4E66\u7B7E\u5417\uFF1F',
+			whoOpen: 'me',
+			top: e.pageY-txt.offset().top
+		};
+		if(b){
+			$.extend(ext,b)
+		}
+		
+		$('#ui-dialog-title-bookmMarkDialog').text(ext.title)
+		
+		if(ext.whoOpen == 'me'){
+			var snap = value = txt.val().replace(/\r/g,""), len, selectStart, before, after;
+			//simulate area
+			selectionStart=tu.selectionStart(txt[0]);
+			selectStart=value.slice(0,selectionStart);
+			len=selectStart.length;
+			//get near the mouse 20 string 
+			before=selectStart.slice(len-20,len);
+			after=value.slice(selectionStart,selectionStart+20);
+			dialog.html('<div class="bg"><p class="area">..'+before+after+'..</p></div>');
+			
+		}else{
+			len =_self.textlen;
+			dialog.html('<div class="bg"><p class="area">..'+ext.html+'..</p></div>');
+		}
+		//set data
+		m.dialog.data({ y : ext.top, len : len, primary : _self.id , bookId : _self.bookid });
+		
+		m.dialog.dialog('close').dialog('open');
+		//alreadyAttention ?
+		var next = m.dialog.next();
+		
+		if(!alreadyAttention){
+			next.append('<span style="position: absolute; bottom: 20px; left: 10px;"><input id="attentionBook" type="checkbox" checked="checked" /> <label for="attentionBook">同时关注本书</label></span>');
+		}
+		
+		return false;
+	};
+	
+	//show simulate but hide
+	$ele.hover(function(){
+		m.currentPage=_self;
+		txt.unbind('dblclick')
+		   .dblclick(function(e){
+			   _self.check(e)
+		   })
+		   .css({
+				width:$ele.width(),
+				height:$ele.height(),
+				left:$ele.offset().left,
+				top:$ele.offset().top,
+				lineHeight:$ele.css('line-height'),fontSize:$ele.css('font-size')
+			}).val($ele.text().replace('<em>&nbsp;</em>',''));
+	},function(){
+		
+	});
+	
+	/*$ele.parent().parent().hover(function(e){
+		showIdentify(e, 'show')
+	},function(e){
+		showIdentify(e, 'hide')
+	})*/
+};
+
+Motie.bookMark.prototype.isOver = function(){
+	Motie.bookMark.currentPage = this;
+	this.check({
+		pageY: 0
+	}, {
+		whoOpen: 'over',
+		title: '没有下一章了',
+		html: '是否在末尾添加书签？',
+		top: this.$ele.height()-30
+	})
+}
+
+Motie.bookMark.prototype.scrollTo = function(){
+	$('body,html').animate({
+		scrollTop: this.thumbtack.offset().top-15+'px'
+	})
+};
+
+Motie.bookMark.prototype.createThumbtack=function(scroll){
+	var fixLeft,fixTop, _self = this;
+	this.thumbtack=$('<span class="thumbtack" title="点击删除书签"></span>');
+	fixLeft=$IE6?-105:-5;fixTop=-35;
+	this.thumbtack.css({
+		top:this.pos[1]+fixTop+'px'
+	}).show();
+	this.$ele.after(this.thumbtack);
+	this.thumbtack.click(function(){
+		if(confirm('确实要删除书签吗？')){
+			$.ajax({
+				url: '/ajax/book/bookmarker/del',
+				type: 'post',
+				cache: false,
+				data: { id: Motie.bookMark.id },
+				success: function(txt){
+					_self.thumbtack.hide();
+					Motie.bookMark.id = 0;
+				}
+			})
+		}
+	});
+	this.hasMark=true;
+	if(scroll){
+		this.scrollTo();
+	}
+	return this.thumbtack;
+};
+
+Motie.bookMark.createDialog=function(){
+	var m=$('<div id="bookmMarkDialog" class="bookmark"></div>'),isSaving=false,savePost,timer;
+	m.dialog({
+		autoOpen:false,
+		minHeight:170,
+		width:400,
+		modal:true,
+		resizable:false,
+		title:'\u8981\u5728\u8FD9\u91CC\u6DFB\u52A0\u4E66\u7B7E\u5417\uFF1F',
+		buttons:{
+			"\u786E\u5B9A":function(){
+				if(!isSaving){
+					var t=$(this),current=Motie.bookMark.currentPage,mark=current.thumbtack,cache=Motie.bookMark.cache,fixLeft,fixTop;
+					m.html('<div class="loading">\u4FDD\u5B58\u4E2D..</div>');
+					isSaving=true;
+					savePost=$.ajax({
+						url:'/ajax/book/bookmarker',
+						cache:false,
+						type: 'post',
+						data:{
+							position:t.data('len'),
+							chapterId: t.data('primary'),
+							bookId: t.data('bookId'),
+							follow: (function(){
+								return ( alreadyAttention || !$('#attentionBook').length ) ? 'followed' : ( $('#attentionBook').is(':checked') ? 'true' : 'false' );
+							})()
+						},
+						success:function(data){
+							
+							if(data.code == 'ok'){
+								var id = data.message;
+								for(var i in cache){
+									var tmp=cache[i];
+									if(tmp.thumbtack!=null){
+										tmp.hasMark=false;
+										tmp.thumbtack.hide()
+									}
+								};
+								if(!alreadyAttention || $('#attentionBook').length){
+									$('#attentionBook').parent().remove();
+									alreadyAttention = true
+								}
+								if(mark==null){
+									Motie.bookMark.id = data.message;
+									mark=current.createThumbtack()
+								}
+								current.hasMark=true
+								fixLeft=$IE6?-15:70;
+								fixTop=-10;
+								m.html('<div class="ok">\u4FDD\u5B58\u6210\u529F\uFF01</div>');
+								if(timer){clearTimeout(timer)};
+								timer=setTimeout(function(){
+									t.dialog("close");
+									isSaving=false
+									mark.show().css({
+										top:t.data('y')+fixTop
+									});
+									current.scrollTo();
+								},500);
+							}
+						},
+						error:function(){
+							m.html('<div class="ok is-error"><span class="warningIco" style="margin-right: 5px;"></span>系统错误!</div>');
+						}
+					})
+				}
+			},
+			"\u53D6\u6D88":function(){
+				$(this).dialog("close");
+				if(timer){clearTimeout(timer)};
+				if(savePost){
+					savePost.abort()
+				}
+			}
+		}
+	});
+	Motie.bookMark.dialog=m;
+	return m;
+};
+Motie.bookMark.createSimulate=function(){
+	var m=$('<textarea title="\u53CC\u51FB\u6DFB\u52A0\u4E66\u7B7E" id="simulate" style="font-family: Arial,\u5B8B\u4F53;position: absolute; color:#000; display: block; border: none; word-wrap: break-word; overflow: hidden; white-space: pre-wrap; z-index: 20;" readonly="readonly"></textarea>');
+	m.css('opacity','0');
+	$body.append(m);
+	Motie.bookMark.simulate=m;
+	return m;
+};
+Motie.bookMark.cache={};
+Motie.bookMark.bind=function(area){
+	var cache=Motie.bookMark.cache;
+	$('pre.note',area).each(function(){
+		cache[this.id] = new Motie.bookMark(this);
+	})
+};
+Motie.bookMark.prototype.thumbtack=null;
+Motie.bookMark.currentPage=null;
+Motie.bookMark.dialog=null;
+Motie.bookMark.simulate=null;
+

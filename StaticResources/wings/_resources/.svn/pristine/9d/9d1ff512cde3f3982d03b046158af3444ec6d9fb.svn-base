@@ -1,0 +1,24 @@
+'use strict';
+
+/**
+ * Created by janey on 16/6/20.
+ */
+
+define(['components/dialog'], function (Dialog) {
+    return new Dialog({
+        template: '#template-book-newUserPackage-dialog',
+        events: {
+            show: function show() {
+                var d = new Date();
+                lkModal.setCookie('isAndriodDownloadTip', d.getDate(), 365);
+                history.replaceState({}, "chapter detail", "");
+            }
+        },
+        methods: {
+            hideDialog: function hideDialog(e) {
+                this.hide();
+            }
+        }
+    });
+});
+//# sourceMappingURL=../../maps/wxV2/components/newUserPackageDialog.js.map

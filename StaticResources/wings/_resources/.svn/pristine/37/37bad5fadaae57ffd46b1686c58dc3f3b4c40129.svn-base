@@ -1,0 +1,45 @@
+'use strict';
+
+/**
+ * Created by janey on 16/6/7.
+ */
+
+define(['vue', 'service/accountService', 'components/feedbackDialog', 'mixin/loadingMoreMixin', 'core'], function (Vue, feedBackService, feedbackDialog, loadingMoreMixin, core) {
+
+    return new Vue({
+        el: '#app',
+        mixins: [loadingMoreMixin],
+        data: {
+            page: 1,
+            user: {},
+            loadingMore: true,
+            noMore: false
+        },
+        created: function created() {
+            this.$emit('scrollBottom');
+        },
+
+        events: {
+            scrollBottom: function scrollBottom() {
+                var self = this;
+                self.loadingMore = true;
+                if (this.noMore) {
+                    this.loadingMore = false;
+                    return;
+                }
+                feedBackService.getMoreFeedback(self.page++).then(function (data) {
+                    self.loadingMore = false;
+                    self.user = data.result.user;
+
+                    data.status == 0 ? self.feedbackList ? self.feedbackList.length >= data.result.messageList.totalCount ? self.noMore = true : self.feedbackList = self.feedbackList.concat(data.result.messageList.items) : self.$set('feedbackList', data.result.messageList.items) : alert('啊哦，服务器可能出现了点问题');
+                });
+            }
+        },
+        methods: {
+            feedback: function feedback() {
+                feedbackDialog.show();
+            }
+        }
+    });
+});
+//# sourceMappingURL=../../maps/wxV2/controller/feedback.js.map

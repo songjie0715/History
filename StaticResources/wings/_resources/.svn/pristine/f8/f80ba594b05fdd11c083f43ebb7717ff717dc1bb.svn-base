@@ -1,0 +1,530 @@
+@import "globalVar";
+.default{
+  color: #ccc;
+}
+/* 弹层 */
+.dialog{
+  position: fixed;
+  width: 90%;
+  min-height: 50px;
+  background: white;
+  border-radius: 4px;
+  font-size: 12px;
+  >.bd{
+    width: 84%;
+    margin: 0 auto;
+  }
+  h3{
+    margin-top: 20px;
+    font-size: 15px;
+    text-align: center;
+    line-height: 18px;
+  }
+  .icon-action{
+    float: left;
+    width: 0;
+    margin-top: -3px;
+  }
+  .result-tip{
+    font-size: 14px;
+    padding: 30px;
+    text-align: center;
+    >.bd{
+      display: inline-block;
+    }
+  }
+  .content{
+    padding-left: 36px;
+    display: block;
+    width: 100%;
+    line-height: 18px;
+    overflow: hidden;
+    text-align: left;
+  }
+  .bun-closed{
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    background: url(../../img/wx/laikan/bg-button-closed.png#{$version}) right top no-repeat;
+    -webkit-background-size: 50% 50%;
+    background-size: 50% 50%;
+    width: 37px;
+    height: 37px;
+    line-height: 30px;
+    font-size: 0;
+  }
+  .action{
+    text-align: center;
+    .button{
+      margin-bottom: 20px;
+      display: inline-block;
+      width: 68%;
+      background: #10c1ae;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      border: none;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+  }
+}
+.dialog-pos{
+  position: fixed;
+  z-index: 10001;
+  margin: 0 auto;
+  left: 50%;
+  margin-left: -45%;
+  top: 30%;
+}
+
+// 按钮
+.btn{
+  display: block;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  padding: 0 0.8rem;
+  border: 1px solid #10c1ae;
+  border-radius: 0.6rem;
+  color: #10c1ae;
+  font-size: 12px;
+}
+
+
+
+// 章节购买弹框
+.dialog.dialog-buy{
+  //width: 80%;
+  top: 7%;
+  >.bd{
+    padding-bottom: 20px;
+  }
+  .buy-chapters{
+    width: 100%;
+    padding: 10px 0;
+    display: inline-block;
+    li{
+      float: left;
+      width: 50%;
+      height: 44px;
+      margin: 8px 0;
+      text-align: center;
+    }
+    .buy-num{
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      width: 82%;
+      height: 44px;
+      line-height: 44px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      &.active{
+        background: #10c1ae;
+        color: #fff;
+        border-color:#10c1ae;
+      }
+      p{
+        display: inline-block;
+        //float: left;
+        //margin-left: 17%;
+        font-size: 12px;
+        text-align: center;
+      }
+      i{
+        position: absolute;
+        right: -11px;
+        top: 4px;
+        width: 46px;
+        height: 15px;
+        line-height: 14px;
+        font-size: 12px;
+        background: #ee5048;
+        color: #fff;
+        -webkit-transition: all 0.5s ease-in;
+        transition: all 0.5s ease-in;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+  }
+  .tip{
+    padding: 0 10px;
+    color: #999;
+    span{
+      display: block;
+      position: relative;
+      line-height: 18px;
+      padding-left: 16px;
+      i{
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+  .balance{
+    //margin-left: 5%;
+    padding: 10px 0;
+    i{
+      font-family: Arial;
+    }
+  }
+  .go-reward{
+    padding: 6px 0 14px;
+    color: #10c1ae;
+    &::after{
+      content: '';
+      margin-left: 4px;
+      vertical-align: -3px;
+      @extend .arrow-right;
+    }
+  }
+  .discountMsg{
+    //margin-left: 5%;
+    i{
+      font-family: Arial;
+    }
+    .costPrice{
+      text-decoration: line-through;
+      padding-right: 8px;
+    }
+    .discountPrice{
+      color: #ee5048;
+    }
+  }
+  .void{
+    background-color: #ddd;
+  }
+  .loading-price{
+    position: absolute;
+    left: 54px;
+    height: 45px;
+    width: 62%;
+    background: #fff;
+    text-align: center;
+    span{
+      display: block;
+      margin-top: 12px;
+      margin-left: 20px;
+      width: 15px;
+      height: 15px;
+      border-top: 1px solid #10c1ae;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      background: #fff;
+      transition: all .8s;
+      -webkit-transform: rotateZ(0deg);
+      -moz-transform: rotateX(0deg);
+      -ms-transform: rotateZ(0deg);
+      -o-transform: rotateZ(0deg);
+      transform: rotateZ(0deg);
+      -webkit-animation: loading-price .8s infinite linear;
+      -o-animation: loading-price .8s infinite linear;
+      animation: loading-price .8s infinite linear;
+    }
+  }
+  @-webkit-keyframes loading-price {
+    from {
+      -webkit-transform: rotateZ(0deg);
+    }
+    to{
+     -webkit-transform: rotateZ(360deg)
+    }
+  }
+  @keyframes loading-price {
+    from {
+      transform: rotateZ(0deg);
+    }
+    to{
+      transform: rotateZ(360deg)
+    }
+  }
+
+}
+
+// 删除书籍弹框
+.dialog.dialog-del-book{
+  .btn-action{
+    display: -webkit-flex;
+    display: flex;
+    margin-top: 40px;
+    p{
+      -webkit-flex: 1;
+      flex: 1;
+      text-align: center;
+    }
+    .btn{
+      display: inline-block;
+      width: 84%;
+      height: 32px;
+      line-height: 32px;
+      color: #fff;
+      border: none;
+      &.btn-confirm{
+        background: #ee5048;
+      }
+      &.btn-cancel{
+        background: #ccc;
+      }
+    }
+  }
+
+}
+
+
+
+/* loading */
+
+.loading {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin: -30px 0 0 -30px;
+  z-index: 1000001;
+  background: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 10px solid #10c1ae;
+}
+.loading:after {
+  content: '';
+  background: trasparent;
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  border-radius: 100%;
+  top: -45%;
+  left: -50%;
+  opacity: 0.7;
+  box-shadow: rgba(13, 138, 165, 0.6) -4px -5px 3px -3px;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  -webkit-animation: rotate 2s infinite linear;
+  animation: rotate 2s infinite linear;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+
+/* 遮罩层 */
+.shadow{
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0, .2);
+  &.zIndex{
+    z-index: 10002;
+  }
+}
+
+/* success && error */
+
+.icon-action {
+  position: relative;
+  display: inline-block;
+  width: 2rem;
+  margin-right: 1rem;
+  -webkit-transition: all;
+  transition: all;
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 1.2rem;
+    height: 1.2rem;
+    overflow: hidden;
+    vertical-align: middle;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 100%;
+    font: bold 10px "宋体";
+    line-height: 1rem;
+    text-align: center;
+  }
+}
+
+.icon-error {
+  &::before {
+    content: '\21';	// exclamation mark
+    color: crimson;
+  }
+}
+
+.icon-success {
+  &::before {
+    content: '\2713';	// heavy check mark - checkmark - dingbats
+    color: #10c1ae;
+  }
+}
+
+
+/* 评论 */
+.dialog-comment{
+  .comment{
+    padding-top: 24px;
+    .input-text{
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 0 5px;
+      height: 30px;
+      border: 1px solid #ddd;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      input{
+        width: 100%;
+        height: 100%;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+      }
+    }
+    .textarea-text{
+      position: relative;
+      width: 100%;
+      height: 75px;
+      padding: 5px;
+      text-align: left;
+      border: 1px solid #ddd;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      textarea{
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      .textarea-ph{
+        position: absolute;
+        left:5px;
+        top:5px;
+      }
+    }
+    .tip-msg{
+      color: #999;
+      padding: 5px 0;
+      span{
+        font-family: Arial;
+      }
+      .error-tip{
+        color: #ee5048;
+        i{
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          background: url(../../img/mobile/lk_bg.png#{$version}) 0 0 no-repeat;
+          -webkit-background-size: 100px 100px;
+          background-size: 100px 100px;
+          vertical-align: -3px;
+          margin-right: 4px;
+        }
+      }
+    }
+    .btn-action{
+      margin: 8px -10px 0;
+      display: -webkit-flex;
+      display: flex;
+      a{
+        display: block;
+        -webkit-flex: 1;
+        flex: 1;
+        padding: 0 10px;
+        &.act span{
+          background: #10c1ae;
+          color: #fff;
+        }
+        span{
+          display: block;
+          width: 100%;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          border: 1px solid #10c1ae;
+          color: #10c1ae;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+/* 打赏 */
+.dialog-reward{
+  .dialog-reward-surplus{
+    margin-top: 15px;
+    color: #999;
+    span{
+      display: inline-block;
+      padding: 0 4px;
+      font-family: Arial;
+    }
+    .recharge{
+      color: #10c1ae;
+      &::after{
+        content: '';
+        vertical-align: -3px;
+        margin-left: 4px;
+        @extend .arrow-right;
+      }
+    }
+  }
+  .dialog-reward-num{
+    margin: 22px auto 5px;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background: #fff;
+    -webkit-border-radius: 45px;
+    -moz-border-radius: 45px;
+    border-radius: 45px;
+    text-align: center;
+    b,i{
+      display: block;
+    }
+    b{
+      line-height: 22px;
+      padding-top: 8px;
+      height: 24px;
+    }
+  }
+  .action .button.reward-void{
+    background: #999;
+  }
+  .shadow-reward-text{
+    margin: -12px auto 20px;
+    width: 134px;
+    height: 49px;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    background: url(../../img/wx/laikan/shadow-reward-text.png#{$version}) center top no-repeat;
+  }
+  .action .button{
+    background: #10c1ae;
+  }
+}

@@ -1,0 +1,221 @@
+/**
+ * Created by janey on 16/6/7.
+ */
+
+
+define([
+    'vue',
+    'service/accountService',
+    'mixin/loadingMoreMixin',
+    'core'
+],function(Vue,bookHotService, loadingMoreMixin, core){
+
+    return function(hotObj){
+
+
+        var bookHotVue = new Vue({
+            el: '#app',
+            mixins: [loadingMoreMixin],
+            data : {
+                sex: hotObj.sex,
+                female: {
+                    noMore: false,
+                    BookList: [], //获取的阅读券集合，与原有的集合合并
+                    page: 1, //页码，默认从1开始
+                    haveNextPage: true //如果有下一页则改变状态，默认为有下一页
+                },
+                male: {
+                    noMore: false,
+                    BookList: [], //获取的阅读券集合，与原有的集合合并
+                    page: 1, //页码，默认从1开始
+                    haveNextPage: true //如果有下一页则改变状态，默认为有下一页
+                },
+                loading: true
+            },
+            created: function(){
+                var self = this;
+
+                if( history.state != null ){
+                    this.sex = history.state.sex;
+                    hotObj.sex = this.sex;
+                    if( sessionStorage.getItem(hotObj.sex) && JSON.parse(sessionStorage.getItem(hotObj.sex)).BookList != null ){
+
+                        self[hotObj.sex].page = history.state.page;
+
+                         self[hotObj.sex].BookList =  JSON.parse(sessionStorage.getItem(hotObj.sex)).BookList;
+                        $('html,body').animate({scrollTop:history.state.scrollY},50);
+
+                        if( this[this.sex].BookList.length != 0 ){
+                            this.loading = !this.loading;
+                        }
+
+                        return;
+                    }
+                }
+                hotObj.page = this[this.sex].page;
+
+
+                bookHotService.getHotBooks(hotObj).then(function (data) {
+
+
+                    var lists = data.result.list;
+                    if (lists.length == 0) {
+                        self[hotObj.sex].noMore = true;
+                        self.loading = false;
+                    }
+
+                    switch (data.status) {
+                        case -1:
+                            alert('不好意思，服务器开小差了，请重新刷新页面');
+                            break;
+                        case 0:
+                            self[hotObj.sex].BookList = self[hotObj.sex].BookList.concat(lists);
+
+                            if( hotObj.sex == 'female' ){
+                                sessionStorage.setItem('female', JSON.stringify({
+                                    BookList: self[hotObj.sex].BookList
+                                }))
+                            } else {
+                                sessionStorage.setItem('male', JSON.stringify({
+                                    BookList: self[hotObj.sex].BookList
+                                }))
+                            }
+
+                            if( self[self.sex].BookList.length != 0 ){
+                                self.loading = !self.loading;
+                            }
+
+                            data.result.currentPage >= data.result.totalPage ? self[hotObj.sex].haveNextPage = false : self[hotObj.sex].haveNextPage = true;
+
+                            break;
+                        default:
+                            ;
+                    }
+
+                })
+            },
+            events: {
+                getChangeSexBooks: function(){
+                    var self = this;
+
+                    if( this[this.sex].BookList.length != 0 ){
+                        this.loading = false;
+                    } else {
+                        this.loading = true;
+                    }
+
+                    if (!this[this.sex].haveNextPage) return;
+
+                    if (this[this.sex].haveNextPage) {
+                        hotObj.sex = this.sex;
+                        hotObj.page = this[this.sex].page;
+                        bookHotService.getHotBooks(hotObj).then(function (data) {
+
+                            var lists = data.result.list;
+
+                            if (lists.length == 0) {
+                                self[hotObj.sex].noMore = true;
+                                self.loading = false;
+                            }
+
+                            switch (data.status) {
+                                case -1:
+                                    alert('不好意思，服务器开小差了，请重新刷新页面');
+                                    break;
+                                case 0:
+
+                                    self[hotObj.sex].BookList = self[hotObj.sex].BookList.concat(lists);
+
+                                    if( hotObj.sex == 'female' ){
+                                        sessionStorage.setItem('female', JSON.stringify({
+                                            BookList: self[hotObj.sex].BookList
+                                        }))
+                                    } else {
+                                        sessionStorage.setItem('male', JSON.stringify({
+                                            BookList: self[hotObj.sex].BookList
+                                        }))
+                                    }
+
+                                    if( self[self.sex].BookList.length != 0 ){
+                                        self.loading = !self.loading;
+                                    }
+
+                                    data.result.currentPage >= data.result.totalPage ? self[hotObj.sex].haveNextPage = false : self[hotObj.sex].haveNextPage = true;
+
+                                    break;
+                                default:
+                                    ;
+                            }
+
+                        })
+                    }
+
+                },
+                scrollBottom : function(){
+
+                    var self = this;
+                    if (!this[this.sex].haveNextPage) return;
+                    if (this[this.sex].haveNextPage) {
+                        hotObj.sex = this.sex;
+                        hotObj.page = ++this[hotObj.sex].page;
+                        bookHotService.getHotBooks(hotObj).then(function(data){
+
+                            var lists = data.result.list;
+
+                            switch (data.status) {
+                                case -1:
+                                    alert('不好意思，服务器开小差了，请重新刷新页面');
+                                    break;
+                                case 0:
+                                    self[hotObj.sex].BookList = self[hotObj.sex].BookList.concat(lists);
+
+                                    if( hotObj.sex == 'female' ){
+                                        sessionStorage.setItem('female', JSON.stringify({
+                                            BookList: self[hotObj.sex].BookList
+                                        }))
+                                    } else {
+                                        sessionStorage.setItem('male', JSON.stringify({
+                                            BookList: self[hotObj.sex].BookList
+                                        }))
+                                    };
+
+                                    data.result.currentPage >= data.result.totalPage ? self[hotObj.sex].haveNextPage = false : self[hotObj.sex].haveNextPage = true;
+                                    break;
+                                default:
+                                    ;
+                            }
+                        })
+                    }
+                }
+            },
+            init: function(){
+            },
+            attached:function(){
+
+            },
+            methods: {
+                changeStatus: function(){
+                    if( this.sex == 'male' && this.male.BookList.length != 0 ){
+                        return;
+                    }
+                    if(this.sex == 'female' && this.female.BookList.length != 0){
+                        return;
+                    }
+                    if( this[this.sex].BookList.length != 0 ){
+                        this.loading = !this.loading;
+                    }
+                    this.$emit('getChangeSexBooks');
+                },
+                directTo: function(sex){
+                    var self= this;
+                    history.pushState({
+                        sex: sex,
+                        scrollY: window.scrollY,
+                        page: self[sex].page
+                    },'');
+                }
+            }
+        });
+    }
+});
+

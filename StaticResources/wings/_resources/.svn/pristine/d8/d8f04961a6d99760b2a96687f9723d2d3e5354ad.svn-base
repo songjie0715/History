@@ -1,0 +1,1175 @@
+@import "globalVar";
+@import "dialog";
+
+html{
+  font-size: 62.5%;
+  -webkit-text-size-adjust: 100%;
+}
+body{
+  width: 100%;
+  //max-width: 640px;
+  font-family: "PingFang SC","Microsoft YaHei", "微软雅黑";
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.ovh{
+  overflow: hidden;
+}
+
+.hidden{
+  display: none!important;
+}
+
+.text-center{
+  text-align: center;
+}
+
+a{
+  color: #666;
+  text-decoration: none;
+}
+ul,li{
+  list-style: none;
+}
+i{
+  font-style: normal;
+}
+
+[v-cloak]{
+  display: none;
+}
+
+.textOverFlow{
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html,body{
+  min-height: 100%;
+}
+
+.wrapper{
+  position: relative;
+  min-height: 100%;
+  background: #fff;
+  margin: 0 auto;
+  padding-bottom: 60px;
+  width: 100%;
+  font-size: 12px;
+  .book-detail{
+    width: 100%;
+    margin-top: 0;
+    background: #fff;
+    &:first-child{
+      margin-top: 0!important;
+    }
+    >.bd{
+      padding: 1.2rem 0 0 0;
+    }
+    // 头像
+    .pic{
+      overflow: hidden;
+      width: 32px;
+      height: 32px;
+      border-radius: 32px;
+      img{
+        border-radius: 32px;
+      }
+    }
+    // 更多
+    .more{
+      border-top: 1px solid $text-line;
+      margin: 0 -1.2rem;
+      margin-bottom: -1rem;
+      margin-top: -1rem;
+      text-align: center;
+      height: 3.8rem;
+      line-height: 3.8rem;
+      font-size: 12px;
+    }
+    // 按钮
+    .btn{
+      display: block;
+      height: 2.2rem;
+      line-height: 2.2rem;
+      padding: 0 0.8rem;
+      border: 1px solid #22bbee;
+      border-radius: 0.6rem;
+      color: #22bbee;
+      font-size: 12px;
+    }
+
+    // 箭头
+    .arrow{
+      border: 0.5rem solid #999;
+      i{
+        position: absolute;
+        border: 0.5rem solid #fff;
+        top: -8px;
+        left: -8px;
+      }
+    }
+    .arrow-right{
+      display: inline-block;
+      width: 6px;
+      height: 12px;
+      background: url("../../img/wx/laikan/bg-book-detail-new.png") 0 -15px no-repeat;
+      -webkit-background-size: auto 60px;
+      background-size: auto 60px;
+      vertical-align: -2px;
+      margin-left: 7px;
+    }
+
+    .arrow-left{
+      border-left: 0.5rem solid transparent;
+      border-top: 0.5rem solid transparent;
+      transform: rotate(135deg);
+      i{
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        border: 0.5rem solid #fff;
+        border-left: 0.5rem solid transparent;
+        border-top: 0.5rem solid transparent;
+      }
+    }
+
+    // 评论列表
+    .book-set .comment-lists{
+      margin-top: 10px;
+      overflow: hidden;
+
+      .list-item{
+        padding: 15px 0;
+        border-top: 1px solid #f5f5f5;
+        .item{
+          overflow: hidden;
+          padding-left: 20px;
+          font-size: 12px;
+        }
+        h3{
+          line-height: 1.5rem;
+          color: #10c1ae;
+        }
+        h4{
+          line-height: 1.5rem;
+        }
+        p{
+          margin-top: 6px;
+          line-height: 1.4rem;
+          color: $text-content;
+          word-break: break-all;
+          &.upfold{
+            height: 4rem;
+          }
+        }
+        .date{
+          float: right;
+          line-height: 2rem;
+          color: $text-msg;
+        }
+        .item-handle{
+          float: right;
+          overflow: hidden;
+          margin-top: 1rem;
+          li{
+            float: left;
+            width: 6rem;
+            text-align: right;
+            span.icon{
+              display: inline-block;
+              margin-right: 6px;
+              width: 16px;
+              height: 15px;
+              vertical-align: -2px;
+              background: url("../../img/wx/laikan/bg-book-detail-new.png") -20px 0 no-repeat;
+              -webkit-background-size: auto 60px;
+              background-size: auto 60px;
+            }
+            i{
+              display: inline-block;
+              padding-top: 0.2rem;
+            }
+            &.like span.icon{
+              
+            }
+            &.like.do span.icon{
+              background-position: -38px 0;
+            }
+            &.comment span.icon{
+              width: 15px;
+              height: 14px;
+              background-position: -58px 0;
+            }
+          }
+          a{
+            color: $text-content;
+          }
+        }
+      }
+    }
+    .noComment{
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+      border-top: 1px solid $text-line;
+      a{
+        height: 24px;
+        color: $text-content;
+        text-decoration: none;
+        span{
+          display: block;
+          margin: 0 auto 10px;
+          width: 35px;
+          height: 32px;
+          background: url("../../img/wx/laikan/bg-book-detail-new.png") 0 -30px no-repeat;
+          -webkit-background-size: auto 60px;
+          background-size: auto 60px;
+        }
+      }
+    }
+
+
+
+    // 三角箭头
+
+    .upfold-more{
+      position: absolute;
+      width: 3rem;
+      height: 3rem;
+      right: 0;
+      text-align: center;
+      .arrow{
+        display: inline-block;
+        margin-top: 17px;
+        border: 0.5rem solid #999;
+        border-bottom: 0 solid transparent;
+        border-left: 0.5rem solid transparent;
+        border-right: 0.5rem solid transparent;
+        -webkit-transition: transform 0.5s;
+        transition: transform 0.5s;
+      }
+      .arrowNew{
+        display: block;
+        margin-top: 10px;
+        width: 20px;
+        height: 10px;
+        background: url("../../img/wx/laikan/bg-book-detail-new.png") 0 0 no-repeat;
+        -webkit-background-size: auto 60px;
+        background-size: auto 60px;
+        -webkit-transition: transform 0.5s;
+        transition: transform 0.5s;
+      }
+      .arrow-down{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      .arrow-up{
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+    }
+
+    .total{
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      color: #10c1ae;
+      font-size: 14px;
+      border-top: 1px solid #f5f5f5;
+      >a{
+        padding: 0!important;
+        color: #10c1ae!important;
+      }
+      i{
+        display: inline-block;
+        width: 6px;
+        height: 12px;
+        background: url("../../img/wx/laikan/bg-book-detail-new.png") 0 -15px no-repeat;
+        -webkit-background-size: auto 60px;
+        background-size: auto 60px;
+        vertical-align: -2px;
+        margin-left: 7px;
+      }
+    }
+
+
+    .book-comment{
+      position: relative;
+      .reply-comment{
+        position: absolute;
+        right: 0;
+        top: -27px;
+        color: #10c1ae;
+        span{
+          display: inline-block;
+          width: 12px;
+          height: 13px;
+          background: url("../../img/wx/laikan/bg-book-detail-new.png") -10px -15px no-repeat;
+          -webkit-background-size: auto 60px;
+          background-size: auto 60px;
+          vertical-align: -2px;
+        }
+      }
+    }
+    .book-info-wrapper{
+      margin-top: -20px;
+      padding: 25px 15px 12px;
+      background: #f2f2f2;
+      border-bottom: 1px solid $text-line;
+    }
+    .book-info{
+      display: inline-block;
+      width: 100%;
+      position: relative;
+      margin-top: 6px;
+      .add-to-shelf{
+        z-index: 10;
+        position: absolute;
+        padding-left: 10px;
+        right: -15px;
+        top: 70px;
+        width: 62px;
+        height: 20px;
+        line-height: 20px;
+        background: #10c1ae;
+        font-size: 1.2rem;
+        color: #fff;
+        border-radius: 5px 0 0 5px;
+        &.done{
+          background: #ccc;
+          i{
+            display: none;
+          }
+        }
+      }
+      .book-pic{
+        position: relative;
+        overflow: hidden;
+        width: 80px;
+        -webkit-box-shadow: 1px 1px 1px #cacaca;
+        box-shadow: 1px 1px 1px #cacaca;
+        @include border-radius(5px);
+        img{
+          @include border-radius(5px);
+        }
+        .discount, .free, .whole-free{
+          position: absolute;
+          right: 6px;
+          top: -2px;
+          padding-top: 9px;
+          width: 28px;
+          height: 28px;
+          text-align: center;
+          font-size: 12px;
+          background: #f18e2c;
+          opacity: .9;
+          color: #fff;
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          &::after{
+            content: '';
+            display: inline-block;
+            border: 6px solid #f18e2c;
+            border-top: none;
+            border-left: 10px solid transparent!important;
+            border-right: 10px solid transparent!important;
+            -webkit-transform: rotate(180deg) scale(1.5) translateY(3px);
+            transform: rotate(180deg) scale(1.5) translateY(3px);
+          }
+        }
+        .free{
+          background-color: #10c1ae;
+          &::after{
+            border-color: #10c1ae;
+          }
+        }
+        .whole-free{
+          background-color: #ff4c2f;
+          &::after{
+            border-color: #ff4c2f;
+          }
+        }
+        img{
+          display: block;
+        }
+      }
+      .info{
+        overflow: hidden;
+        padding-left: 1.2rem;
+        color: #333;
+        h2{
+          margin: 10px 0 8px 0;
+          font-size: 1.6rem;
+        }
+        h3{
+          a,span{
+            color: $text-content;
+          }
+          font-size: 1.2rem;
+          line-height: 18px;
+        }
+      }
+      .tip{
+        font-size: 12px;
+        color: $text-content;
+        i.spec{
+          color: $text-imp;
+        }
+      }
+    }
+
+
+    .book-content{
+      position: relative;
+      padding: 12px 0;
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+      color: $text-content;
+      border-bottom: 2px solid $text-line;
+      text-align: center;
+      p{
+        text-align: left;
+        line-height: 18px;
+        padding: 0 15px;
+        &.upfold{
+          height: 56px;
+          overflow: hidden;
+        }
+      }
+      .tag{
+        //position: absolute;
+        overflow: hidden;
+        margin-top: 0.3rem;
+        margin-left: 0;
+        li{
+          float: left;
+          margin: 0.4rem 0.2rem;
+          padding: 0.2rem 0.4rem;
+          text-align: center;
+          border-radius: 5px;
+          font-size: 12px;
+          a{
+            color: #fff;
+          }
+          &.yel{
+            background: #eb9e43;
+          }
+          &.blue{
+            background: #72a0ff;
+          }
+          &.pink{
+            background: #ff72a4;
+          }
+        }
+        &.upfold{
+          overflow: hidden;
+          height: 28px;
+          padding-right: 60px;
+        }
+      }
+      .upfold-more{
+        display: inline-block;
+        position: relative;
+        height: 1.5rem;
+        text-align: center;
+        border: 1px solid #fff;
+        .arrow{
+          margin-top: 1rem;
+        }
+      }
+      .arrow{
+        display: inline-block;
+        margin-top: 17px;
+        border: 7px solid #999;
+        border-bottom: 0 solid transparent;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        -webkit-transition: all 0.3s ease-in;
+        transition: all 0.3s ease-in;
+      }
+      .arrow-down{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      .arrow-up{
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+    }
+    .book-lists{
+      position: relative;
+      font-size: 14px;
+      color: #333;
+      display: block;
+      a{
+        display: block;
+        padding: 12px 0;
+        color: #333;
+      }
+      span{
+        display: block;
+        font-size: 12px;
+        color: #666;
+        &.serialize{
+          overflow: hidden;
+          width: 82%;
+          font-size: 13px;
+          i{
+            display: inline-block;
+            margin-top: 5px;
+            font-size: 12px;
+            color: $text-msg;
+          }
+        }
+      }
+      .time{
+        display: inline-block;
+        float: left;
+        width: 50px;
+        font-size: 13px;
+        color: #10c1ae;
+        i{
+          font-family: Arial;
+        }
+      }
+      .arrow-right{
+        position: relative;
+        display: block;
+        border: 6px solid #999;
+        border-left: 6px solid transparent;
+        border-top: 6px solid transparent;
+        width: 0;
+        height:0;
+        padding:0;
+        -webkit-transition: all .5s ease-in;
+        transition: all .5s ease-in;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        i{
+          position: absolute;
+          top: -7px;
+          left: -7px;
+          border: 6px solid #fff;
+          border-left: 6px solid transparent;
+          border-top: 6px solid transparent;
+        }
+      }
+      .status{
+        position: absolute;
+        right: 0;
+        top: -17px;
+        font-size: 12px;
+        color: #00d49b;
+      }
+    }
+    .book-handle{
+      .tab{
+        overflow: hidden;
+        li{
+          float: left;
+          font-size: 1.4rem;
+          color: #333;
+          padding-bottom: 0.4rem;
+          &.active{
+            color: #22bbee;
+            border-bottom: 1px solid #22bbee;
+          }
+          &.gap{
+            color: #666;
+            border-left: 1px solid #999;
+            margin: 5px 1rem 0;
+            height: 0.9rem;
+          }
+        }
+      }
+      .book-container{
+
+        .price-list{
+          margin: 14px 0;
+          overflow: hidden;
+          li{
+            float: left;
+            width: 20%;
+            text-align: center;
+            span{
+              display: inline-block;
+              width: 4.5rem;
+              height: 4.5rem;
+              background: #22bbee;
+              color: #fff;
+              font-size: 12px;
+              border-radius: 4.5rem;
+              text-align: center;
+              b{
+                display: block;
+                margin-top: 1rem;
+                line-height: 12px;
+              }
+              b,i{
+                font-size: 12px;
+              }
+            }
+            &:nth-child(1) span{
+              background: #ffdc2e;
+            }
+            &:nth-child(2) span{
+              background: #ffb92e;
+            }
+            &:nth-child(3) span{
+              background: #ff962e;
+            }
+            &:nth-child(4) span{
+              background: #ff742e;
+            }
+            &:nth-child(5) span{
+              background: #ff4c2f;
+            }
+          }
+        }
+        .reward-list{
+          margin-top: 16px;
+          height: 130px;
+          padding: 15px 4px;
+          overflow: hidden;
+          &.rewrad-list-init{
+            height: auto;
+            margin-bottom: -28px;
+          }
+          li{
+            height: 44px;
+            &.first{
+              transition: all 1.5s;
+              transform: translateY(-50px);
+              opacity: 0;
+              height: 45px;
+              position: absolute;
+            }
+            &.trans{
+              height: 45px;
+              transform: translateY(0px);
+              opacity: 1;
+              position: relative;
+            }
+            &.last{
+              transition: all 1.5s;
+              transform: translateY(50px);
+            }
+          }
+          .reward-info{
+            display: inline-block;
+          }
+          .pic{
+            margin-top: -10px;
+            margin-right: 0.8rem;
+          }
+          .fool{
+            font-family: Arial;
+          }
+          .voucher{
+            color: #22bbee;
+            i{
+              font-family: Arial;
+            }
+            b{
+              font-weight:normal;
+            }
+          }
+          .date{
+            color: $text-msg;
+            font-family: Arial;
+          }
+          .action{
+            margin: -5px 4px 0;
+            padding: 0 4px;
+            width: 24px;
+            height: 24px;
+            background: url('../images/icon-reward.gif#{$version}') center center no-repeat;
+            -webkit-background-size: 24px 24px;
+            background-size: 24px 24px;
+            font-size: 0;
+          }
+        }
+        .book-enjoy .more{
+          margin-top: 8px;
+        }
+      }
+    }
+    .book-module{
+      position: relative;
+      padding: 0 15px;
+      .tit{
+        color: $text-txt;
+        font-size: 1.4rem;
+      }
+      .change-items{
+        position: absolute;
+        right: 15px;
+        top: 0.2rem;
+        color: #10c1ae;
+        font-size: 12px;
+      }
+      .book-items{
+        margin-top: 1.1rem;
+        h3{
+          font-size: 1.5rem;
+          color: $text-txt;
+          line-height: 1.5rem;
+        }
+        h4{
+          padding-top: 4px;
+          font-size: 1.3rem;
+          line-height: 1.5rem;
+          color: $text-txt;
+        }
+        p{
+          padding-top: 0.8rem;
+          color: $text-msg;
+          height: 5.4rem;
+          line-height: 1.5rem;
+          font-size: 12px;
+        }
+        dt{
+          -webkit-box-shadow: 1px 1px 1px #cacaca;
+          box-shadow: 1px 1px 1px #cacaca;
+          img{
+            display: block;
+          }
+        }
+      }
+      .layout-l-r{
+        a{
+          display: block;
+        }
+        dl{
+          display: inline-block;
+          padding: 0.7rem 0;
+          dt{
+            float: left;
+          }
+          dd{
+            overflow: hidden;
+            padding: 0.6rem 0 0 1.4rem;
+            p{
+              word-break: break-all;
+            }
+          }
+        }
+      }
+      .layout-t-b{
+        overflow: hidden;
+        li{
+          float: left;
+          width: 33.33%;
+          text-align: center;
+          border: 0;
+          padding: 0;
+          a{
+            display: inline-block;
+            width: 80px;
+          }
+          h3{
+            padding-top: 0.5rem;
+            width: 7rem;
+            //overflow: hidden;
+            //text-overflow: ellipsis;
+            //white-space: nowrap;
+            text-align: left;
+            font-size: 12px;
+            line-height: 16px;
+          }
+        }
+      }
+      .more{
+        margin-top: 0.7rem;
+      }
+    }
+    //包月
+    .openMonth{
+      background: #e4e4e4;
+      height: 32px;
+      line-height: 32px;
+      color: #fe9657;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+  // 书架
+  .book-shelf{
+    .book-module{
+      .book-items{
+        margin-top: 0;
+        border-bottom: 1px solid #ddd;
+        li{
+          position: relative;
+          padding: 5px 0;
+          border-top: 1px solid #ddd;
+          &:first-child{
+            border-top: none;
+          }
+        }
+        h4{
+          padding-top: 6px;
+          line-height: 14px;
+          a{
+            color: $text-msg;
+          }
+        }
+        dl dd{
+          padding-top: 10px;
+          a{
+            display: inline-block;
+          }
+        }
+        p{
+          color: $text-content;
+          font-size: 13px;
+        }
+        .goon{
+          position: absolute;
+          top: 50%;
+          right: 0;
+          margin-top: -8px;
+          color: $text-imp;
+          font-size: 1.4rem;
+        }
+        .del{
+          position: absolute;
+          top: 50%;
+          right: 0;
+          margin-top: -8px;
+          color: $text-imp;
+          border-color: #ee5048;
+        }
+      }
+      .have-no-books{
+        padding: 50px 0;
+        text-align: center;
+        color: $text-msg;
+        font-size: 14px;
+        a{
+          position: relative;
+          display: inline-block;
+          width: 37.5%;
+          height: 80px;
+          border: 1px dashed #ccc;
+          border-radius: 4px;
+          text-align: center;
+          span{
+            margin: 0 auto;
+            display: block;
+            width: 3.2rem;
+            height: 0.4rem;
+            background: #ccc;
+            -webkit-transition: all;
+            transition: all;
+            &.hor{
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              margin-top: -0.2rem;
+              margin-left: -1.6rem;
+
+            }
+            &.ver{
+              -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+            }
+          }
+        }
+        p{
+          padding: 8px 0;
+        }
+      }
+    }
+
+    &.book-shelf-add{
+      .shelf-tab{
+        ul{
+          display: inline-block;
+          width: 100%;
+        }
+        li{
+          float: left;
+          width: 49.5%;
+          height: 40px;
+          line-height: 40px;
+          font-size: 16px;
+          text-align: center;
+          color: $text-txt;
+          border-bottom: 1px solid #ddd;
+          &.active{
+            border-color: #22bbee;
+          }
+          &.gap{
+            margin-top: 12px;
+            border-left: 1px solid #ddd;
+            height: 10px;
+            width: 0.5px;
+          }
+        }
+      }
+    }
+  }
+  // 其他
+  .book-others{
+    .book-module .book-items{
+      margin-top: 0;
+      li{
+        border-top: 1px solid #ddd;
+        padding: 5px 0;
+        &:first-child{
+          border:none;
+        }
+        dl dd{
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  .shelf-tip{
+    margin-top: -1.2rem;
+    margin-left: -15px;
+    margin-right: -15px;
+    .bd{
+      padding-right: 10px;
+      width: 100%;
+      height: 48px;
+      background: #f6f6f6;
+      overflow: hidden;
+      display:-webkit-flex;
+      display:flex;
+      -webkit-align-items:center;
+      align-items:center;
+    }
+    .mark{
+      background: #ee5048;
+      width: 35px;
+      height: 30px;
+      padding: 2px 0 0 2px;
+      line-height: 14px;
+      color: #fff;
+      &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        border: 20px solid #f6f6f6;
+        border-top: 0;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 10px solid #f6f6f6;
+        -webkit-transition: all;
+        transition: all;
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        margin-top: 8px;
+        margin-left: 7px;
+      }
+    }
+    .records{
+      width: 54px;
+      font-size: 12px;
+      color: #22bbee;
+    }
+    .btn{
+      width: 48px;
+      border:none;
+      height: 2.4rem;
+      line-height: 2.4rem;
+      padding: 0 1rem;
+      background-color: #ee5048;
+      color: #fff;
+      text-align: center;
+    }
+    .chapterName{
+      width: 50%;
+      -webkit-flex-grow: 1;
+      flex-grow: 1;
+      @extend .textOverFlow;
+    }
+  }
+  .reward-list{
+    .shelf-tip{
+      .mark{
+        position: relative;
+        flex: 1;
+        width: auto;
+        padding-left: 15px;
+        margin-right: 10px;
+        font-size: 12px;
+        line-height: 30px;
+        span{
+          display: inline-block;
+          padding: 0 4px;
+        }
+        &::before{
+          right: -21px;
+        }
+      }
+      .btn{
+        width: auto;
+        padding: 0 6px;
+        font-size: 12px;
+        background: #fff;
+        color: #ee5048;
+        border: 1px solid #ee5048;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+      }
+    }
+    .reward-list-ranking{
+      padding-top: 10px;
+      li{
+        display: -webkit-box;
+        -webkit-box-align: center;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        padding: 5px 0;
+        border-bottom: 1px solid $text-line;
+        &:first-child .order{
+          background-color: #ee5048;
+        }
+        &:nth-child(2) .order{
+          background-color: #f68b00;
+        }
+        &:nth-child(3) .order{
+          background-color: #ffd200;
+        }
+        i,span{
+          display: block;
+        }
+        .order{
+          margin-right: 10px;
+          width: 16px;
+          height: 16px;
+          line-height: 18px;
+          -webkit-border-radius: 16px;
+          -moz-border-radius: 16px;
+          border-radius: 16px;
+          text-align: center;
+          color: #fff;
+          background-color: #ccc;
+        }
+        .img{
+          margin-right: 15px;
+          border: 1px solid #e4e4e4;
+          width: 32px;
+          height: 32px;
+          -webkit-border-radius: 30px;
+          -moz-border-radius: 30px;
+          border-radius: 30px;
+          img{
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+          }
+        }
+        .author{
+          -webkit-flex-grow: 1;
+          flex-grow: 1;
+        }
+        .rewardK{
+          margin-left: 10px;
+          text-align: right;
+          color: $text-imp;
+          b{
+            display: inline-block;
+            font-family: Arial;
+            font-weight: normal;
+            color: $text-imp;
+          }
+        }
+      }
+    }
+  }
+  .book-set{
+    padding: 0 15px;
+    border-bottom: 2px solid $text-line;
+    .tit{
+      font-size: 14px;
+    }
+    .layout-l-r{
+      li{
+        border: none;
+      }
+    }
+  }
+  .book-action-wrapper{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  border-top: 1px solid $text-line;
+    background-color: #fafafa;    ;             
+  }
+  .book-action{
+    width: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    border: none;
+    margin: 7.5px;
+    li{
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1;
+      text-align: center;
+      border: 1px solid $text-linecolor;
+      border-radius: 5px;
+      margin: 2.5px;
+      background: #fff;
+      &:last-child{
+        border: 1px solid $text-linecolor;
+      }
+      &.botcurrent{
+          background: #10c1ae;
+          a{
+            color:#fff;
+          }
+      }
+      &.home{
+        width: 42px;
+        -webkit-box-flex: 0;
+        -webkit-flex: inherit;
+        flex: inherit;
+        a{
+          padding-top: 6px;
+          text-align: center;
+        }
+        span{
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background: url(../../img/wx/laikan/homeicon-new.png) no-repeat;
+          -webkit-background-size: auto 20px;
+          background-size: auto 20px;
+        }
+        
+      }
+
+      a{
+        display: block;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #10c1ae;
+        font-size: 16px;
+        text-decoration: none;
+      }
+
+    }
+  }
+}

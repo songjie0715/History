@@ -1,0 +1,38 @@
+/* 变量- 字体.线 */
+$text-imp: #ee5048;
+$text-txt: #333;
+$text-content: #666;
+$text-msg: #999;
+$text-line: #e5e5e5;
+$text-linecolor: #dcdcdc;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin ellipsis($width){
+  width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-center{
+  display: block;
+  text-align: center;
+}
+
+.arrow-right{
+  display: inline-block;
+  width: 6px;
+  height: 12px;
+  background: url("../../img/wx/laikan/bg-book-detail-new.png") 0 -15px no-repeat;
+  -webkit-background-size: auto 60px;
+  background-size: auto 60px;
+  vertical-align: -2px;
+  margin-left: 7px;
+}
+
+$version: '?version=20160812001';

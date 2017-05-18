@@ -1,0 +1,2 @@
+"use strict";define(["components/dialog","service/bookReaderService"],function(e,t){return function(o){return new e({template:"#template-book-newUserPackage-dialog",events:{show:function(){var e=new Date;lkModal.setCookie("isAndriodDownloadTip",e.getDate(),365),t.changeUserStatus(o)}},methods:{hideDialog:function(e){this.hide()}}})}});
+//# sourceMappingURL=../../maps/wxV2/components/newUserPackageDialog.js.map

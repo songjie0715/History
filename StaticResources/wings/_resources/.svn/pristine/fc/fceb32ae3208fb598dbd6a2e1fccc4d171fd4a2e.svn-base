@@ -1,0 +1,22 @@
+(function(document, $){
+	Motie = Mo = Motie || {};
+	
+	Mo.vote = Base.extend({
+		constructor: function(params){
+			var settings = {
+				
+			}
+			
+			$.extend( settings , params );
+			
+			new Mo.layer({
+				width: 450,
+				html: $('#voteTpl').html(),
+			}).render()
+		}
+	});
+	
+	$(function(){
+		new Mo.vote()
+	})
+})(document, jQuery)

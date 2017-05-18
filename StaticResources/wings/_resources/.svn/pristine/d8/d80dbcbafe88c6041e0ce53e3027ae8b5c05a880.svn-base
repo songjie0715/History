@@ -1,0 +1,276 @@
+//mo.core.staff
+//staff 功能
+//create: 2012.8.20 11:24
+
+Mo.register('staff.update', function(){
+	
+	Mo.register('ui.xinfo', function(){
+		return function(anchor, html, options){
+			var setting = {
+				placement: 'top',
+				alignment: 'center',
+				destroy : true,
+				stayTime : 800,
+				classStyle : 'mo-ui-info-ok'
+			};
+			
+			if(typeof options == 'string'){
+				if(options == 'error'){
+					setting.classStyle = 'mo-ui-info-warning'
+				}
+			}else if(typeof options == 'object'){
+				setting = $.extend(setting, options)
+			}
+			
+			var flyout = Mo.ui.flyout('info', setting);
+			
+			//flyout悬停不隐藏
+			flyout.element.html(html).mouseenter(function() {
+				flyout._clearStay()
+			}).mouseleave(function() {
+				flyout._createStayTimer()
+			});
+			
+			flyout.show(anchor);
+			
+			return flyout;
+		}
+	});
+	
+	return function(){
+		
+		var info = Mo.ui.xinfo;
+		
+		function getHtml(anchor){
+			var html = '';
+			if(!anchor.data('info')){
+				var boxid = anchor.attr('boxid'), type = anchor.data('control-type'), 
+					url = reload = '';
+					
+				if(type == 'shelf'){
+					url = '/manage/shelf/edit?id='+boxid;
+					reload = '/manage/shelf/reload?id='+boxid
+				}else{
+					url = '/manage/box/'+boxid+'/edit';
+					reload = '/manage/ajax/box/'+boxid+'/reload'
+				}
+				anchor.data('info',{
+					url: url,
+					reload: reload,
+					id: boxid
+				});
+				anchor.data('status','normal')
+			}
+			var anchorInfo = anchor.data('info');
+			var status = anchor.data('status');
+			var text = $.trim(anchor.text());
+			if(text == ''){
+				html += '<a href="'+anchorInfo.url+'" target="_blank" class="vm"><img src="'+anchor.find('img:first').attr('src')+'" height="40"></a>'
+			}else{
+				text = text.substring(0,10)
+				html += '<a href="'+anchorInfo.url+'" target="_blank" class="text vm">'+anchor.text()+'</a>';
+			}
+			if(status == 'normal'){
+				html += '<a href="javascript:;" title="点击刷新" class="status vm"></a>'
+			}else if(status == 'refreshing'){
+				html += '<a href="javascript:;" title="正在刷新" class="status refresh vm"></a>'
+			}
+			html += '<span class="arrow"><em class="back">◆</em><em class="front">◆</em></span>';
+			return html;
+		}
+		
+		var cflyout = null;
+		$('body').delegate('a[boxid]','mouseenter',function(){
+			var anchor = $(this), target = anchor;
+			if($.trim(anchor.text()) == ''){
+				target = anchor.find('img:first')
+			}
+			if(cflyout != null && cflyout._currentAnchor[0] == this){ 
+				return;
+			}
+			cflyout = info(target, getHtml(anchor),{
+				alignment: 'left',
+				stayTime: 1500,
+				classStyle: 'mo-ui-info-boxid',
+				showOffset: 0,
+				onShow: function(element){
+					element.find('.arrow').addClass('at-'+this._where.at)
+					element.delegate('.status', 'click',function(){
+						if(anchor.data('status') != 'refreshing'){
+							anchor.data('status', 'refreshing');
+							element.find('.status').addClass('refresh')
+							var anchorInfo = anchor.data('info');
+							proxy.$.ajax({
+								url: anchorInfo.reload,
+								cache:false,
+								success:function(txt){
+									anchor.data('status', 'normal');
+									if(txt){
+										element.find('.status').toggleClass('refresh ok');
+									}else{
+										info(anchor,'刷新失败','error')
+									}
+								},error:function(){
+									anchor.data('status', 'normal');
+									info(anchor,'服务器错误，稍后再试或者联系管理员','error');
+								}
+							})
+						}
+					})
+				}
+			})
+		})
+	}
+})
+
+
+Mo.register('staff.collect', function(motie){
+	var collect = {
+		button: null,
+		pageData: null,
+		createOver: false,
+		geting: false,
+		collects: null,
+		pv: [],
+		ip: [],
+		//插入数据
+		insert: function(item, id, index, data){
+			var tip = $('<a href="http://www.motie.com/click/result?pIds='+id+'" target="_blank" class="mo-ui-collect-tips" />').attr({
+				"collect-id": id,
+				"collect-index": index,
+				"id": "mo-collect-id-"+id+'-'+index
+			}).data('element', item);
+			
+			collect.position(item, tip);
+			
+			tip.html('<b>pv:</b>'+data.pv+' <b>ip:</b>'+data.ip+' <sub>id:'+id+' index:'+index+'</sub>');
+			$('body').append(tip);
+			return tip
+		},
+		position: function(item, tip){
+			var top = item.offset().top+parseInt(item.css('padding-top'))-15,
+				left = item.offset().left-parseInt(item.css('padding-left'));
+			
+			tip.css({
+				top: top,
+				left: left
+			})
+		},
+		show: function(){
+			//获取所有被追踪区域
+			var collects = collect.collects;
+			function create(storage){
+				collects.each(function(){
+					var area = $(this), id = area.data('collect-id'), data = storage[id];
+					//如果存在数据并且不是空
+					if(data && !$.isEmptyObject(data)){
+						var indexs = area.find('[data-collect-index]');
+						//如果区域下有追踪索引
+						if(indexs.length){
+							//遍历数据索引
+							for(var i in data){
+								var sdata = data[i];
+								var item = indexs.filter('[data-collect-index='+i+']');
+								//如果存在对应元素
+								if(item.length){
+									collect.insert(item.first(), id, i, sdata)
+								}
+							}
+						}
+					}
+				});
+				$('body').delegate('.mo-ui-collect-tips', 'mouseenter', function(){
+					$(this)[0].style.zIndex = '1000'
+					$(this).data('element').effect('highlight')
+				}).delegate('.mo-ui-collect-tips','mouseleave',function(){
+					$(this)[0].style.zIndex = '100'
+				});
+				collect.createOver = true
+			}
+			
+			if(this.pageData == null){
+				collect.geting = true;
+				var pids = [];
+				collects.each(function(){
+					pids.push( '&pIds='+$(this).data('collect-id') )
+				});
+				collect.button.addClass('icon-loading');
+				$.getJSON('http://www.motie.com/click/ajax/result?callback=?'+pids.join(''), function(data){
+					collect.geting = false;
+					create(data);
+					collect.pageData = data;
+					collect.button.removeClass('icon-loading');
+				})
+			}else{
+				$("body").toggleClass('mo-ui-collect-tips-toggle');
+			}
+		},
+		setup: function(){
+			if(collect.button === null){
+				collect.collects = $('body [data-collect-id]');
+				collect.button = $('<li class="icon-btn collect" title="本页PV与IP情况"><a href="javascript:;" class="prime"></a></li>');
+				if(collect.collects.length){
+					//fetch data
+					collect.button.find('.prime').click(function(){
+						if(!collect.geting){
+							collect.show();
+						}
+					});
+				}else{
+					collect.button.addClass('disabled')
+				}
+			}
+		}
+	}
+	return collect
+});
+
+Mo.register('core.staff', function(mo) {
+	var power = [mo.staff.collect];
+	return function(){
+		//setup
+		var toolbars = $('<div class="mo-staff-toolbar mo-staff-toolbar-close"><div class="mod"><div class="hd">Staff</div><div class="bd" style="display:none"><ul></ul></div><div class="ft"><a href="javascript:;" class="close">close</a></div></div></div>'),
+			list = toolbars.find('ul'), link = '', hd = toolbars.find('.hd'), bd = toolbars.find('.bd'), ft = toolbars.find('.ft'),
+			line = '<li class="line"></li>';
+		
+		if(_StaffPowser.analyticsShow === '1'){
+			$.map(power, function(item){
+				item.setup();
+				list.append(item.button);
+				list.append(line);
+			});
+			link += '<li class="icon-btn charts"><a class="prime" target="_blank" href="http://www.motie.com/analytics/" title="统计总页"></a></li>';
+			link += line; 
+		}
+		link += '<li class="icon-btn manage"><a class="prime" href="/manage/index" title="去后台" target="_blank"></a></li>';
+		/*
+		link += line;
+		link += '<li class="icon-btn bookstore"><a class="prime" href="/manage/book/list" title="作品库" target="_blank"></a></li>';
+		link += line;
+		link += '<li class="icon-btn search"><a class="prime" target="_blank" href="/manage/look" title="内容查询"></a></li>';  
+		link += line;
+		link += '<li class="icon-btn check"><a class="prime" target="_blank" href="/manage/inspect/list" title="新内容审核"></a></li>';
+		link += line; 
+		link += '<li class="text-link">develop</li>';
+		link += line;
+		link += '<li class="icon-btn firebug"><a class="prime" title="Debug + Firebug Lite" href=\'javascript:if(!window.firebug){window.firebug=document.createElement("script");firebug.setAttribute("src","http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js");document.body.appendChild(firebug);(function(){if(window.firebug.version){firebug.init()}else{setTimeout(arguments.callee)}})();void (firebug);if(window.debug&&debug.setCallback){(function(){if(window.firebug&&window.firebug.version){debug.setCallback(function(b){var a=Array.prototype.slice.call(arguments,1);firebug.d.console.cmd[b].apply(window,a)},true)}else{setTimeout(arguments.callee,100)}})()}};\'></a></li>'
+		 */
+		link += line;
+		list.append(link);
+		toolbars.find('.close').click(function(){
+			bd.slideUp(150,function(){
+				toolbars.toggleClass('mo-staff-toolbar-close');
+			})
+		});
+		hd.click(function(){
+			if(toolbars.hasClass('mo-staff-toolbar-close')){ 
+				toolbars.removeClass('mo-staff-toolbar-close');
+				setTimeout(function(){
+					bd.slideDown(150)
+				},300);
+			} 
+		})
+		$('body').append(toolbars);
+		mo.staff.update();
+	}
+});

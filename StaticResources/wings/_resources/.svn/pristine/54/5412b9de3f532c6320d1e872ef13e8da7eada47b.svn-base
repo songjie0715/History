@@ -1,0 +1,11 @@
+/*
+ * Motie.layer.js
+ * Require jQuery.js, Motie.core.js
+ */
+
+(function(document,$,Mo){
+	Mo = window.Motie || {};
+	Mo.layer = function (){
+		
+	}
+})(document,jQuery,Motie)

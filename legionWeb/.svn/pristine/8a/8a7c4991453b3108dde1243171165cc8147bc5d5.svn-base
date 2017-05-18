@@ -1,0 +1,2 @@
+"use strict";define(["vue","mixin/sidebar"],function(e,n){return function(t){return new e({el:"#app",mixins:[n],data:{},mounted:function(){$(".paging").pagination({items:t.items,itemsOnPage:10,cssStyle:"light-theme",currentPage:t.currentPage,prevText:"上一页",nextText:"下一页",onPageClick:function(e){t.fanye(e)}})},methods:{}})}});
+//# sourceMappingURL=../maps/controller/material.js.map

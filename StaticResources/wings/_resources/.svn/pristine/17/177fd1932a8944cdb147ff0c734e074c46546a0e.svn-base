@@ -1,0 +1,27 @@
+'use strict';
+
+/**
+ * Created by janey on 16/6/19.
+ */
+
+define(['vue'], function (Vue) {
+    return new Vue({
+        template: '<div class="shadow hidden" :class="{hidden: !isShow, zIndex: isZindex}"></div>',
+        data: {
+            isShow: false,
+            isZindex: false
+        },
+        created: function created() {
+            this.$mount().$appendTo('body');
+        },
+        methods: {
+            show: function show() {
+                this.isShow = true;
+            },
+            hide: function hide() {
+                this.isShow = false;
+            }
+        }
+    });
+});
+//# sourceMappingURL=../../maps/wxV2/components/overlay.js.map

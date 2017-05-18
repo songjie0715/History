@@ -1,0 +1,97 @@
+body{
+	background:url(../../img/wx/laikan/chapter-day-new-bg.jpg) repeat right center;
+	padding-bottom:50px; 
+}
+.chapterList-header{
+	top:0;
+	left:0;
+	background:#2f3033;padding:0 15px;
+	height:44px;font-size:16px;
+	&.posa{
+		position: absolute;
+	}
+	&.posf{
+		position: fixed;
+	}
+	.chapterList-l{
+		float:left;color:#fff;
+	}
+	.chapterList-r{
+		float:right;margin-top:7px;
+		display:-webkit-box;display:-moz-box;display:box;
+		.chapter-selectbox{
+			position:relative;
+			-webkit-box-flex:1.0;-moz-box-flex:1.0;box-flex:1.0;
+			border:solid 1px #10c1ae;border-radius: 3px;
+			height:29px;line-height:29px;min-width:100px;margin-right:12px;
+			background: url(../../img/wx/laikan/chapteListDownNew.png) no-repeat right center;
+			background-size:20px;
+			font-size:14px;
+			.selectbox-div{width:90%;line-height:27px;}
+			.selectbox-div :after{
+				position:absolute;
+				content: '';top:0;right:10px;
+			}
+			.clist_select{
+			    // -webkit-appearance: none;-moz-appearance: none;appearance: none;
+			    position: absolute;
+			    left: 0px;
+			    top: 0px;
+			    width: 100%;
+			    height: 100%;
+			    font-size:12px;
+			    opacity: 0;
+			    outline: none;
+			}
+		}
+		.chapter-asc{
+			color:#10c1ae;
+			border:solid 1px #10c1ae;border-radius:3px;
+			width:50px;text-align:center;height:29px;line-height:27px;
+		}
+	}
+}
+.chapter-selectbox select.clist_select option{
+	color:#333;padding:5px 10px;border:none;
+}
+select.clist_select option[selected]{
+	font-weight:bold;
+}
+
+.chapterList-fixed{
+	position:fixed;
+	left:0;
+	bottom:0;z-index:9999;
+	display:-webkit-box;display:-moz-box;display:box;
+	background: #fafafa;
+	height:50px;line-height:50px;width:100%;
+	border-top:solid 1px #ccc;
+	.mod-l{
+		width:42px;
+		img{vertical-align: middle;width:20px;margin-left:11px;}
+	}
+	.mod-r{
+		-webkit-box-flex:1.0;-moz-box-flex:1.0;box-flex:1.0;
+		
+		ul{
+			display:-webkit-box;display:-moz-box;display:box;overflow:hidden;
+			li{
+				-webkit-box-flex:1.0;-moz-box-flex:1.0;box-flex:1.0;
+				border-left:solid 1px #ccc;text-align: center;
+				a{
+					color:#666;font-size:16px;display:block;
+				}
+			}
+		}
+	}
+}
+.chapterList-detail{
+	position: fixed;
+	top:50%;
+	right:0;z-index:9999;
+	margin-top:-20px;
+	img{
+		width:31px;
+		height:63px;
+	}
+}

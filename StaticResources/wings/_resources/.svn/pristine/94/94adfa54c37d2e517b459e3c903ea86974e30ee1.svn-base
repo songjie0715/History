@@ -1,0 +1,2 @@
+define(["core"],function(a){return{delBook:function(e){return $.ajax({type:"POST",data:{favor:-1},url:a.website_DOMAIN+"/ajax/book/"+e+"/favorite"})},getMoreBook:function(e){return $.ajax({url:a.website_DOMAIN+"/ajax/i/shelf",data:{sorts:0,page:e,pageSize:15}})},getBuyLogs:function(e){return $.ajax({url:a.website_DOMAIN+"/ajax/i/buylogs",data:{page:e}})},getPayLogs:function(e){return $.ajax({url:a.website_DOMAIN+"/ajax/i/paylogs",data:{page:e}})}}});
+//# sourceMappingURL=../../maps/wxV2/service/bookShelfService.js.map

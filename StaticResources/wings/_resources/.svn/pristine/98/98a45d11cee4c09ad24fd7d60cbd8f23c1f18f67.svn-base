@@ -1,0 +1,4 @@
+(function(Mo, $){
+	Mo = Mo || {}
+	
+})(Motie, jQuery)
